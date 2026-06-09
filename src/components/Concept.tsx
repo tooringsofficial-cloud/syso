@@ -29,9 +29,29 @@ export default function Concept({ data }: ConceptProps) {
         <h2 className="text-xl font-extrabold text-neutral-900 text-center mb-4 md:text-3xl tracking-tight">
           {data.title}
         </h2>
-        <p className="text-sm leading-relaxed text-neutral-500 text-center mb-10 max-w-sm mx-auto">
+        <p className="text-sm leading-relaxed text-neutral-500 text-center mb-8 max-w-sm mx-auto">
           {data.desc}
         </p>
+
+        {/* 브랜드 아이덴티티 & 미션 선언 카드 */}
+        <div className="mb-10 p-6 rounded-2xl bg-brand-surface/40 border border-brand-primary/10 text-center">
+          <span className="text-[10px] font-bold tracking-widest text-brand-primary uppercase mb-2 block">
+            Brand Identity
+          </span>
+          <h3 className="font-black text-neutral-900 text-xl tracking-wide">
+            SYSO
+          </h3>
+          <p className="text-xs font-bold text-brand-primary mt-0.5 mb-3">
+            Science, Yet So Organic
+          </p>
+          <div className="w-8 h-0.5 bg-neutral-200 mx-auto mb-3" />
+          <p className="text-sm font-bold text-neutral-800 leading-snug mb-1">
+            “Evidence-based wellness, rooted in nature.”
+          </p>
+          <p className="text-xs text-neutral-400">
+            Bring scientific wellness into everyday life.
+          </p>
+        </div>
 
         {/* 품질 3대 원칙 */}
         <div className="mb-10 space-y-4">
