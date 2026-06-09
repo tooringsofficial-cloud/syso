@@ -10,16 +10,16 @@ interface HeaderProps {
 
 export default function Header({ showCta = true, onCtaClick }: HeaderProps) {
   return (
-    <header className="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-md border-b border-neutral-200/50">
+    <header className="sticky top-0 z-50 w-full bg-white/85 backdrop-blur-md border-b border-neutral-100 shadow-sm/5">
       <div className="max-w-md mx-auto px-5 h-14 flex items-center justify-between md:max-w-2xl">
         {/* 로고 영역 */}
         <Link href="/" className="flex items-center gap-2">
           <Image
             src="/images/logo.png"
             alt="SYSO Logo"
-            width={72}
-            height={22}
-            className="w-auto h-5 object-contain"
+            width={68}
+            height={20}
+            className="w-auto h-4.5 object-contain opacity-95 transition-opacity hover:opacity-100"
             priority
           />
         </Link>
@@ -29,9 +29,9 @@ export default function Header({ showCta = true, onCtaClick }: HeaderProps) {
           <button
             type="button"
             onClick={onCtaClick}
-            className="px-3 py-1.5 rounded-lg bg-brand-primary text-white text-xs font-semibold
-                       transition-all duration-200 active:scale-[0.97] hover:bg-brand-primary-light
-                       shadow-[0_2px_8px_rgba(79,70,229,0.15)]"
+            className="px-3.5 py-1.5 rounded-lg bg-brand-primary text-white text-[11px] font-bold
+                       transition-all duration-200 active:scale-[0.97] hover:bg-brand-primary-light hover:shadow-premium
+                       shadow-[0_2px_8px_rgba(79,70,229,0.12)] cursor-pointer"
           >
             알림 신청하기
           </button>
@@ -40,3 +40,4 @@ export default function Header({ showCta = true, onCtaClick }: HeaderProps) {
     </header>
   );
 }
+

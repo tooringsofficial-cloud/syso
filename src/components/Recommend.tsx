@@ -26,37 +26,35 @@ export default function Recommend() {
 
   return (
     <section className="px-5 py-16 bg-white">
-      <div className="max-w-md mx-auto md:max-w-2xl">
-        <span className="text-xs font-semibold tracking-wider text-brand-primary uppercase text-center block mb-2">
-          Recommended For
-        </span>
-        <h2 className="text-xl font-extrabold text-neutral-900 text-center mb-3 md:text-3xl tracking-tight">
+      <div className="max-w-md mx-auto md:max-w-xl">
+        <h2 className="text-xl font-black text-neutral-900 text-center mb-3 md:text-3xl tracking-tight leading-snug">
           이런 분들께 V Night를 추천합니다
         </h2>
-        <p className="text-xs text-neutral-500 text-center mb-10 leading-relaxed max-w-sm mx-auto">
+        <p className="text-xs text-neutral-400 text-center mb-10 leading-relaxed max-w-xs mx-auto">
           하나라도 해당된다면, 오늘 밤부터 가벼운 아침을 위한<br />
           SYSO V Night 나이트 루틴을 시작할 때입니다.
         </p>
 
-        <div className="space-y-3">
+        {/* 매거진 레이아웃 스타일의 슬림 체크리스트 */}
+        <div className="border-t border-neutral-100 divide-y divide-neutral-100">
           {recommendations.map((item, idx) => (
             <div
               key={idx}
-              className="p-4 rounded-xl bg-neutral-50/50 border border-neutral-200/40 shadow-sm flex items-start gap-4 card-hover-effect"
+              className="py-4.5 flex items-start gap-4 transition-colors duration-200 hover:bg-neutral-50/40 px-2 rounded-lg"
             >
               <span 
-                className="w-10 h-10 rounded-full bg-white text-2xl flex items-center justify-center shrink-0 border border-neutral-100 shadow-sm"
+                className="text-lg shrink-0 pt-0.5"
                 role="img"
-                aria-label="recommendation item"
+                aria-label="recommendation emoji"
               >
                 {item.emoji}
               </span>
-              <div className="flex-1 pt-1.5">
-                <p className="text-xs sm:text-sm font-semibold text-neutral-700 leading-relaxed">
+              <div className="flex-1">
+                <p className="text-xs sm:text-sm font-bold text-neutral-700 leading-relaxed">
                   {item.text}
                 </p>
               </div>
-              <span className="text-brand-primary font-bold text-base shrink-0 pt-1">✓</span>
+              <span className="text-brand-primary font-black text-base shrink-0 pt-0.5">✓</span>
             </div>
           ))}
         </div>
@@ -64,3 +62,4 @@ export default function Recommend() {
     </section>
   );
 }
+
