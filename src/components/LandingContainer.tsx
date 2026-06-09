@@ -98,6 +98,7 @@ export default function LandingContainer({ data }: LandingContainerProps) {
       <main className="flex-1 pb-[calc(4.5rem+env(safe-area-inset-bottom,0px))]">
         {/* 2. Hero 섹션 */}
         <Hero
+          variant={data.variant}
           data={data.hero}
           priceOriginal={data.cta.priceOriginal}
           pricePromo={data.cta.pricePromo}
@@ -110,7 +111,7 @@ export default function LandingContainer({ data }: LandingContainerProps) {
         <Problem data={data.problem} />
 
         {/* 4. Desired Outcome 섹션 (원하는 상태 카드) */}
-        <DesiredOutcome data={data.desiredOutcome} />
+        <DesiredOutcome variant={data.variant} data={data.desiredOutcome} />
 
         <div className="h-2.5 bg-neutral-100/50" />
 
@@ -119,13 +120,13 @@ export default function LandingContainer({ data }: LandingContainerProps) {
 
         <div className="h-2.5 bg-neutral-100/50" />
 
-        {/* 신규 신뢰 섹션 (왜 SYSO가 만들까요? + 제품 철학) */}
-        <Trust />
+        {/* 5. Product Info 섹션 (제품 구성 정보) */}
+        <ProductInfo variant={data.variant} />
 
         <div className="h-2.5 bg-neutral-100/50" />
 
-        {/* 5. Product Info 섹션 (제품 구성 정보) */}
-        <ProductInfo variant={data.variant} />
+        {/* 신규 신뢰 섹션 (왜 SYSO가 만들까요? + 제품 철학) */}
+        <Trust />
 
         <div className="h-2.5 bg-neutral-100/50" />
 

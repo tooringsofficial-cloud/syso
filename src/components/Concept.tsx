@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { CopyDataset } from "@/data/copyData";
 
 interface ConceptProps {
@@ -52,15 +53,35 @@ export default function Concept({ data, variant }: ConceptProps) {
         <h2 className="text-xl font-black text-neutral-900 text-center mb-2 md:text-3xl tracking-tight leading-snug">
           V Night 제품 설계 논리
         </h2>
-        <p className="text-xs text-neutral-400 text-center mb-10 leading-relaxed">
+        <p className="text-xs text-neutral-400 text-center mb-6 leading-relaxed">
           어떤 성분이 어떤 고민 상황을 거쳐 하나의 루틴으로 완결되는지 보여드립니다.
         </p>
 
+        {/* 연구소 비주얼 도입 (lab_science.jpg) */}
+        <div className="w-full max-w-lg mx-auto mb-8 relative aspect-[1.8] rounded-2xl overflow-hidden border border-neutral-100 shadow-premium bg-neutral-50 group">
+          <Image
+            src="/images/lab_science.jpg"
+            alt="Scientific Development"
+            fill
+            sizes="(max-w-768px) 100vw, 512px"
+            className="object-cover transition-transform duration-700 group-hover:scale-102"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
+          <div className="absolute bottom-4 left-4 right-4 text-left">
+            <span className="text-[8px] bg-white/20 text-white font-extrabold px-2 py-0.5 rounded backdrop-blur-sm uppercase tracking-wider">
+              R&D LOGIC
+            </span>
+            <p className="text-white text-xs font-bold mt-1.5">
+              Science, Yet So Organic &mdash; 데이터 기반의 체계적인 성분 설계
+            </p>
+          </div>
+        </div>
+
         {/* 포지셔닝별 성분 ➡️ 상황 ➡️ 루틴 비주얼 다이어그램 */}
-        <div className="mb-12">
+        <div className="mb-14">
           {variant === "a" && (
             /* Variant A: 수면 중심 비주얼 흐름 */
-            <div className="flex flex-col items-center gap-3 max-w-md mx-auto relative py-2">
+            <div className="flex flex-col items-center gap-3.5 max-w-md mx-auto relative py-2">
               {/* Step 1: 성분 */}
               <div className="w-full p-4 rounded-xl bg-indigo-50/50 border border-indigo-100/60 flex items-center gap-3.5 shadow-sm/5">
                 <span className="text-xl w-8 h-8 rounded-full bg-white flex items-center justify-center shrink-0 shadow-sm/5 border border-indigo-100">🌿</span>
@@ -96,7 +117,7 @@ export default function Concept({ data, variant }: ConceptProps) {
 
           {variant === "b" && (
             /* Variant B: 붓기 중심 비주얼 흐름 */
-            <div className="flex flex-col items-center gap-3 max-w-md mx-auto relative py-2">
+            <div className="flex flex-col items-center gap-3.5 max-w-md mx-auto relative py-2">
               {/* Step 1: 성분 */}
               <div className="w-full p-4 rounded-xl bg-amber-50/40 border border-amber-100/60 flex items-center gap-3.5 shadow-sm/5">
                 <span className="text-xl w-8 h-8 rounded-full bg-white flex items-center justify-center shrink-0 shadow-sm/5 border border-amber-100">💧</span>
@@ -169,24 +190,24 @@ export default function Concept({ data, variant }: ConceptProps) {
 
         {/* 3. 품질 3대 약속 */}
         <div className="space-y-4">
-          <h3 className="text-xs font-black text-neutral-800 uppercase tracking-wider mb-3 pb-1.5 border-b border-neutral-100 flex items-center gap-1.5">
+          <h3 className="text-xs font-black text-neutral-800 uppercase tracking-wider mb-4.5 pb-1.5 border-b border-neutral-100 flex items-center gap-1.5">
             <span className="w-1 h-3 bg-brand-primary rounded-full" />
             안심할 수 있는 3대 신뢰 제조 원칙
           </h3>
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-5">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
             {safetyPrinciples.map((p, idx) => (
               <div 
                 key={p.title} 
-                className="p-4.5 rounded-xl bg-white border border-neutral-100 flex flex-col shadow-sm transition-all hover:border-brand-primary/15"
+                className="flex flex-col text-center sm:text-left"
               >
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="w-7 h-7 rounded-full bg-brand-surface flex items-center justify-center text-sm border border-brand-primary/5">
+                <div className="flex items-center justify-center sm:justify-start gap-2 mb-2">
+                  <span className="w-7 h-7 rounded-full bg-brand-surface text-brand-primary text-sm flex items-center justify-center border border-brand-primary/5 shrink-0">
                     {p.emoji}
                   </span>
-                  <span className="text-[10px] font-black text-brand-primary">0{idx + 1}</span>
+                  <span className="text-[9px] font-black text-brand-primary">0{idx + 1}</span>
                 </div>
-                <h4 className="font-bold text-neutral-850 text-xs sm:text-sm mb-1.5">{p.title}</h4>
-                <p className="text-[11px] text-neutral-400 leading-relaxed">{p.desc}</p>
+                <h4 className="font-bold text-neutral-900 text-xs sm:text-[13px] mb-1.5">{p.title}</h4>
+                <p className="text-[11px] text-neutral-500 leading-relaxed">{p.desc}</p>
               </div>
             ))}
           </div>
@@ -195,6 +216,3 @@ export default function Concept({ data, variant }: ConceptProps) {
     </section>
   );
 }
-
-
-
