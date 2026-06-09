@@ -78,7 +78,7 @@ export default function ProductInfo() {
             {specs.map((item) => (
               <div
                 key={item.label}
-                className="p-4 rounded-xl bg-white border border-neutral-200/50 shadow-premium flex items-start gap-4"
+                className="p-4 rounded-xl bg-white border border-neutral-200/50 shadow-premium flex items-start gap-4 card-hover-effect"
               >
                 <span 
                   className="w-10 h-10 rounded-lg bg-neutral-50 text-2xl flex items-center justify-center shrink-0 border border-neutral-100 shadow-sm"
@@ -92,7 +92,7 @@ export default function ProductInfo() {
                     <h4 className="font-bold text-neutral-800 text-sm">
                       {item.label}
                     </h4>
-                    <span className="text-brand-primary font-extrabold text-sm">
+                    <span className="text-brand-primary font-black text-base tracking-tight">
                       {item.value}
                     </span>
                   </div>
@@ -102,6 +102,39 @@ export default function ProductInfo() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+
+        {/* D2C 상세 고시 테이블 (실제 상세페이지 느낌의 신뢰감 확보) */}
+        <div className="mt-10 p-5 rounded-2xl border border-neutral-200/50 bg-white shadow-premium">
+          <h3 className="text-xs font-bold text-neutral-400 uppercase tracking-widest mb-3">
+            제품 기본 표시 정보
+          </h3>
+          <div className="grid grid-cols-2 gap-x-4 gap-y-3.5 text-[11px] text-neutral-500 border-t border-neutral-100 pt-3">
+            <div>
+              <span className="font-bold text-neutral-700 block mb-0.5">제품명</span>
+              V Night (브이 나이트)
+            </div>
+            <div>
+              <span className="font-bold text-neutral-700 block mb-0.5">식품 유형</span>
+              기타가공품 (스틱 젤리)
+            </div>
+            <div>
+              <span className="font-bold text-neutral-700 block mb-0.5">내용량 및 칼로리</span>
+              280g (20g x 14포 / 1포당 70 kcal)
+            </div>
+            <div>
+              <span className="font-bold text-neutral-700 block mb-0.5">섭취량 및 섭취방법</span>
+              1일 1회, 1회 1포를 씹어서 섭취
+            </div>
+            <div>
+              <span className="font-bold text-neutral-700 block mb-0.5">제조 및 생산 관리</span>
+              HACCP 및 GMP 위생 관리 기준 시설 매칭 제조 예정
+            </div>
+            <div>
+              <span className="font-bold text-neutral-700 block mb-0.5">보관 방법</span>
+              고온다습한 곳을 피하여 실온 보관
+            </div>
           </div>
         </div>
       </div>

@@ -11,25 +11,30 @@ function FAQItem({ question, answer }: FAQItemProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="border-b border-neutral-200/50 py-4">
+    <div 
+      className={`border border-neutral-200/30 px-4 py-1.5 my-2.5 rounded-xl transition-all duration-300 ease-in-out
+                 ${isOpen ? "bg-brand-surface/60 border-brand-primary/10 shadow-sm" : "bg-neutral-50/50 hover:bg-neutral-50"}`}
+    >
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
         className="w-full flex justify-between items-center text-left py-2 font-semibold text-neutral-800 text-sm md:text-base cursor-pointer select-none"
       >
-        <span>{question}</span>
+        <span className={`transition-colors duration-200 ${isOpen ? "text-brand-primary font-bold" : "text-neutral-800"}`}>
+          {question}
+        </span>
         <span 
           className={`text-brand-primary font-bold text-lg transition-transform duration-300 transform shrink-0 ml-4
-                     ${isOpen ? "rotate-45" : "rotate-0"}`}
+                     ${isOpen ? "rotate-45 scale-110" : "rotate-0"}`}
         >
           +
         </span>
       </button>
       <div 
         className={`overflow-hidden transition-all duration-300 ease-in-out
-                   ${isOpen ? "max-h-40 opacity-100 mt-2" : "max-h-0 opacity-0"}`}
+                   ${isOpen ? "max-h-40 opacity-100 pb-3" : "max-h-0 opacity-0"}`}
       >
-        <p className="text-xs text-neutral-500 leading-relaxed pb-2 pr-4">
+        <p className="text-xs text-neutral-500 leading-relaxed pr-4 pt-1">
           {answer}
         </p>
       </div>
@@ -67,7 +72,7 @@ export default function FAQ() {
           자주 묻는 질문
         </h2>
 
-        <div className="border-t border-neutral-200/50">
+        <div className="space-y-1">
           {faqs.map((faq) => (
             <FAQItem
               key={faq.question}
@@ -80,3 +85,4 @@ export default function FAQ() {
     </section>
   );
 }
+
