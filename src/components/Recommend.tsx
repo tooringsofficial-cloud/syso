@@ -81,12 +81,17 @@ export default function Recommend({ variant }: RecommendProps) {
       : recommendationsAB;
 
   return (
-    <section className="px-5 py-16 bg-white">
+    <section className="px-6 py-20 bg-white">
       <div className="max-w-md mx-auto md:max-w-xl">
-        <h2 className="text-xl font-black text-neutral-900 text-center mb-3 md:text-3xl tracking-tight leading-snug">
+        {/* 섹션 서브 타이틀 */}
+        <span className="text-[10px] font-black tracking-widest text-brand-primary uppercase text-center block mb-3">
+          RECOMMENDATION
+        </span>
+        {/* 섹션 타이틀 */}
+        <h2 className="text-xl font-black text-neutral-900 text-center mb-3 md:text-2xl tracking-tight leading-snug">
           이런 분들께 V Night를 추천합니다
         </h2>
-        <p className="text-xs text-neutral-400 text-center mb-10 leading-relaxed max-w-xs mx-auto">
+        <p className="text-xs text-neutral-400 text-center mb-12 leading-relaxed max-w-xs mx-auto">
           하나라도 해당된다면, 오늘 밤부터 가벼운 아침을 위한<br />
           SYSO V Night 나이트 루틴을 시작할 때입니다.
         </p>
@@ -96,21 +101,22 @@ export default function Recommend({ variant }: RecommendProps) {
           {recommendations.map((item, idx) => (
             <div
               key={idx}
-              className="py-4.5 flex items-start gap-4 transition-colors duration-200 hover:bg-neutral-50/40 px-2 rounded-lg"
+              className="py-4.5 flex items-start gap-4 transition-colors duration-200 hover:bg-brand-surface/40 px-2 rounded-lg"
             >
+              {/* 원형 칩 안의 이모지 */}
               <span 
-                className="text-lg shrink-0 pt-0.5"
+                className="w-7.5 h-7.5 rounded-full bg-brand-surface text-base flex items-center justify-center shrink-0 border border-brand-primary/5"
                 role="img"
                 aria-label="recommendation emoji"
               >
                 {item.emoji}
               </span>
-              <div className="flex-1">
-                <p className="text-xs sm:text-sm font-bold text-neutral-700 leading-relaxed">
+              <div className="flex-grow pt-0.5">
+                <p className="text-xs sm:text-[13px] font-bold text-neutral-800 leading-relaxed">
                   {item.text}
                 </p>
               </div>
-              <span className="text-brand-primary font-black text-base shrink-0 pt-0.5">✓</span>
+              <span className="text-brand-primary font-bold text-sm shrink-0 pt-1">✓</span>
             </div>
           ))}
         </div>
@@ -118,5 +124,3 @@ export default function Recommend({ variant }: RecommendProps) {
     </section>
   );
 }
-
-

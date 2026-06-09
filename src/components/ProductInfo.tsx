@@ -13,23 +13,23 @@ export default function ProductInfo({ variant }: ProductInfoProps) {
       ingredients: "식물성 멜라토닌 2mg + 글루콘산 마그네슘 600mg",
       intention: "밤 루틴 중심 설계 (릴랙싱 및 편안함 공급)",
       usage: "중요한 일정을 앞둔 밤, 뒤척임 없는 깊은 힐링이 필요할 때",
-      bgColor: "bg-indigo-50/40 border-indigo-100/40",
-      textColor: "text-indigo-600",
-      tagColor: "bg-indigo-100/40 text-indigo-700"
+      bgColor: "bg-[#f4f3f6] border-[#e1dee5]",
+      textColor: "text-[#292541]",
+      tagColor: "bg-[#e2e1e7] text-[#292541]"
     },
     b: {
       ingredients: "칼륨 300mg + 국산 호박 추출물 500mg",
       intention: "아침 컨디션 중심 설계 (순환 및 수분 균형 관리)",
       usage: "자고 일어난 후 무거운 몸을 비우고 가볍게 아침을 시작할 때",
-      bgColor: "bg-amber-50/30 border-amber-100/40",
-      textColor: "text-amber-700",
-      tagColor: "bg-amber-100/30 text-amber-800"
+      bgColor: "bg-[#f3f4f0] border-[#dfe2d9]",
+      textColor: "text-[#4c5c43]",
+      tagColor: "bg-[#dfe2d9] text-[#4c5c43]"
     },
     ab: {
       ingredients: "밤의 휴식(멜라토닌+마그네슘) + 아침의 가벼움(칼륨+호박)",
       intention: "한 포 루틴 설계 (2-in-1 올인원 더블 케어)",
       usage: "밤새 편안한 휴식과 아침의 개운한 순환을 한 포로 케어할 때",
-      bgColor: "bg-brand-surface/40 border-brand-primary/10",
+      bgColor: "bg-[#f6f5f8] border-[#e2e1e7]",
       textColor: "text-brand-primary",
       tagColor: "bg-brand-primary/10 text-brand-primary"
     }

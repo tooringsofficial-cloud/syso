@@ -38,7 +38,7 @@ export default function CTAButton({ data, onCtaClick }: CTAButtonProps) {
           onClick={onCtaClick}
           className="w-full py-4 rounded-xl bg-brand-primary text-white font-bold text-sm sm:text-base 
                      transition-all duration-200 active:scale-[0.97] hover:bg-brand-primary-light hover:shadow-premium-lg
-                     shadow-[0_8px_20px_rgba(79,70,229,0.3)] cursor-pointer"
+                     shadow-[0_8px_20px_rgba(41,37,65,0.25)] cursor-pointer"
         >
           {data.button}
         </button>

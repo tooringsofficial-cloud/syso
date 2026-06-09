@@ -105,38 +105,26 @@ export default function LandingContainer({ data }: LandingContainerProps) {
           onCtaClick={handleCtaClick}
         />
 
-        <div className="h-2.5 bg-neutral-100/50" />
-
         {/* 3. Problem 섹션 (고민 상황 카드) */}
         <Problem data={data.problem} />
 
         {/* 4. Desired Outcome 섹션 (원하는 상태 카드) */}
         <DesiredOutcome variant={data.variant} data={data.desiredOutcome} />
 
-        <div className="h-2.5 bg-neutral-100/50" />
-
         {/* 타겟 공감 체크리스트 카드 구성 */}
         <Recommend variant={data.variant} />
-
-        <div className="h-2.5 bg-neutral-100/50" />
 
         {/* 5. Product Info 섹션 (제품 구성 정보) */}
         <ProductInfo variant={data.variant} />
 
-        <div className="h-2.5 bg-neutral-100/50" />
-
         {/* 신규 신뢰 섹션 (왜 SYSO가 만들까요? + 제품 철학) */}
         <Trust />
-
-        <div className="h-2.5 bg-neutral-100/50" />
 
         {/* 6. Concept 섹션 (출시 스토리 및 브랜드 원칙) */}
         <Concept data={data.concept} variant={data.variant} />
 
-        <div className="h-2.5 bg-neutral-100/50" />
-
         {/* 7. 중간 CTA 배너 (Concept 학습 후 전환 기회 제공) */}
-        <section className="px-5 py-12 bg-brand-surface/40 border-y border-brand-primary/5 text-center">
+        <section className="px-5 py-14 bg-brand-surface/70 border-y border-neutral-200/40 text-center">
           <div className="max-w-md mx-auto">
             <h3 className="font-extrabold text-neutral-900 text-lg mb-2 leading-snug tracking-tight">
               중요한 전날 밤 뒤척임과 다음 날 아침 고민,<br />
@@ -150,19 +138,15 @@ export default function LandingContainer({ data }: LandingContainerProps) {
               onClick={handleCtaClick}
               className="py-3 px-8 rounded-xl bg-brand-primary text-white font-bold text-sm
                          transition-all duration-200 active:scale-[0.97] hover:bg-brand-primary-light hover:shadow-premium
-                         shadow-[0_4px_12px_rgba(79,70,229,0.2)] cursor-pointer"
+                         shadow-[0_4px_12px_rgba(41,37,65,0.15)] cursor-pointer"
             >
               얼리액세스 알림 신청하기
             </button>
           </div>
         </section>
 
-        <div className="h-2.5 bg-neutral-100/50" />
-
         {/* 8. FAQ 섹션 */}
         <FAQ />
-
-        <div className="h-2.5 bg-neutral-100/50" />
 
         {/* 9. 최종 하단 CTA 섹션 */}
         <CTAButton data={data.cta} onCtaClick={handleCtaClick} />
@@ -195,7 +179,7 @@ export default function LandingContainer({ data }: LandingContainerProps) {
             onClick={handleCtaClick}
             className="flex-grow max-w-[200px] py-3 px-4 rounded-xl bg-brand-primary text-white font-bold text-xs sm:text-sm
                        transition-all duration-200 active:scale-[0.97] hover:bg-brand-primary-light hover:shadow-premium
-                       shadow-[0_4px_12px_rgba(79,70,229,0.2)] text-center cursor-pointer"
+                       shadow-[0_4px_12px_rgba(41,37,65,0.18)] text-center cursor-pointer"
           >
             출시 알림 신청
           </button>

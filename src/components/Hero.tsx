@@ -71,7 +71,7 @@ export default function Hero({ variant, data, priceOriginal, pricePromo, onCtaCl
           onClick={onCtaClick}
           className="mt-3 w-full max-w-[280px] py-3 rounded-xl bg-brand-primary text-white font-bold text-xs sm:text-sm 
                      transition-all duration-200 active:scale-[0.97] hover:bg-brand-primary-light hover:shadow-premium
-                     shadow-[0_4px_12px_rgba(79,70,229,0.2)] cursor-pointer"
+                     shadow-[0_4px_12px_rgba(41,37,65,0.18)] cursor-pointer"
         >
           {data.cta}
         </button>
@@ -146,7 +146,7 @@ export default function Hero({ variant, data, priceOriginal, pricePromo, onCtaCl
             onClick={onCtaClick}
             className="mt-4 w-full max-w-sm py-3.5 rounded-xl bg-brand-primary text-white font-bold text-sm sm:text-base 
                        transition-all duration-200 active:scale-[0.97] hover:bg-brand-primary-light hover:shadow-premium-lg
-                       shadow-[0_6px_16px_rgba(79,70,229,0.2)] cursor-pointer"
+                       shadow-[0_6px_16px_rgba(41,37,65,0.18)] cursor-pointer"
           >
             {data.cta}
           </button>

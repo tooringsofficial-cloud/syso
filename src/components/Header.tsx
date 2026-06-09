@@ -31,7 +31,7 @@ export default function Header({ showCta = true, onCtaClick }: HeaderProps) {
             onClick={onCtaClick}
             className="px-3.5 py-1.5 rounded-lg bg-brand-primary text-white text-[11px] font-bold
                        transition-all duration-200 active:scale-[0.97] hover:bg-brand-primary-light hover:shadow-premium
-                       shadow-[0_2px_8px_rgba(79,70,229,0.12)] cursor-pointer"
+                       shadow-[0_2px_8px_rgba(41,37,65,0.12)] cursor-pointer"
           >
             알림 신청하기
           </button>

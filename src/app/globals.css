@@ -6,12 +6,12 @@
    ======================================== */
 
 @theme inline {
-  /* 프리미엄 밤 & 아침 컬러 테마 */
-  --color-brand-primary: #4f46e5;
-  --color-brand-primary-light: #818cf8;
-  --color-brand-surface: #f5f3ff;
-  --color-brand-dark: #1e1b4b;
-  --color-brand-accent: #c084fc;
+  /* 프리미엄 밤 & 아침 컬러 테마 (티젠 리퍼런스 및 Midnight Navy/Premium Wellness 반영) */
+  --color-brand-primary: #292541;
+  --color-brand-primary-light: #443c68;
+  --color-brand-surface: #f4f3f6;
+  --color-brand-dark: #1b192c;
+  --color-brand-accent: #8c82b1;
 
   /* 뉴트럴 베이지 & 샌드 크림 (D2C 감성) */
   --color-neutral-warm: #fafaf9;
