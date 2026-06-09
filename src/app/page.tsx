@@ -1,65 +1,104 @@
-import Image from "next/image";
+import Link from "next/link";
+import type { Metadata } from "next";
 
-export default function Home() {
+export const metadata: Metadata = {
+  title: "SYSO — 내부 테스트 허브",
+  description: "수요 검증 실험 테스트 페이지. 외부 트래픽 사용 금지.",
+  robots: "noindex, nofollow",
+};
+
+const variants = [
+  {
+    key: "a",
+    label: "Variant A",
+    desc: "수면 중심 포지셔닝",
+    color: "bg-indigo-50 border-indigo-200",
+  },
+  {
+    key: "b",
+    label: "Variant B",
+    desc: "붓기 중심 포지셔닝",
+    color: "bg-emerald-50 border-emerald-200",
+  },
+  {
+    key: "ab",
+    label: "Variant AB",
+    desc: "수면 + 붓기 복합 포지셔닝",
+    color: "bg-violet-50 border-violet-200",
+  },
+];
+
+export default function HomePage() {
+  const testUtm =
+    "utm_source=test&utm_medium=internal&utm_campaign=dev_test&utm_content=hub";
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <main className="flex-1 flex items-center justify-center px-5 py-16">
+      <div className="max-w-md w-full">
+        {/* 헤더 */}
+        <div className="text-center mb-10">
+          <span className="text-xs font-semibold tracking-widest text-brand-primary uppercase">
+            SYSO
+          </span>
+          <h1 className="text-2xl font-bold text-neutral-900 mt-2">
+            내부 테스트 허브
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="text-sm text-neutral-500 mt-2">
+            이 페이지는 내부 개발 및 테스트 목적입니다.
+            <br />
+            실제 광고 트래픽은 각 Variant URL로 직접 유입됩니다.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        {/* Variant 링크 */}
+        <div className="space-y-3 mb-8">
+          {variants.map((v) => (
+            <Link
+              key={v.key}
+              href={`/${v.key}?${testUtm}`}
+              className={`block p-5 rounded-xl border ${v.color} transition-all hover:shadow-md`}
+            >
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="font-semibold text-neutral-800">{v.label}</p>
+                  <p className="text-sm text-neutral-500 mt-0.5">{v.desc}</p>
+                </div>
+                <span className="text-neutral-400 text-lg">→</span>
+              </div>
+            </Link>
+          ))}
         </div>
-      </main>
-    </div>
+
+        {/* Waitlist 직접 접근 */}
+        <div className="p-5 rounded-xl bg-neutral-50 border border-neutral-200">
+          <p className="font-semibold text-neutral-800 mb-2">Waitlist 직접 테스트</p>
+          <div className="space-y-2 text-sm">
+            <Link
+              href={`/waitlist?variant=a&${testUtm}&landing_version=v1`}
+              className="block text-brand-primary hover:underline"
+            >
+              /waitlist?variant=a →
+            </Link>
+            <Link
+              href={`/waitlist?variant=b&${testUtm}&landing_version=v1`}
+              className="block text-brand-primary hover:underline"
+            >
+              /waitlist?variant=b →
+            </Link>
+            <Link
+              href={`/waitlist?variant=ab&${testUtm}&landing_version=v1`}
+              className="block text-brand-primary hover:underline"
+            >
+              /waitlist?variant=ab →
+            </Link>
+          </div>
+        </div>
+
+        {/* 이벤트 디버그 안내 */}
+        <p className="text-xs text-neutral-400 text-center mt-8">
+          개발 환경에서는 브라우저 콘솔에서 [Analytics] 태그로 이벤트 로그를 확인할 수 있습니다.
+        </p>
+      </div>
+    </main>
   );
 }
