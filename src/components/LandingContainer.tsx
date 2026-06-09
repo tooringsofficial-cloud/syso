@@ -5,10 +5,13 @@ import { useRouter, useSearchParams } from "next/navigation";
 import type { CopyDataset } from "@/data/copyData";
 import { analytics } from "@/lib/analytics";
 
+import Header from "./Header";
 import Hero from "./Hero";
 import Problem from "./Problem";
 import DesiredOutcome from "./DesiredOutcome";
+import ProductInfo from "./ProductInfo";
 import Concept from "./Concept";
+import FAQ from "./FAQ";
 import CTAButton from "./CTAButton";
 
 interface LandingContainerProps {
@@ -81,17 +84,65 @@ export default function LandingContainer({ data }: LandingContainerProps) {
   // Render
   // ----------------------------------------------------------
   return (
-    <main className="flex-1">
-      <Hero data={data.hero} onCtaClick={handleCtaClick} />
-      <Problem data={data.problem} />
-      <DesiredOutcome data={data.desiredOutcome} />
-      <Concept data={data.concept} />
-      <CTAButton data={data.cta} onCtaClick={handleCtaClick} />
+    <div className="min-h-screen flex flex-col bg-white">
+      {/* 1. 상단 고정 헤더 */}
+      <Header showCta={true} onCtaClick={handleCtaClick} />
 
-      {/* 풋터 */}
-      <footer className="py-8 text-center text-xs text-neutral-400 border-t border-neutral-100">
-        <p>© {new Date().getFullYear()} SYSO. 본 페이지는 수요 검증 목적으로 운영됩니다.</p>
-      </footer>
-    </main>
+      <main className="flex-1">
+        {/* 2. Hero 섹션 */}
+        <Hero
+          data={data.hero}
+          priceOriginal={data.cta.priceOriginal}
+          pricePromo={data.cta.pricePromo}
+          onCtaClick={handleCtaClick}
+        />
+
+        {/* 3. Problem 섹션 (고민 상황 카드) */}
+        <Problem data={data.problem} />
+
+        {/* 4. Desired Outcome 섹션 (원하는 상태 카드) */}
+        <DesiredOutcome data={data.desiredOutcome} />
+
+        {/* 5. 중간 CTA 배너 */}
+        <section className="px-5 py-12 bg-brand-surface/40 border-y border-brand-primary/5 text-center">
+          <div className="max-w-md mx-auto">
+            <h3 className="font-extrabold text-neutral-900 text-lg mb-2 leading-snug tracking-tight">
+              중요한 전날 밤 뒤척임과 다음 날 아침 고민,<br />
+              V Night로 간편하게 관리해 보세요.
+            </h3>
+            <p className="text-xs text-neutral-500 mb-6">
+              출시 프로모션 혜택이 적용되는 알림 신청은 10초 만에 완료됩니다.
+            </p>
+            <button
+              type="button"
+              onClick={handleCtaClick}
+              className="py-3 px-8 rounded-xl bg-brand-primary text-white font-bold text-sm
+                         transition-all duration-200 active:scale-[0.97] hover:bg-brand-primary-light hover:shadow-premium
+                         shadow-[0_4px_12px_rgba(79,70,229,0.2)] cursor-pointer"
+            >
+              얼리액세스 알림 신청하기
+            </button>
+          </div>
+        </section>
+
+        {/* 6. Product Info 섹션 (제품 구성 정보) */}
+        <ProductInfo />
+
+        {/* 7. Concept 섹션 (출시 스토리 및 브랜드 원칙) */}
+        <Concept data={data.concept} />
+
+        {/* 8. FAQ 섹션 */}
+        <FAQ />
+
+        {/* 9. 최종 하단 CTA 섹션 */}
+        <CTAButton data={data.cta} onCtaClick={handleCtaClick} />
+
+        {/* 풋터 */}
+        <footer className="py-8 text-center text-xs text-neutral-400 border-t border-neutral-100 bg-neutral-50/50">
+          <p>© {new Date().getFullYear()} SYSO. 본 페이지는 수요 검증 목적으로 운영됩니다.</p>
+        </footer>
+      </main>
+    </div>
   );
 }
+

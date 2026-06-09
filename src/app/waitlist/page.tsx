@@ -3,6 +3,7 @@
 import { useEffect, useState, useCallback, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { analytics } from "@/lib/analytics";
+import Header from "@/components/Header";
 
 // Tally 설문 기본 URL (배포 후 교체)
 const TALLY_FORM_ID = process.env.NEXT_PUBLIC_TALLY_FORM_ID ?? "REPLACE_ME";
@@ -94,40 +95,43 @@ function WaitlistContent() {
   // ----------------------------------------------------------
   if (submitted) {
     return (
-      <main className="flex-1 flex items-center justify-center px-5 py-20">
-        <div className="max-w-sm text-center">
-          <span className="text-5xl mb-6 block">🎉</span>
-          <h1 className="text-2xl font-bold text-neutral-900 mb-3">
-            사전 신청이 완료되었습니다
-          </h1>
-          <p className="text-sm text-neutral-500 leading-relaxed">
-            출시 시 입력하신 연락처로 프로모션 혜택을 안내해 드리겠습니다.
-            <br />
-            관심을 가져주셔서 감사합니다.
-          </p>
-        </div>
-      </main>
+      <div className="min-h-screen flex flex-col bg-white">
+        <Header showCta={false} />
+        <main className="flex-1 flex items-center justify-center px-5 py-20 bg-warm-cream">
+          <div className="max-w-sm text-center p-8 rounded-3xl bg-white border border-neutral-200/50 shadow-premium">
+            <span className="text-5xl mb-6 block">🎉</span>
+            <h1 className="text-xl font-bold text-neutral-900 mb-3">
+              사전 신청이 완료되었습니다
+            </h1>
+            <p className="text-xs text-neutral-500 leading-relaxed">
+              출시 시 입력하신 연락처로 프로모션 혜택을 안내해 드리겠습니다.
+              <br />
+              관심을 가져주셔서 감사합니다.
+            </p>
+          </div>
+        </main>
+      </div>
     );
   }
 
   return (
-    <main className="flex-1 bg-white">
-      {/* 상단 안내 */}
-      <section className="px-5 pt-14 pb-8 text-center">
-        <span className="text-xs font-semibold tracking-widest text-brand-primary uppercase mb-4 block">
-          SYSO
-        </span>
-        <h1 className="text-xl font-bold text-neutral-900 mb-3 md:text-2xl">
-          관심 가져주셔서 감사합니다
-        </h1>
-        <p className="text-sm text-neutral-500 leading-relaxed max-w-sm mx-auto">
-          현재 제품은 개발 단계에 있습니다.
-          <br />
-          출시 전 실제 사용자 의견을 수집하고 있습니다.
-          <br />
-          간단한 설문에 참여해주시면 출시 시 우선 안내를 드립니다.
-        </p>
-      </section>
+    <div className="min-h-screen flex flex-col bg-white">
+      <Header showCta={false} />
+      <main className="flex-1 bg-warm-cream">
+        {/* 상단 안내 */}
+        <section className="px-5 pt-12 pb-6 text-center max-w-sm mx-auto">
+          <span className="text-xs font-bold tracking-wider text-brand-primary uppercase mb-2 block">
+            PRE-LAUNCHING
+          </span>
+          <h1 className="text-lg font-bold text-neutral-900 mb-2 md:text-xl">
+            사전 의견 등록 및 알림 신청
+          </h1>
+          <p className="text-xs text-neutral-500 leading-relaxed">
+            현재 제품은 개발 마무리 단계에 있습니다.<br />
+            아래 간단한 설문에 응답해주시면 출시 알림 및 선런칭 혜택을 우선적으로 제공해 드리겠습니다.
+          </p>
+        </section>
+
 
       {/* 가격 정보 */}
       <section className="px-5 pb-8">
@@ -237,13 +241,12 @@ function WaitlistContent() {
         </section>
       )}
 
+      </main>
       {/* 풋터 */}
-      <footer className="py-8 text-center text-xs text-neutral-400 border-t border-neutral-100">
-        <p>
-          © {new Date().getFullYear()} SYSO. 본 페이지는 수요 검증 목적으로 운영됩니다.
-        </p>
+      <footer className="py-8 text-center text-xs text-neutral-400 border-t border-neutral-100 bg-neutral-50/50">
+        <p>© {new Date().getFullYear()} SYSO. 본 페이지는 수요 검증 목적으로 운영됩니다.</p>
       </footer>
-    </main>
+    </div>
   );
 }
 
