@@ -214,7 +214,7 @@ export default function ProductInfo({ variant }: ProductInfoProps) {
           <div className="grid grid-cols-2 gap-x-4 gap-y-3.5 text-[10px] sm:text-[11px] text-neutral-500">
             <div>
               <span className="font-bold text-neutral-700 block mb-0.5">제품명</span>
-              V Night (브이 나이트)
+              V Night (브이 나잇)
             </div>
             <div>
               <span className="font-bold text-neutral-700 block mb-0.5">식품 유형</span>
