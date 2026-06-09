@@ -80,7 +80,7 @@ export default function Hero({ variant, data, priceOriginal, pricePromo, onCtaCl
         <div className="mt-3.5 flex items-center justify-center gap-2.5 text-[9px] font-bold text-neutral-500">
           <span>🌿 식물성 멜라토닌</span>
           <span className="text-neutral-200">|</span>
-          <span>🍒 타트체리맛</span>
+          <span>{variant === "a" ? "🍇 샤인머스캣맛" : variant === "b" ? "🍇 포도맛" : "🍇 샤인머스캣 · 포도맛"}</span>
           <span className="text-neutral-200">|</span>
           <span>⚡ 스틱젤리</span>
         </div>
@@ -155,7 +155,9 @@ export default function Hero({ variant, data, priceOriginal, pricePromo, onCtaCl
           <div className="mt-6 flex items-center gap-3 text-xs font-bold text-neutral-600">
             <span className="flex items-center gap-1">🌿 식물성 멜라토닌</span>
             <span className="text-neutral-200">|</span>
-            <span className="flex items-center gap-1">🍒 타트체리맛</span>
+            <span className="flex items-center gap-1">
+              {variant === "a" ? "🍇 샤인머스캣맛" : variant === "b" ? "🍇 포도맛" : "🍇 샤인머스캣 · 포도맛"}
+            </span>
             <span className="text-neutral-200">|</span>
             <span className="flex items-center gap-1">⚡ 스틱젤리</span>
           </div>

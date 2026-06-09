@@ -47,7 +47,12 @@ function clarityTag(key: string, value: string) {
 export const analytics = {
   /** 랜딩페이지 page_view */
   trackPageView(variant: string) {
-    const params = { variant };
+    const params = {
+      variant,
+      page_title: typeof document !== "undefined" ? document.title : "",
+      page_location: typeof window !== "undefined" ? window.location.href : "",
+      page_path: typeof window !== "undefined" ? window.location.pathname : "",
+    };
     devLog("page_view", params);
     ga4Event("page_view", params);
     clarityTag("variant", variant);
@@ -62,7 +67,12 @@ export const analytics = {
 
   /** Waitlist 페이지 도달 */
   trackWaitlistView(variant: string) {
-    const params = { variant };
+    const params = {
+      variant,
+      page_title: typeof document !== "undefined" ? document.title : "",
+      page_location: typeof window !== "undefined" ? window.location.href : "",
+      page_path: typeof window !== "undefined" ? window.location.pathname : "",
+    };
     devLog("waitlist_page_view", params);
     ga4Event("waitlist_page_view", params);
   },
@@ -76,9 +86,14 @@ export const analytics = {
 
   /** 스크롤 깊이 */
   trackScrollDepth(depth: ScrollDepth, variant: string) {
-    const params = { depth, variant };
+    const params = { 
+      depth, 
+      variant,
+      percent_scrolled: depth 
+    };
     devLog(`scroll_${depth}`, params);
-    ga4Event(`scroll_${depth}`, params);
+    ga4Event(`scroll_${depth}`, params); // Legacy event name compatibility
+    ga4Event("scroll_depth", params);    // Standardized GA4 event name
   },
 
   /** 이메일 수집 */
@@ -93,6 +108,34 @@ export const analytics = {
     const params = { variant };
     devLog("phone_capture", params);
     ga4Event("phone_capture", params);
+  },
+
+  /** CTA 클릭 (위치별 상세 분석) */
+  trackCtaClick(variant: string, location: string) {
+    const params = { variant, location };
+    devLog("cta_click", params);
+    ga4Event("cta_click", params);
+  },
+
+  /** 주요 섹션 도달 (IntersectionObserver 연동) */
+  trackSectionView(variant: string, section: string) {
+    const params = { variant, section };
+    devLog("section_view", params);
+    ga4Event("section_view", params);
+  },
+
+  /** Tally 설문 시작 (첫 입력/상호작용 시작) */
+  trackSurveyStart(variant: string) {
+    const params = { variant };
+    devLog("survey_start", params);
+    ga4Event("survey_start", params);
+  },
+
+  /** SNS 링크 클릭 */
+  trackSocialClick(platform: string) {
+    const params = { platform };
+    devLog("social_click", params);
+    ga4Event("social_click", params);
   },
 };
 

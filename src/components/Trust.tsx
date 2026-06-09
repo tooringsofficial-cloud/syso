@@ -2,10 +2,12 @@
 
 export default function Trust() {
   const credentials = [
-    { text: "서울대학교 약학대학 출신 참여", icon: "🎓" },
-    { text: "차의과학대학교 약학대학 출신 참여", icon: "🎓" },
-    { text: "중앙대학교 약학대학 출신 참여", icon: "🎓" },
-    { text: "현직 약사 참여 · 의료진 검토 진행", icon: "🩺" },
+    { text: "서울대학교 약학과 구성원 참여", icon: "🎓" },
+    { text: "차의과학대학교 약학과 구성원 참여", icon: "🎓" },
+    { text: "중앙대학교 약학과 구성원 참여", icon: "🎓" },
+    { text: "현직 약사 참여", icon: "🩺" },
+    { text: "의사 검토 진행", icon: "🩺" },
+    { text: "제조 예정 KOLMAR BNH", icon: "🏭" },
   ];
 
   return (

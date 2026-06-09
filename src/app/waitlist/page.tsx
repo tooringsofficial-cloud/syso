@@ -33,19 +33,15 @@ function WaitlistContent() {
     params.set("transparentBackground", "1");
     params.set("hideTitle", "1");
 
-    // Hidden fields
-    const fields: Record<string, string | null> = {
-      variant: searchParams.get("variant"),
-      landing_version: searchParams.get("landing_version"),
-      utm_source: searchParams.get("utm_source"),
-      utm_campaign: searchParams.get("utm_campaign"),
-      utm_medium: searchParams.get("utm_medium"),
-      utm_content: searchParams.get("utm_content"),
-    };
-
-    Object.entries(fields).forEach(([key, value]) => {
-      if (value) params.set(key, value);
+    // 모든 쿼리 파라미터를 그대로 Tally Hidden Fields로 전달 (variant, UTM, GCLID 등 자동 포함)
+    searchParams.forEach((value, key) => {
+      params.set(key, value);
     });
+
+    // device 파라미터가 없으면 동적 감지하여 추가
+    if (!params.has("device") && typeof window !== "undefined") {
+      params.set("device", window.innerWidth < 768 ? "mobile" : "desktop");
+    }
 
     return `https://tally.so/embed/${TALLY_FORM_ID}?${params.toString()}`;
   })();
@@ -55,21 +51,47 @@ function WaitlistContent() {
   // ----------------------------------------------------------
   useEffect(() => {
     function handleMessage(event: MessageEvent) {
-      if (typeof event.data === "string") {
+      let data = event.data;
+      if (typeof data === "string") {
         try {
-          const parsed = JSON.parse(event.data);
-          if (parsed.event === "Tally.FormSubmitted") {
-            analytics.trackSurveyComplete(variant);
-            setSurveyDone(true);
-          }
+          data = JSON.parse(data);
         } catch {
-          // not a Tally message
+          // Tally가 보낸 JSON 문자열이 아닐 경우 예외 처리
+          return;
         }
+      }
+      
+      if (data && data.event === "Tally.FormSubmitted") {
+        analytics.trackSurveyComplete(variant);
+        setSurveyDone(true);
       }
     }
 
     window.addEventListener("message", handleMessage);
     return () => window.removeEventListener("message", handleMessage);
+  }, [variant]);
+
+  // ----------------------------------------------------------
+  // Tally 설문 시작 트래킹 (iframe 첫 클릭/상호작용 감지)
+  // ----------------------------------------------------------
+  useEffect(() => {
+    let started = false;
+
+    function handleBlur() {
+      // activeElement 갱신을 위해 100ms 대기 후 감지
+      setTimeout(() => {
+        if (document.activeElement && document.activeElement.tagName === "IFRAME") {
+          const src = (document.activeElement as HTMLIFrameElement).src;
+          if (src.includes("tally.so") && !started) {
+            started = true;
+            analytics.trackSurveyStart(variant);
+          }
+        }
+      }, 100);
+    }
+
+    window.addEventListener("blur", handleBlur);
+    return () => window.removeEventListener("blur", handleBlur);
   }, [variant]);
 
   // ----------------------------------------------------------

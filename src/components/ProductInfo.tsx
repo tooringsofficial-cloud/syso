@@ -37,12 +37,18 @@ export default function ProductInfo({ variant }: ProductInfoProps) {
 
   const currentLogic = formulationLogic[variant as "a" | "b" | "ab"] || formulationLogic.ab;
 
+  const flavorLabel = variant === "a" 
+    ? "상큼한 샤인머스캣맛" 
+    : variant === "b" 
+    ? "달콤한 포도맛" 
+    : "샤인머스캣맛 · 포도맛";
+
   const specItems = {
     melatonin: { label: "식물 유래 멜라토닌", value: "2 mg", desc: "편안한 밤 루틴을 채우는 핵심 식물 원료", icon: "🌱" },
     magnesium: { label: "글루콘산 마그네슘", value: "600 mg", desc: "지친 하루의 긴장을 덜고 몸을 편안하게 돕는 성분", icon: "🍊" },
     potassium: { label: "칼륨 (포타슘)", value: "300 mg", desc: "가벼운 아침 컨디션을 챙기는 균형 잡힌 배합", icon: "💧" },
     pumpkin: { label: "국산 호박 추출 분말", value: "500 mg", desc: "불규칙한 식습관 다음 날 가벼운 루틴을 위한 설계", icon: "🎃" },
-    cherry: { label: "새콤달콤 타트체리맛", value: "스틱젤리 타입", desc: "물 없이 맛있고 탱글하게 간식처럼 섭취", icon: "🍒" },
+    flavor: { label: flavorLabel, value: "스틱젤리 타입", desc: "물 없이 맛있고 탱글하게 간식처럼 섭취", icon: "🍇" },
     pack: { label: "제품 구성", value: "20g x 14포", desc: "2주일 동안 매일 밤 챙기는 확실한 나이트 루틴", icon: "📦" }
   };
 
@@ -54,7 +60,7 @@ export default function ProductInfo({ variant }: ProductInfoProps) {
       { ...specItems.magnesium, tag: "신체 긴장 완화", isHighlighted: true },
       { ...specItems.potassium },
       { ...specItems.pumpkin },
-      { ...specItems.cherry },
+      { ...specItems.flavor },
       { ...specItems.pack }
     ];
   } else if (variant === "b") {
@@ -63,7 +69,7 @@ export default function ProductInfo({ variant }: ProductInfoProps) {
       { ...specItems.pumpkin, tag: "가벼운 시작 고려 배합", isHighlighted: true },
       { ...specItems.melatonin },
       { ...specItems.magnesium },
-      { ...specItems.cherry },
+      { ...specItems.flavor },
       { ...specItems.pack }
     ];
   } else {
@@ -72,7 +78,7 @@ export default function ProductInfo({ variant }: ProductInfoProps) {
       { ...specItems.magnesium, tag: "🌙 밤의 휴식 케어", isHighlighted: true },
       { ...specItems.potassium, tag: "☀️ 아침의 가벼움 케어", isHighlighted: true },
       { ...specItems.pumpkin, tag: "☀️ 아침의 가벼움 케어", isHighlighted: true },
-      { ...specItems.cherry },
+      { ...specItems.flavor },
       { ...specItems.pack }
     ];
   }
@@ -200,7 +206,7 @@ export default function ProductInfo({ variant }: ProductInfoProps) {
               물 없이 상큼하고 간편하게 씹어먹는 스틱 젤리
             </h4>
             <p className="text-[11px] text-neutral-500 leading-relaxed">
-              알약 섭취의 불편함과 쓴 약초의 단점을 해결했습니다. 달콤하고 새콤한 타트체리맛의 쫀득한 젤리 제형으로, 자기 전 침대 옆에서 기분 좋은 마지막 디저트처럼 물 없이 맛있게 챙기실 수 있습니다.
+              알약 섭취의 불편함과 쓴 약초의 단점을 해결했습니다. {variant === "a" ? "상큼한 샤인머스캣맛" : variant === "b" ? "달콤한 포도맛" : "상큼한 샤인머스캣맛과 달콤한 포도맛"}의 쫀득한 젤리 제형으로, 자기 전 침대 옆에서 기분 좋은 마지막 디저트처럼 물 없이 맛있게 챙기실 수 있습니다.
             </p>
           </div>
         </div>
