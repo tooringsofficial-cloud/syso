@@ -114,6 +114,7 @@ export default function LandingContainer({ data }: LandingContainerProps) {
     const params = new URLSearchParams();
     params.set("variant", data.variant);
     params.set("landing_version", "v1");
+    params.set("cta_location", location);
 
     // device 식별 추가
     if (typeof window !== "undefined") {
@@ -121,7 +122,7 @@ export default function LandingContainer({ data }: LandingContainerProps) {
     }
 
     searchParams.forEach((value, key) => {
-      if (key !== "variant" && key !== "landing_version" && key !== "device") {
+      if (key !== "variant" && key !== "landing_version" && key !== "device" && key !== "cta_location") {
         params.set(key, value);
       }
     });
