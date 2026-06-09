@@ -2,45 +2,52 @@
 
 import Image from "next/image";
 
-export default function ProductInfo() {
-  const specs = [
-    {
-      label: "식물 유래 멜라토닌",
-      value: "2 mg",
-      desc: "편안한 밤 루틴을 채우는 핵심 식물 원료",
-      icon: "🌱",
-    },
-    {
-      label: "글루콘산 마그네슘",
-      value: "600 mg",
-      desc: "지친 하루의 긴장을 덜고 몸을 편안하게 돕는 성분",
-      icon: "🍊",
-    },
-    {
-      label: "칼륨 (포타슘)",
-      value: "300 mg",
-      desc: "가벼운 아침 라인을 챙기는 균형 잡힌 배합",
-      icon: "💧",
-    },
-    {
-      label: "국산 호박 추출 분말",
-      value: "500 mg",
-      desc: "야식이나 불규칙한 식습관 다음 날을 위한 설계",
-      icon: "🎃",
-    },
-    {
-      label: "새콤달콤 타트체리맛",
-      value: "스틱젤리 타입",
-      desc: "물 없이 맛있고 탱글하게 간식처럼 섭취",
-      icon: "🍒",
-    },
-    {
-      label: "제품 구성",
-      value: "20g x 14포",
-      desc: "2주일 동안 매일 밤 챙기는 확실한 나이트 루틴",
-      icon: "📦",
-    },
-  ];
+interface ProductInfoProps {
+  variant: string;
+}
+
+export default function ProductInfo({ variant }: ProductInfoProps) {
+  const specItems = {
+    melatonin: { label: "식물 유래 멜라토닌", value: "2 mg", desc: "편안한 밤 루틴을 채우는 핵심 식물 원료", icon: "🌱" },
+    magnesium: { label: "글루콘산 마그네슘", value: "600 mg", desc: "지친 하루의 긴장을 덜고 몸을 편안하게 돕는 성분", icon: "🍊" },
+    potassium: { label: "칼륨 (포타슘)", value: "300 mg", desc: "가벼운 아침 라인을 챙기는 균형 잡힌 배합", icon: "💧" },
+    pumpkin: { label: "국산 호박 추출 분말", value: "500 mg", desc: "야식이나 불규칙한 식습관 다음 날을 위한 설계", icon: "🎃" },
+    cherry: { label: "새콤달콤 타트체리맛", value: "스틱젤리 타입", desc: "물 없이 맛있고 탱글하게 간식처럼 섭취", icon: "🍒" },
+    pack: { label: "제품 구성", value: "20g x 14포", desc: "2주일 동안 매일 밤 챙기는 확실한 나이트 루틴", icon: "📦" }
+  };
+
+  let specs: ({ label: string; value: string; desc: string; icon: string; tag?: string; isHighlighted?: boolean })[] = [];
+
+  if (variant === "a") {
+    specs = [
+      { ...specItems.melatonin, tag: "밤 루틴 안심 설계", isHighlighted: true },
+      { ...specItems.magnesium, tag: "신체 긴장 완화", isHighlighted: true },
+      { ...specItems.potassium },
+      { ...specItems.pumpkin },
+      { ...specItems.cherry },
+      { ...specItems.pack }
+    ];
+  } else if (variant === "b") {
+    specs = [
+      { ...specItems.potassium, tag: "아침 컨디션 중심 설계", isHighlighted: true },
+      { ...specItems.pumpkin, tag: "가벼운 시작 고려 배합", isHighlighted: true },
+      { ...specItems.melatonin },
+      { ...specItems.magnesium },
+      { ...specItems.cherry },
+      { ...specItems.pack }
+    ];
+  } else {
+    // variant === "ab" (or default)
+    specs = [
+      { ...specItems.melatonin, tag: "🌙 밤의 휴식 케어", isHighlighted: true },
+      { ...specItems.magnesium, tag: "🌙 밤의 휴식 케어", isHighlighted: true },
+      { ...specItems.potassium, tag: "☀️ 아침의 가벼움 케어", isHighlighted: true },
+      { ...specItems.pumpkin, tag: "☀️ 아침의 가벼움 케어", isHighlighted: true },
+      { ...specItems.cherry },
+      { ...specItems.pack }
+    ];
+  }
+
 
   return (
     <section className="px-5 py-16 bg-warm-cream">
@@ -75,19 +82,32 @@ export default function ProductInfo() {
             {specs.map((item) => (
               <div
                 key={item.label}
-                className="p-3.5 rounded-xl bg-white border border-neutral-100 shadow-sm flex items-center gap-3.5 transition-all duration-200 hover:border-brand-primary/10"
+                className={`p-3.5 rounded-xl border flex items-center gap-3.5 transition-all duration-200
+                           ${item.isHighlighted 
+                             ? "bg-brand-surface/60 border-brand-primary/15 shadow-[0_4px_12px_rgba(79,70,229,0.03)]" 
+                             : "bg-white border-neutral-100 shadow-sm hover:border-brand-primary/10"}`}
               >
                 <span 
-                  className="w-9 h-9 rounded-full bg-brand-surface text-xl flex items-center justify-center shrink-0 border border-brand-primary/5"
+                  className={`w-9 h-9 rounded-full flex items-center justify-center shrink-0 border
+                             ${item.isHighlighted 
+                               ? "bg-white text-xl border-brand-primary/10" 
+                               : "bg-brand-surface text-xl border-brand-primary/5"}`}
                   role="img"
                   aria-label={item.label}
                 >
                   {item.icon}
                 </span>
                 <div className="flex-1 min-w-0">
-                  <h4 className="font-bold text-neutral-800 text-xs sm:text-sm">
-                    {item.label}
-                  </h4>
+                  <div className="flex items-center gap-1.5 flex-wrap">
+                    <h4 className="font-bold text-neutral-800 text-xs sm:text-sm">
+                      {item.label}
+                    </h4>
+                    {item.tag && (
+                      <span className="px-1.5 py-0.2 rounded bg-brand-primary/10 text-brand-primary text-[8px] font-black tracking-tight uppercase">
+                        {item.tag}
+                      </span>
+                    )}
+                  </div>
                   <p className="text-[10px] text-neutral-400 mt-0.5 leading-normal truncate">
                     {item.desc}
                   </p>
@@ -100,6 +120,7 @@ export default function ProductInfo() {
               </div>
             ))}
           </div>
+
         </div>
 
         {/* D2C 상세 고시 테이블 (실제 상세페이지 느낌의 신뢰감 확보) */}

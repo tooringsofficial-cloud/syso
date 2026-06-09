@@ -10,6 +10,7 @@ import Hero from "./Hero";
 import Problem from "./Problem";
 import DesiredOutcome from "./DesiredOutcome";
 import Recommend from "./Recommend";
+import Trust from "./Trust";
 import ProductInfo from "./ProductInfo";
 import Concept from "./Concept";
 import FAQ from "./FAQ";
@@ -114,11 +115,26 @@ export default function LandingContainer({ data }: LandingContainerProps) {
         <div className="h-2.5 bg-neutral-100/50" />
 
         {/* 타겟 공감 체크리스트 카드 구성 */}
-        <Recommend />
+        <Recommend variant={data.variant} />
 
         <div className="h-2.5 bg-neutral-100/50" />
 
-        {/* 5. 중간 CTA 배너 */}
+        {/* 신규 신뢰 섹션 (왜 SYSO가 만들까요? + 제품 철학) */}
+        <Trust />
+
+        <div className="h-2.5 bg-neutral-100/50" />
+
+        {/* 5. Product Info 섹션 (제품 구성 정보) */}
+        <ProductInfo variant={data.variant} />
+
+        <div className="h-2.5 bg-neutral-100/50" />
+
+        {/* 6. Concept 섹션 (출시 스토리 및 브랜드 원칙) */}
+        <Concept data={data.concept} variant={data.variant} />
+
+        <div className="h-2.5 bg-neutral-100/50" />
+
+        {/* 7. 중간 CTA 배너 (Concept 학습 후 전환 기회 제공) */}
         <section className="px-5 py-12 bg-brand-surface/40 border-y border-brand-primary/5 text-center">
           <div className="max-w-md mx-auto">
             <h3 className="font-extrabold text-neutral-900 text-lg mb-2 leading-snug tracking-tight">
@@ -142,16 +158,6 @@ export default function LandingContainer({ data }: LandingContainerProps) {
 
         <div className="h-2.5 bg-neutral-100/50" />
 
-        {/* 6. Product Info 섹션 (제품 구성 정보) */}
-        <ProductInfo />
-
-        <div className="h-2.5 bg-neutral-100/50" />
-
-        {/* 7. Concept 섹션 (출시 스토리 및 브랜드 원칙) */}
-        <Concept data={data.concept} />
-
-        <div className="h-2.5 bg-neutral-100/50" />
-
         {/* 8. FAQ 섹션 */}
         <FAQ />
 
@@ -165,6 +171,7 @@ export default function LandingContainer({ data }: LandingContainerProps) {
           <p>© {new Date().getFullYear()} SYSO. 본 페이지는 수요 검증 목적으로 운영됩니다.</p>
         </footer>
       </main>
+
 
       {/* 10. 플로팅 하단 CTA 바 (Sticky Bottom CTA Bar) */}
       <div
