@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 
 interface HeaderProps {
@@ -13,15 +12,10 @@ export default function Header({ showCta = true, onCtaClick }: HeaderProps) {
     <header className="sticky top-0 z-50 w-full bg-white/85 backdrop-blur-md border-b border-neutral-100 shadow-sm/5">
       <div className="max-w-md mx-auto px-5 h-14 flex items-center justify-between md:max-w-2xl">
         {/* 로고 영역 */}
-        <Link href="/" className="flex items-center gap-2">
-          <Image
-            src="/images/logo.png"
-            alt="SYSO Logo"
-            width={68}
-            height={20}
-            className="w-auto h-4.5 object-contain opacity-95 transition-opacity hover:opacity-100"
-            priority
-          />
+        <Link href="/" className="flex items-center">
+          <span className="text-base font-black tracking-widest text-brand-primary uppercase transition-opacity hover:opacity-80">
+            SYSO
+          </span>
         </Link>
 
         {/* 미니 CTA 버튼 */}
