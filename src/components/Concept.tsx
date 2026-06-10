@@ -245,6 +245,34 @@ export default function Concept({ data, variant }: ConceptProps) {
             ))}
           </div>
         </div>
+
+        {/* 5. 보조 크레덴셜 로고 배너 */}
+        <div className="mt-16 bg-white border border-neutral-200/40 rounded-[16px] py-5 px-4 max-w-xl mx-auto select-none text-center">
+          <span className="text-[9px] font-bold text-[#6B7280] tracking-widest uppercase block mb-4">
+            협력 및 개발 참여 기관
+          </span>
+          <div className="flex flex-wrap items-center justify-center gap-5 sm:gap-8">
+            {[
+              { name: "서울대학교", src: "/images/logo_snu.png", width: 26 },
+              { name: "차의과학대학교", src: "/images/logo_cha.png", width: 75 },
+              { name: "중앙대학교", src: "/images/logo_cau.png", width: 70 },
+              { name: "KOLMAR BNH", src: "/images/logo_kolmar.png", width: 90 }
+            ].map((logo) => (
+              <div 
+                key={logo.name} 
+                className="h-7 relative flex items-center justify-center shrink-0 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+              >
+                <Image
+                  src={logo.src}
+                  alt={`${logo.name} 로고`}
+                  width={logo.width}
+                  height={28}
+                  className="object-contain max-h-[22px] w-auto"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
