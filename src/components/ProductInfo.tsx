@@ -54,7 +54,7 @@ export default function ProductInfo({ variant }: ProductInfoProps) {
                 타트체리 추출 식물성 멜라토닌
               </h3>
               <p className="text-stone-500 text-sm sm:text-[15px] leading-relaxed font-normal text-keep-all mb-6">
-                인위적인 합성 호르몬 걱정 없이 매일 안심하고 밤 루틴을 채울 수 있도록 타트체리 등 자연물에서 추출한 식물성 멜라토닌 2mg을 정직하게 담았습니다. 밤새 뒤척임 없이 깊고 편안한 쉼을 선사합니다.
+                하루를 마무리하는 저녁 루틴에 안심하고 섭취할 수 있도록 타트체리 추출 식물성 원료 2mg을 정밀 배합했습니다.
               </p>
               {/* 마그네슘 시너지 설명 */}
               <div className="border-t border-stone-200/50 pt-5 w-full flex items-start gap-4">
@@ -72,7 +72,7 @@ export default function ProductInfo({ variant }: ProductInfoProps) {
                     🌿 마그네슘(글루콘산 마그네슘 600mg) 시너지 배합
                   </p>
                   <p className="text-[11px] text-stone-400 leading-relaxed font-normal text-keep-all">
-                    지친 하루의 긴장을 덜어주는 마그네슘을 시너지 원료로 설계하여 밤 루틴의 휴식 깊이를 더해줍니다.
+                    저녁 루틴을 위한 시너지 원료로 글루콘산 마그네슘 600mg을 함께 설계 및 함유했습니다.
                   </p>
                 </div>
               </div>
@@ -97,10 +97,10 @@ export default function ProductInfo({ variant }: ProductInfoProps) {
             {/* 칼륨 설명 */}
             <div className="w-full md:w-1/2 flex flex-col items-start">
               <h3 className="text-[22px] sm:text-[26px] font-bold text-[#1F1F1F] leading-tight mb-4 text-keep-all">
-                체내 수분 조율을 돕는 포타슘 칼륨
+                아침 컨디션을 고려한 포타슘 칼륨 설계
               </h3>
               <p className="text-stone-500 text-sm sm:text-[15px] leading-relaxed font-normal text-keep-all mb-6">
-                불규칙한 야식과 짠 식습관으로 무너진 전해질 균형을 바로잡을 수 있도록 구연산 칼륨 300mg을 정밀 배합했습니다. 체내 여분의 수분과 전해질 조율을 도와 아침 거울 앞이 언제나 가뿐하도록 지원합니다.
+                야식이나 짠 음식을 즐기는 식습관이 걱정될 때, 아침 거울 앞에서도 당황하지 않도록 구연산 칼륨 300mg을 담아 밤 루틴 포뮬러를 완성했습니다.
               </p>
               {/* 호박 시너지 설명 */}
               <div className="border-t border-stone-200/50 pt-5 w-full flex items-start gap-4">
@@ -118,7 +118,7 @@ export default function ProductInfo({ variant }: ProductInfoProps) {
                     🎃 늙은 호박(국내산 늙은 호박 추출 분말 500mg) 시너지 배합
                   </p>
                   <p className="text-[11px] text-stone-400 leading-relaxed font-normal text-keep-all">
-                    가벼운 아침의 전례적인 지혜인 100% 국내산 늙은 호박을 부원료로 설계하여 칼륨과 함께 아침의 가벼운 순환 시너지를 더욱 높여줍니다.
+                    예로부터 친숙하게 활용되어 온 국내산 늙은 호박 추출 분말 500mg을 칼륨과 함께 배합했습니다.
                   </p>
                 </div>
               </div>
@@ -146,7 +146,7 @@ export default function ProductInfo({ variant }: ProductInfoProps) {
                   THE PREMIUM ALL-IN-ONE
                 </span>
                 <h3 className="text-lg sm:text-xl font-bold text-white leading-snug text-keep-all">
-                  밤의 휴식과 아침의 순환,<br className="sm:hidden" /> 단 한 포로 완성되는 특별함
+                  편안한 밤 루틴과 아침 컨디션을 위한 올인원 포뮬러
                 </h3>
               </div>
               <span className="text-[11px] sm:text-xs text-white/80 font-medium whitespace-nowrap bg-white/10 backdrop-blur-sm px-4.5 py-2 rounded-full border border-white/20">

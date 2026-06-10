@@ -51,7 +51,7 @@ export const copyData: Record<string, CopyDataset> = {
         {
           emoji: "💼",
           label: "면접 전날",
-          desc: "내일 면접인데 잠이 안 와서 뒤척이던 밤",
+          desc: "내일 면접인데 걱정 때문에 새벽까지 뒤척이던 밤",
         },
         {
           emoji: "💑",
@@ -127,12 +127,12 @@ export const copyData: Record<string, CopyDataset> = {
         {
           emoji: "💼",
           label: "면접 아침",
-          desc: "거울 보니 얼굴이 부어서 세수를 세 번이나 한 아침",
+          desc: "거울 속 내 모습이 유독 무겁게 느껴져 세수를 세 번이나 한 아침",
         },
         {
           emoji: "💑",
           label: "소개팅 아침",
-          desc: "눈이 퉁퉁 부어서 선글라스 쓰고 나갈까 고민한 아침",
+          desc: "거울 보고 한숨 쉬며 선글라스 쓰고 나갈까 고민했던 아침",
         },
         {
           emoji: "🎤",
@@ -193,7 +193,7 @@ export const copyData: Record<string, CopyDataset> = {
     variant: "ab",
     variantLabel: "수면 + 붓기 중심",
     hero: {
-      main: "내일이 중요한 밤,\n푹 자고 가볍게 일어나고 싶다면",
+      main: "내일이 중요한 밤,\n편안하게 푹 쉬고 가볍게 일어나고 싶다면",
       sub: "자기 전 한 포. 편안한 밤과 가벼운 아침을 위한 나이트 루틴 젤리.",
       cta: "출시 알림 받기",
     },
@@ -203,12 +203,12 @@ export const copyData: Record<string, CopyDataset> = {
         {
           emoji: "💼",
           label: "면접 전날 밤",
-          desc: "긴장돼서 잠도 못 자고, 아침엔 얼굴이 부어 있던 날",
+          desc: "긴장돼서 새벽까지 뒤척이고, 아침엔 유독 무겁게 느껴졌던 날",
         },
         {
           emoji: "💑",
           label: "소개팅 전날 밤",
-          desc: "뒤척이다 겨우 잠들었는데, 눈이 퉁퉁 부은 채 일어난 날",
+          desc: "밤새 뒤척이다 일어나 거울을 보고 한숨 쉬었던 날",
         },
         {
           emoji: "🎤",

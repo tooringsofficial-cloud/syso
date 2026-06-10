@@ -8,7 +8,7 @@ export default function Recommend({ variant }: RecommendProps) {
   const recommendationsA = [
     {
       emoji: "🌙",
-      text: "중요한 시험이나 발표 전날 밤, 머릿속이 복잡해 잠들기 어려우신 분",
+      text: "중요한 날을 앞두고 생각이 많아 밤늦게까지 뒤척이시는 분",
     },
     {
       emoji: "📱",
@@ -16,7 +16,7 @@ export default function Recommend({ variant }: RecommendProps) {
     },
     {
       emoji: "🥱",
-      text: "아침에 일어나도 깊은 잠을 자지 못한 듯 몸이 무거우신 분",
+      text: "자고 일어나도 개운하지 않고 아침이 무겁게 느껴지시는 분",
     },
     {
       emoji: "🌿",
@@ -43,7 +43,7 @@ export default function Recommend({ variant }: RecommendProps) {
     },
     {
       emoji: "💧",
-      text: "나트륨 배출과 일상적인 체내 수분/전해질 균형 관리가 필요하신 분",
+      text: "야식을 먹은 뒤나 짠 음식을 먹은 날 밤, 가뿐한 아침 컨디션을 원하시는 분",
     },
     {
       emoji: "🍒",
@@ -54,15 +54,15 @@ export default function Recommend({ variant }: RecommendProps) {
   const recommendationsAB = [
     {
       emoji: "🌙",
-      text: "중요한 날을 앞두고 잠자리 뒤척임과 다음 날 아침의 붓기가 동시에 고민되시는 분",
+      text: "중요한 날 전날 밤의 뒤척임과 다음 날 아침의 무거움이 동시에 걱정되시는 분",
     },
     {
       emoji: "☀️",
-      text: "바쁜 하루 끝에는 편안하게 잠들고, 아침에는 가벼운 라인으로 시작하고 싶으신 분",
+      text: "하루를 마무리하는 시간은 편안하게, 아침은 가볍고 개운하게 시작하고 싶으신 분",
     },
     {
       emoji: "🔄",
-      text: "자는 동안 이루어지는 밤(릴렉스)과 아침(순환)의 유기적인 올인원 관리를 원하시는 분",
+      text: "여러 개 챙길 필요 없이, 밤 루틴과 아침 컨디션을 한 번에 관리하고 싶으신 분",
     },
     {
       emoji: "📦",
