@@ -41,7 +41,8 @@ export default function Hero({ variant, data, priceOriginal, pricePromo, onCtaCl
           </span>
           <div 
             onClick={() => setShowLightbox(true)}
-            className="w-full aspect-video relative rounded-[20px] overflow-hidden bg-white shadow-[0_12px_40px_rgba(0,0,0,0.03)] cursor-zoom-in group"
+            className="w-full relative rounded-[20px] overflow-hidden bg-white shadow-[0_12px_40px_rgba(0,0,0,0.03)] cursor-zoom-in group"
+            style={{ aspectRatio: "1024/576" }}
           >
             <Image
               src={imageSrc}
@@ -108,7 +109,8 @@ export default function Hero({ variant, data, priceOriginal, pricePromo, onCtaCl
           </span>
           <div 
             onClick={() => setShowLightbox(true)}
-            className="w-full aspect-video relative rounded-[28px] overflow-hidden bg-white shadow-[0_16px_48px_rgba(0,0,0,0.03)] border border-stone-200/20 cursor-zoom-in group"
+            className="w-full relative rounded-[28px] overflow-hidden bg-white shadow-[0_16px_48px_rgba(0,0,0,0.03)] border border-stone-200/20 cursor-zoom-in group"
+            style={{ aspectRatio: "1024/576" }}
           >
             <Image
               src={imageSrc}

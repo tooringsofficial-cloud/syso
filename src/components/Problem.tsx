@@ -34,7 +34,7 @@ export default function Problem({ data, variant }: ProblemProps) {
         </p>
 
         {/* 대형 밤샘 고민 비주얼 */}
-        <div className="w-full max-w-[480px] aspect-[3/4] sm:aspect-[4/3] relative rounded-[24px] overflow-hidden bg-neutral-900 shadow-2xl shrink-0">
+        <div className="w-full max-w-[480px] relative rounded-[24px] overflow-hidden bg-neutral-900 shadow-2xl shrink-0" style={{ aspectRatio: "1024/819" }}>
           <Image
             src="/images/lifestyle_desk_work.jpg"
             alt="밤샘 작업 중인 고민"

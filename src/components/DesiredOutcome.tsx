@@ -15,8 +15,8 @@ export default function DesiredOutcome({ variant, data }: DesiredOutcomeProps) {
   return (
     <section className="bg-white py-24 sm:py-32 w-full">
       {/* 1. Full-bleed 또는 최대 너비의 고품격 비주얼 배너 */}
-      <div className="w-full max-w-5xl mx-auto px-0 sm:px-6 mb-24">
-        <div className="relative w-full aspect-[2.1] sm:rounded-[24px] overflow-hidden bg-stone-100 shadow-sm">
+      <div className="w-full max-w-5xl mx-auto px-6 mb-24">
+        <div className="relative w-full max-w-[480px] mx-auto rounded-[24px] overflow-hidden bg-stone-100 shadow-sm" style={{ aspectRatio: "819/1024" }}>
           <Image
             src={mainBannerSrc}
             alt="Welcome Morning - Opening Curtains"
@@ -26,8 +26,6 @@ export default function DesiredOutcome({ variant, data }: DesiredOutcomeProps) {
           />
           {/* 부드러운 그라데이션 오버레이 */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
-          
-
         </div>
       </div>
 
@@ -88,8 +86,8 @@ export default function DesiredOutcome({ variant, data }: DesiredOutcomeProps) {
             ))}
           </div>
 
-          {/* 우측 기지개 모델 비주얼 (세로형 aspect-[3/4]) */}
-          <div className="w-full md:w-[45%] aspect-[3/4] relative rounded-[24px] overflow-hidden bg-stone-50 shadow-sm border border-stone-200/20 shrink-0">
+          {/* 우측 기지개 모델 비주얼 (세로형 aspect-[3/4] 대신 원본 종횡비 적용) */}
+          <div className="w-full md:w-[45%] relative rounded-[24px] overflow-hidden bg-stone-50 shadow-sm border border-stone-200/20 shrink-0" style={{ aspectRatio: "803/1024" }}>
             <Image
               src={sideImageSrc}
               alt="가뿐한 아침 기지개"

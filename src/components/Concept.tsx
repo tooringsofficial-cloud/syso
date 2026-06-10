@@ -59,7 +59,7 @@ export default function Concept({ data, variant }: ConceptProps) {
         </div>
 
         {/* 2. 대형 R&D 비주얼 (lab_science.jpg) */}
-        <div className="w-full max-w-3xl mx-auto mb-16 relative aspect-[1.8] rounded-[24px] overflow-hidden bg-stone-50 shrink-0 shadow-sm border border-stone-200/20">
+        <div className="w-full max-w-3xl mx-auto mb-16 relative rounded-[24px] overflow-hidden bg-stone-50 shrink-0 shadow-sm border border-stone-200/20" style={{ aspectRatio: "1024/576" }}>
           <Image
             src="/images/lab_science.jpg"
             alt="Scientific Development"

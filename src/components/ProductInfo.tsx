@@ -35,7 +35,7 @@ export default function ProductInfo({ variant }: ProductInfoProps) {
               <span className="text-[10px] text-[#D9B76A] font-bold tracking-wider uppercase font-sans">
                 INGREDIENTS 01
               </span>
-              <div className="w-full aspect-[1.1] relative rounded-[24px] overflow-hidden bg-white shadow-sm">
+              <div className="w-full relative rounded-[24px] overflow-hidden bg-white shadow-sm" style={{ aspectRatio: "1024/576" }}>
                 <Image
                   src="/images/cherry.jpg"
                   alt="타트체리 원물"
@@ -84,7 +84,7 @@ export default function ProductInfo({ variant }: ProductInfoProps) {
               <span className="text-[10px] text-[#D9B76A] font-bold tracking-wider uppercase font-sans">
                 INGREDIENTS 02
               </span>
-              <div className="w-full aspect-[1.1] relative rounded-[24px] overflow-hidden bg-white shadow-sm">
+              <div className="w-full relative rounded-[24px] overflow-hidden bg-white shadow-sm" style={{ aspectRatio: "1024/576" }}>
                 <Image
                   src="/images/potassium.jpg"
                   alt="포타슘 칼륨 원물"
@@ -131,7 +131,7 @@ export default function ProductInfo({ variant }: ProductInfoProps) {
           onClick={() => setLightboxImg("/images/package_real.jpg")}
           className="w-full max-w-4xl mx-auto mb-28 cursor-zoom-in group"
         >
-          <div className="relative w-full aspect-[1.8] rounded-[24px] overflow-hidden bg-white shadow-[0_8px_30px_rgba(0,0,0,0.02)] border border-stone-200/30">
+          <div className="relative w-full rounded-[24px] overflow-hidden bg-white shadow-[0_8px_30px_rgba(0,0,0,0.02)] border border-stone-200/30" style={{ aspectRatio: "1024/576" }}>
             <Image
               src="/images/package_real.jpg"
               alt="V Night Package Design"
@@ -170,7 +170,7 @@ export default function ProductInfo({ variant }: ProductInfoProps) {
           {/* 2열 레이아웃: 좌측 모델 섭취 컷, 우측 제형 설명 */}
           <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16 mb-12">
             {/* 좌측: 모델 클로즈업 섭취 컷 */}
-            <div className="w-full md:w-1/2 aspect-[4/3] md:aspect-[3/4] relative rounded-[24px] overflow-hidden bg-stone-100 shadow-sm border border-stone-200/20 shrink-0">
+            <div className="w-full md:w-1/2 relative rounded-[24px] overflow-hidden bg-stone-100 shadow-sm border border-stone-200/20 shrink-0" style={{ aspectRatio: "819/1024" }}>
               <Image
                 src="/images/lifestyle_jelly_consume.jpg"
                 alt="V Night 젤리 섭취 경험"
@@ -196,7 +196,8 @@ export default function ProductInfo({ variant }: ProductInfoProps) {
           {/* 극대화된 실제 젤리 클로즈업 대형 뷰, 클릭 시 확대 */}
           <div 
             onClick={() => setLightboxImg("/images/jelly_real.jpg")}
-            className="w-full aspect-[1.8] sm:aspect-[2.2] relative rounded-[24px] overflow-hidden bg-stone-100 border border-stone-200/20 shadow-md cursor-zoom-in group"
+            className="w-full relative rounded-[24px] overflow-hidden bg-stone-100 border border-stone-200/20 shadow-md cursor-zoom-in group"
+            style={{ aspectRatio: "1/1" }}
           >
             <Image
               src="/images/jelly_real.jpg"
