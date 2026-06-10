@@ -50,7 +50,7 @@ export default function Concept({ data, variant }: ConceptProps) {
               그렇기에 합성 원료의 자극 없이 매일 먹어도 안심할 수 있는 타트체리 추출 식물 유래 멜라토닌과 국산 늙은 호박, 그리고 긴장을 덜어주는 마그네슘과 전해질 칼륨을 정밀하게 설계하여 한 포의 스틱 젤리로 빚어냈습니다.
             </p>
             <p>
-              우리의 진심이 매일 밤 머리맡에서, 그리고 눈뜨는 아침의 가벼운 거울 속에서 당신에게 가닿기를 소망합니다.
+              우리의 진심이 매일 밤 머리맡에서, 그리고 눈뜨는 아침의 가벼운 거울 속에서 당신에게 닿기를 소망합니다.
             </p>
             <p className="pt-4 text-right text-stone-700 font-semibold select-none font-sans">
               &mdash; SYSO 제품 연구 및 기획 개발팀 드림

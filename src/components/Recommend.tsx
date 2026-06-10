@@ -39,7 +39,7 @@ export default function Recommend({ variant }: RecommendProps) {
     },
     {
       emoji: "🥱",
-      text: "아침에 눈을 뜨면 얼굴 and 몸의 라인이 무겁고 둔하게 느껴지시는 분",
+      text: "아침에 눈을 뜨면 얼굴과 몸의 라인이 무겁고 둔하게 느껴지시는 분",
     },
     {
       emoji: "💧",
@@ -66,7 +66,7 @@ export default function Recommend({ variant }: RecommendProps) {
     },
     {
       emoji: "📦",
-      text: "여러 영양제를 챙길 필요 없이 한 포로 끝내는 완벽한 나이트-투-모닝 케어를 찾으시는 분",
+      text: "여러 영양제를 챙길 필요 없이 한 포로 끝내는 완벽한 Night to Morning 케어를 찾으시는 분",
     },
     {
       emoji: "🍒",
