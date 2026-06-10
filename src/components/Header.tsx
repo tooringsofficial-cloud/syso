@@ -5,14 +5,17 @@ import Link from "next/link";
 interface HeaderProps {
   showCta?: boolean;
   onCtaClick?: () => void;
+  variant?: string;
 }
 
-export default function Header({ showCta = true, onCtaClick }: HeaderProps) {
+export default function Header({ showCta = true, onCtaClick, variant }: HeaderProps) {
+  const logoHref = variant && variant !== "unknown" ? `/${variant}` : "/";
+
   return (
     <header className="sticky top-0 z-50 w-full bg-white/90 backdrop-blur-md border-b border-neutral-200/50">
       <div className="max-w-md mx-auto px-5 h-14 flex items-center justify-between md:max-w-2xl">
         {/* 로고 영역 */}
-        <Link href="/" className="flex items-center">
+        <Link href={logoHref} className="flex items-center">
           <span className="text-base font-bold tracking-widest text-[#292541] uppercase transition-opacity hover:opacity-80">
             SYSO
           </span>

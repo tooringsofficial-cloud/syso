@@ -119,7 +119,7 @@ function WaitlistContent() {
   if (submitted) {
     return (
       <div className="min-h-screen flex flex-col bg-[#F8F8FB]">
-        <Header showCta={false} />
+        <Header showCta={false} variant={variant} />
         <main className="flex-1 flex items-center justify-center px-5 py-20 bg-[#F8F8FB]">
           <div className="max-w-sm text-center p-8 rounded-[16px] bg-white border border-neutral-200/50 shadow-premium">
             <span className="text-5xl mb-6 block">🎉</span>
@@ -139,7 +139,7 @@ function WaitlistContent() {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#F8F8FB]">
-      <Header showCta={false} />
+      <Header showCta={false} variant={variant} />
       <main className="flex-1 bg-[#F8F8FB]">
         {/* 상단 안내 */}
         <section className="px-5 pt-12 pb-6 text-center max-w-sm mx-auto">

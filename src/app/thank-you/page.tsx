@@ -16,7 +16,7 @@ function ThankYouContent() {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#F8F8FB]">
-      <Header showCta={false} />
+      <Header showCta={false} variant={variant} />
       <main className="flex-1 flex items-center justify-center px-5 py-20 bg-[#F8F8FB]">
         <div className="max-w-sm w-full text-center p-8 sm:p-10 rounded-[24px] bg-white border border-neutral-200/50 shadow-premium">
           {/* 아늑하고 감성적인 달 이모지 */}

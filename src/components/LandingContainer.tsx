@@ -186,7 +186,7 @@ export default function LandingContainer({ data }: LandingContainerProps) {
       </div>
 
       {/* 1. 상단 고정 헤더 - location은 hero로 집계 */}
-      <Header showCta={true} onCtaClick={() => handleCtaClick("hero")} />
+      <Header showCta={true} onCtaClick={() => handleCtaClick("hero")} variant={data.variant} />
 
       <main className="flex-1 pb-[calc(4.5rem+env(safe-area-inset-bottom,0px))] w-full">
         {/* 2. Hero 섹션 */}

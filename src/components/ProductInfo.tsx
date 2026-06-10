@@ -30,19 +30,19 @@ export default function ProductInfo({ variant }: ProductInfoProps) {
         <div className="space-y-28 mb-32 max-w-4xl mx-auto">
           {/* 체리 섹션 (Night) */}
           <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16">
-            {/* 체리 이미지 */}
-            <div className="w-full md:w-1/2 aspect-[1.1] relative rounded-[24px] overflow-hidden bg-white shadow-sm shrink-0">
-              <Image
-                src="/images/cherry.jpg"
-                alt="타트체리 원물"
-                fill
-                sizes="(max-w-768px) 100vw, 450px"
-                className="object-cover transition-transform duration-700 hover:scale-101"
-              />
-              <div className="absolute top-4 left-4 select-none">
-                <span className="text-[10px] text-[#D9B76A] font-bold tracking-wider uppercase font-sans drop-shadow-sm">
-                  INGREDIENTS 01
-                </span>
+            {/* 체리 이미지 및 상단 배지 */}
+            <div className="w-full md:w-1/2 flex flex-col items-start gap-2.5 shrink-0 select-none">
+              <span className="text-[10px] text-[#D9B76A] font-bold tracking-wider uppercase font-sans">
+                INGREDIENTS 01
+              </span>
+              <div className="w-full aspect-[1.1] relative rounded-[24px] overflow-hidden bg-white shadow-sm">
+                <Image
+                  src="/images/cherry.jpg"
+                  alt="타트체리 원물"
+                  fill
+                  sizes="(max-w-768px) 100vw, 450px"
+                  className="object-cover transition-transform duration-700 hover:scale-101"
+                />
               </div>
             </div>
             {/* 체리 설명 */}
@@ -79,19 +79,19 @@ export default function ProductInfo({ variant }: ProductInfoProps) {
 
           {/* 칼륨 섹션 (Morning - Potassium Citrate) */}
           <div className="flex flex-col md:flex-row-reverse items-center gap-12 md:gap-16">
-            {/* 칼륨 이미지 */}
-            <div className="w-full md:w-1/2 aspect-[1.1] relative rounded-[24px] overflow-hidden bg-white shadow-sm shrink-0">
-              <Image
-                src="/images/potassium.jpg"
-                alt="포타슘 칼륨 원물"
-                fill
-                sizes="(max-w-768px) 100vw, 450px"
-                className="object-cover transition-transform duration-700 hover:scale-101"
-              />
-              <div className="absolute top-4 left-4 select-none">
-                <span className="text-[10px] text-[#D9B76A] font-bold tracking-wider uppercase font-sans drop-shadow-sm">
-                  INGREDIENTS 02
-                </span>
+            {/* 칼륨 이미지 및 상단 배지 */}
+            <div className="w-full md:w-1/2 flex flex-col items-start gap-2.5 shrink-0 select-none">
+              <span className="text-[10px] text-[#D9B76A] font-bold tracking-wider uppercase font-sans">
+                INGREDIENTS 02
+              </span>
+              <div className="w-full aspect-[1.1] relative rounded-[24px] overflow-hidden bg-white shadow-sm">
+                <Image
+                  src="/images/potassium.jpg"
+                  alt="포타슘 칼륨 원물"
+                  fill
+                  sizes="(max-w-768px) 100vw, 450px"
+                  className="object-cover transition-transform duration-700 hover:scale-101"
+                />
               </div>
             </div>
             {/* 칼륨 설명 */}
