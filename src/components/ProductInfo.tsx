@@ -12,26 +12,26 @@ export default function ProductInfo({ variant }: ProductInfoProps) {
     a: {
       ingredients: "식물성 멜라토닌 2mg + 글루콘산 마그네슘 600mg",
       intention: "밤 루틴 중심 설계 (릴랙싱 및 편안함 공급)",
-      usage: "중요한 일정을 앞둔 밤, 뒤척임 없는 깊은 힐링이 필요할 때",
-      bgColor: "bg-[#f4f3f6] border-[#e1dee5]",
+      usage: "잠들기 전 편안한 휴식",
+      bgColor: "bg-white",
       textColor: "text-[#292541]",
-      tagColor: "bg-[#e2e1e7] text-[#292541]"
+      tagColor: "bg-[#292541]/5 text-[#292541]"
     },
     b: {
-      ingredients: "칼륨 300mg + 국산 호박 추출물 500mg",
+      ingredients: "칼륨 300mg + 국산 호박 500mg",
       intention: "아침 컨디션 중심 설계 (순환 및 수분 균형 관리)",
-      usage: "자고 일어난 후 무거운 몸을 비우고 가볍게 아침을 시작할 때",
-      bgColor: "bg-[#f3f4f0] border-[#dfe2d9]",
-      textColor: "text-[#4c5c43]",
-      tagColor: "bg-[#dfe2d9] text-[#4c5c43]"
+      usage: "중요한 아침 가벼운 시작",
+      bgColor: "bg-white",
+      textColor: "text-[#292541]",
+      tagColor: "bg-[#292541]/5 text-[#292541]"
     },
     ab: {
       ingredients: "밤의 휴식(멜라토닌+마그네슘) + 아침의 가벼움(칼륨+호박)",
       intention: "한 포 루틴 설계 (2-in-1 올인원 더블 케어)",
-      usage: "밤새 편안한 휴식과 아침의 개운한 순환을 한 포로 케어할 때",
-      bgColor: "bg-[#f6f5f8] border-[#e2e1e7]",
-      textColor: "text-brand-primary",
-      tagColor: "bg-brand-primary/10 text-brand-primary"
+      usage: "올인원 이중 케어",
+      bgColor: "bg-white",
+      textColor: "text-[#292541]",
+      tagColor: "bg-[#292541]/5 text-[#292541]"
     }
   };
 
@@ -84,80 +84,83 @@ export default function ProductInfo({ variant }: ProductInfoProps) {
   }
 
   return (
-    <section className="px-5 py-16 bg-warm-cream">
+    <section className="px-5 py-24 bg-[#F8F8FB]">
       <div className="max-w-md mx-auto md:max-w-2xl">
-        <h2 className="text-xl font-black text-neutral-900 text-center mb-2 md:text-3xl tracking-tight leading-snug">
+        {/* 섹션 서브 타이틀 */}
+        <span className="text-xs font-semibold tracking-wider text-[#292541] uppercase text-center block mb-3">
+          PRODUCT INGREDIENTS
+        </span>
+        {/* 섹션 타이틀 (Section Title: 22~24px, Weight 600) */}
+        <h2 className="text-22px md:text-24px font-semibold text-[#111827] text-center mb-2 tracking-tight leading-snug">
           V Night 제품 상세 구성
         </h2>
-        <p className="text-xs text-neutral-400 text-center mb-8 leading-relaxed max-w-xs mx-auto">
+        {/* 세부 캡션 */}
+        <p className="text-13px text-[#6B7280] text-center mb-12 leading-relaxed max-w-xs mx-auto font-normal">
           밤의 편안함과 아침의 가벼움을 동시에 관리하는<br />
           V Night의 엄선된 핵심 성분과 패키지 스펙을 소개합니다.
         </p>
 
-        {/* 1. 성분 배합 설계 논리 영역 (Dynamic Logic Card) */}
-        <div className={`mb-10 p-5.5 rounded-2xl border ${currentLogic.bgColor} shadow-[0_4px_20px_rgba(12,14,40,0.02)]`}>
-          <h3 className="text-xs font-black text-neutral-800 tracking-wider mb-4 flex items-center gap-1.5 justify-center sm:justify-start">
-            <span className="w-1.5 h-3.5 bg-brand-primary rounded-full" />
+        {/* 1. 성분 배합 설계 논리 영역 (Dynamic Logic Card - Card: 12~16px, Shadow: D2C 표준) */}
+        <div className={`mb-12 p-6 rounded-[16px] border border-neutral-200/50 ${currentLogic.bgColor} shadow-premium`}>
+          <h3 className="text-xs font-semibold text-[#111827] tracking-wider mb-5 flex items-center gap-2 justify-center sm:justify-start">
+            <span className="w-1.5 h-3.5 bg-[#292541] rounded-[2px]" />
             V Night 포지셔닝 설계 배합 원칙
           </h3>
 
-          <div className="flex flex-col gap-3.5 sm:flex-row sm:items-stretch sm:justify-between items-center sm:gap-2">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-stretch sm:justify-between items-center sm:gap-2">
             {/* Step 1: 원료 */}
-            <div className="flex-1 text-center sm:text-left bg-white p-3.5 rounded-xl border border-neutral-100 shadow-sm/5 w-full flex flex-col justify-center">
-              <span className="text-[8px] font-black text-neutral-400 uppercase tracking-wider block mb-1">01. 핵심 성분 조합</span>
-              <p className="text-xs font-extrabold text-neutral-900 leading-snug">{currentLogic.ingredients}</p>
+            <div className="flex-1 text-center sm:text-left bg-[#F8F8FB] p-4 rounded-[12px] border border-neutral-200/40 w-full flex flex-col justify-center min-h-[96px]">
+              <span className="text-[10px] font-semibold text-[#6B7280] uppercase tracking-wider block mb-1.5">01. 핵심 성분 조합</span>
+              <p className="text-13px font-bold text-[#111827] leading-snug">{currentLogic.ingredients}</p>
             </div>
 
             {/* 연결 화살표 */}
-            <span className="text-neutral-300 text-base font-bold sm:self-center rotate-90 sm:rotate-0">&rarr;</span>
+            <span className="text-neutral-300 text-lg font-bold sm:self-center rotate-90 sm:rotate-0">&rarr;</span>
 
             {/* Step 2: 설계 의도 */}
-            <div className="flex-1 text-center sm:text-left bg-white p-3.5 rounded-xl border border-neutral-100 shadow-sm/5 w-full flex flex-col justify-center">
-              <span className="text-[8px] font-black text-neutral-400 uppercase tracking-wider block mb-1">02. 설계 의도</span>
-              <p className={`text-xs font-extrabold ${currentLogic.textColor} leading-snug`}>{currentLogic.intention}</p>
+            <div className="flex-1 text-center sm:text-left bg-[#F8F8FB] p-4 rounded-[12px] border border-neutral-200/40 w-full flex flex-col justify-center min-h-[96px]">
+              <span className="text-[10px] font-semibold text-[#6B7280] uppercase tracking-wider block mb-1.5">02. 설계 의도</span>
+              <p className="text-13px font-bold text-[#292541] leading-snug">{currentLogic.intention}</p>
             </div>
 
             {/* 연결 화살표 */}
-            <span className="text-neutral-300 text-base font-bold sm:self-center rotate-90 sm:rotate-0">&rarr;</span>
+            <span className="text-neutral-300 text-lg font-bold sm:self-center rotate-90 sm:rotate-0">&rarr;</span>
 
             {/* Step 3: 사용 상황 */}
-            <div className="flex-1 text-center sm:text-left bg-white p-3.5 rounded-xl border border-neutral-100 shadow-sm/5 w-full flex flex-col justify-center">
-              <span className="text-[8px] font-black text-neutral-400 uppercase tracking-wider block mb-1">03. 추천 사용 상황</span>
-              <p className="text-xs font-extrabold text-neutral-900 leading-snug">{currentLogic.usage}</p>
+            <div className="flex-1 text-center sm:text-left bg-[#F8F8FB] p-4 rounded-[12px] border border-neutral-200/40 w-full flex flex-col justify-center min-h-[96px]">
+              <span className="text-[10px] font-semibold text-[#6B7280] uppercase tracking-wider block mb-1.5">03. 기대 가치</span>
+              <p className="text-13px font-bold text-[#111827] leading-snug">{currentLogic.usage}</p>
             </div>
           </div>
         </div>
 
         {/* 2. 메인 레이아웃: 이미지와 정보 카드 그리드 */}
         <div className="flex flex-col gap-8 md:grid md:grid-cols-5 md:items-start md:gap-8">
-          {/* 이미지 섹션: 원료 플랫레이 고화질 뷰 (2/5) */}
-          <div className="md:col-span-2 relative aspect-[4/5] w-full rounded-2xl overflow-hidden bg-white border border-neutral-150 shadow-premium group">
+          {/* 이미지 섹션: 원료 플랫레이 고화질 뷰 (2/5) — Image: 16px, shadow 제한 */}
+          <div className="md:col-span-2 relative aspect-[4/5] w-full rounded-[16px] overflow-hidden bg-white border border-neutral-200/30 shadow-premium group">
             <Image
               src="/images/ingredients_flatlay.jpg"
               alt="V Night Ingredients Flatlay"
               fill
               sizes="(max-w-768px) 100vw, 250px"
-              className="object-cover transition-transform duration-700 group-hover:scale-102"
+              className="object-cover transition-transform duration-500 group-hover:scale-102"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent flex flex-col justify-end p-4">
-              <span className="text-white font-extrabold text-xs">V Night 주원료 및 부원료</span>
-              <span className="text-white/80 text-[9px] mt-0.5">식물성 멜라토닌 및 자연 추출 성분 flatlay</span>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent flex flex-col justify-end p-5">
+              <span className="text-white font-bold text-xs">V Night 주원료 및 부원료</span>
+              <span className="text-white/80 text-[10px] mt-1 font-normal">식물성 멜라토닌 및 자연 추출 성분 flatlay</span>
             </div>
           </div>
 
-          {/* 스펙 리스트 섹션: borderless 가로선 표 구조 (3/5) */}
-          <div className="md:col-span-3 bg-white rounded-2xl border border-neutral-100 p-5 shadow-sm divide-y divide-neutral-100">
+          {/* 스펙 리스트 섹션: borderless 가로선 표 구조 (3/5) — Card: 12~16px */}
+          <div className="md:col-span-3 bg-white rounded-[16px] border border-neutral-200/50 p-6 shadow-premium divide-y divide-neutral-100">
             {specs.map((item) => (
               <div
                 key={item.label}
-                className="py-3.5 flex items-center justify-between gap-4 first:pt-0 last:pb-0"
+                className="py-4 flex items-center justify-between gap-4 first:pt-0 last:pb-0"
               >
-                <div className="flex items-center gap-3 min-w-0">
+                <div className="flex items-center gap-3.5 min-w-0">
                   <span 
-                    className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 border text-base
-                               ${item.isHighlighted 
-                                 ? "bg-brand-surface text-brand-primary border-brand-primary/10" 
-                                 : "bg-neutral-50 text-neutral-500 border-neutral-100"}`}
+                    className="w-8 h-8 rounded-[12px] bg-[#F8F8FB] text-[#292541] border border-neutral-200/50 flex items-center justify-center shrink-0 text-base"
                     role="img"
                     aria-label={item.label}
                   >
@@ -165,22 +168,22 @@ export default function ProductInfo({ variant }: ProductInfoProps) {
                   </span>
                   <div className="min-w-0">
                     <div className="flex items-center gap-1.5 flex-wrap">
-                      <span className="font-extrabold text-neutral-800 text-xs sm:text-[13px]">
+                      <span className="font-bold text-[#111827] text-13px sm:text-[14px]">
                         {item.label}
                       </span>
                       {item.tag && (
-                        <span className={`px-1.5 py-0.2 rounded ${currentLogic.tagColor} text-[8px] font-black tracking-tight`}>
+                        <span className={`px-2 py-0.5 rounded-[12px] ${currentLogic.tagColor} text-[9px] font-bold tracking-tight`}>
                           {item.tag}
                         </span>
                       )}
                     </div>
-                    <p className="text-[10px] text-neutral-400 mt-0.5 leading-normal truncate max-w-[200px] sm:max-w-xs">
+                    <p className="text-[11px] text-[#6B7280] mt-1 leading-normal truncate max-w-[200px] sm:max-w-xs font-normal">
                       {item.desc}
                     </p>
                   </div>
                 </div>
                 <div className="text-right shrink-0">
-                  <span className="text-neutral-950 font-black text-xs sm:text-[13px] tracking-tight block">
+                  <span className="text-[#111827] font-bold text-13px sm:text-[14px] tracking-tight block">
                     {item.value}
                   </span>
                 </div>
@@ -189,57 +192,59 @@ export default function ProductInfo({ variant }: ProductInfoProps) {
           </div>
         </div>
 
-        {/* 3. 제형 소개 블록 (Texture Detail) */}
-        <div className="mt-8 p-5 rounded-2xl border border-neutral-100 bg-white shadow-sm flex flex-col sm:flex-row items-center gap-5">
-          <div className="w-full sm:w-[140px] aspect-[4/3] sm:aspect-square relative rounded-xl overflow-hidden shrink-0 border border-neutral-100">
+        {/* 3. 제형 소개 블록 (Texture Detail) — Image/Card: 16px, Button: 12px */}
+        <div className="mt-8 p-6 rounded-[16px] border border-neutral-200/50 bg-white shadow-premium flex flex-col sm:flex-row items-center gap-6">
+          <div className="w-full sm:w-[150px] aspect-[4/3] sm:aspect-square relative rounded-[16px] overflow-hidden shrink-0 border border-neutral-200/30">
             <Image
               src="/images/jelly_texture.jpg"
               alt="V Night Jelly Texture"
               fill
-              sizes="(max-w-768px) 100vw, 140px"
+              sizes="(max-w-768px) 100vw, 150px"
               className="object-cover"
             />
           </div>
           <div className="flex-1 text-center sm:text-left">
-            <span className="text-[9px] font-black bg-brand-primary/10 text-brand-primary px-2 py-0.5 rounded-full inline-block mb-1.5">제형 특징</span>
-            <h4 className="font-extrabold text-neutral-950 text-xs sm:text-sm mb-1.5">
+            <span className="text-[10px] font-bold bg-[#292541]/5 text-[#292541] px-2.5 py-1 rounded-[12px] inline-block mb-2.5">
+              제형 특징
+            </span>
+            <h4 className="font-bold text-[#111827] text-sm sm:text-15px mb-2">
               물 없이 상큼하고 간편하게 씹어먹는 스틱 젤리
             </h4>
-            <p className="text-[11px] text-neutral-500 leading-relaxed">
+            <p className="text-13px text-[#6B7280] leading-relaxed font-normal">
               알약 섭취의 불편함과 쓴 약초의 단점을 해결했습니다. {variant === "a" ? "상큼한 샤인머스캣맛" : variant === "b" ? "달콤한 포도맛" : "상큼한 샤인머스캣맛과 달콤한 포도맛"}의 쫀득한 젤리 제형으로, 자기 전 침대 옆에서 기분 좋은 마지막 디저트처럼 물 없이 맛있게 챙기실 수 있습니다.
             </p>
           </div>
         </div>
 
-        {/* 4. D2C 상세 고시 테이블 */}
-        <div className="mt-8 p-5 rounded-2xl border border-neutral-100 bg-white shadow-sm">
-          <h3 className="text-xs font-black text-neutral-800 uppercase tracking-wider mb-3 pb-2 border-b border-neutral-100 flex items-center gap-1.5">
-            <span className="w-1 h-3 bg-brand-primary rounded-full" />
+        {/* 4. D2C 상세 고시 테이블 — Card: 12~16px */}
+        <div className="mt-8 p-6 rounded-[16px] border border-neutral-200/50 bg-white shadow-premium">
+          <h3 className="text-xs font-bold text-[#111827] uppercase tracking-wider mb-4 pb-2 border-b border-neutral-200/60 flex items-center gap-2">
+            <span className="w-1.5 h-3.5 bg-[#292541] rounded-[2px]" />
             제품 기본 표시 정보
           </h3>
-          <div className="grid grid-cols-2 gap-x-4 gap-y-3.5 text-[10px] sm:text-[11px] text-neutral-500">
+          <div className="grid grid-cols-2 gap-x-4 gap-y-4 text-13px text-[#6B7280] font-normal">
             <div>
-              <span className="font-bold text-neutral-700 block mb-0.5">제품명</span>
+              <span className="font-semibold text-[#111827] block mb-0.5">제품명</span>
               V Night (브이 나잇)
             </div>
             <div>
-              <span className="font-bold text-neutral-700 block mb-0.5">식품 유형</span>
+              <span className="font-semibold text-[#111827] block mb-0.5">식품 유형</span>
               기타가공품 (스틱 젤리)
             </div>
             <div>
-              <span className="font-bold text-neutral-700 block mb-0.5">내용량 및 칼로리</span>
+              <span className="font-semibold text-[#111827] block mb-0.5">내용량 및 칼로리</span>
               280g (20g x 14포 / 1포당 70 kcal)
             </div>
             <div>
-              <span className="font-bold text-neutral-700 block mb-0.5">섭취량 및 섭취방법</span>
+              <span className="font-semibold text-[#111827] block mb-0.5">섭취량 및 섭취방법</span>
               1일 1회, 1회 1포를 씹어서 섭취
             </div>
             <div>
-              <span className="font-bold text-neutral-700 block mb-0.5">제조 및 생산 관리</span>
+              <span className="font-semibold text-[#111827] block mb-0.5">제조 및 생산 관리</span>
               HACCP 및 GMP 위생 관리 기준 시설 매칭 제조 예정
             </div>
             <div>
-              <span className="font-bold text-neutral-700 block mb-0.5">보관 방법</span>
+              <span className="font-semibold text-[#111827] block mb-0.5">보관 방법</span>
               고온다습한 곳을 피하여 실온 보관
             </div>
           </div>

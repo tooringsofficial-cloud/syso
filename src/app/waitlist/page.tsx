@@ -117,15 +117,15 @@ function WaitlistContent() {
   // ----------------------------------------------------------
   if (submitted) {
     return (
-      <div className="min-h-screen flex flex-col bg-white">
+      <div className="min-h-screen flex flex-col bg-[#F8F8FB]">
         <Header showCta={false} />
-        <main className="flex-1 flex items-center justify-center px-5 py-20 bg-warm-cream">
-          <div className="max-w-sm text-center p-8 rounded-3xl bg-white border border-neutral-200/50 shadow-premium">
+        <main className="flex-1 flex items-center justify-center px-5 py-20 bg-[#F8F8FB]">
+          <div className="max-w-sm text-center p-8 rounded-[16px] bg-white border border-neutral-200/50 shadow-premium">
             <span className="text-5xl mb-6 block">🎉</span>
-            <h1 className="text-xl font-bold text-neutral-900 mb-3">
+            <h1 className="text-xl font-bold text-[#111827] mb-3">
               사전 신청이 완료되었습니다
             </h1>
-            <p className="text-xs text-neutral-500 leading-relaxed">
+            <p className="text-xs text-[#6B7280] leading-relaxed font-normal">
               출시 시 입력하신 연락처로 프로모션 혜택을 안내해 드리겠습니다.
               <br />
               관심을 가져주셔서 감사합니다.
@@ -137,45 +137,45 @@ function WaitlistContent() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-white">
+    <div className="min-h-screen flex flex-col bg-[#F8F8FB]">
       <Header showCta={false} />
-      <main className="flex-1 bg-warm-cream">
+      <main className="flex-1 bg-[#F8F8FB]">
         {/* 상단 안내 */}
         <section className="px-5 pt-12 pb-6 text-center max-w-sm mx-auto">
-          <span className="text-xs font-bold tracking-wider text-brand-primary uppercase mb-2 block">
+          <span className="text-xs font-semibold tracking-wider text-[#292541] uppercase mb-2.5 block">
             PRE-LAUNCHING
           </span>
-          <h1 className="text-lg font-bold text-neutral-900 mb-2 md:text-xl">
+          <h1 className="text-lg font-bold text-[#111827] mb-2.5 md:text-xl">
             사전 의견 등록 및 알림 신청
           </h1>
-          <p className="text-xs text-neutral-500 leading-relaxed">
+          <p className="text-xs text-[#6B7280] leading-relaxed font-normal">
             현재 제품은 개발 마무리 단계에 있습니다.<br />
             아래 간단한 설문에 응답해주시면 출시 알림 및 선런칭 혜택을 우선적으로 제공해 드리겠습니다.
           </p>
         </section>
 
 
-      {/* 가격 정보 */}
+      {/* 가격 정보 (Coupon: 12px) */}
       <section className="px-5 pb-8">
-        <div className="max-w-sm mx-auto p-5 rounded-2xl bg-neutral-50 border border-neutral-200/60 text-center">
-          <p className="text-xs text-neutral-400 mb-1">예상 출시 가격</p>
+        <div className="max-w-sm mx-auto p-5 rounded-[12px] bg-white border border-neutral-200/60 text-center shadow-premium">
+          <p className="text-xs text-[#6B7280] mb-1 font-normal">예상 출시 가격</p>
           <div className="flex items-center justify-center gap-3">
-            <span className="text-neutral-400 line-through text-sm">
+            <span className="text-[#6B7280] line-through text-sm font-normal">
               정가 28,000원
             </span>
-            <span className="text-brand-primary font-bold text-xl">
+            <span className="text-[#292541] font-bold text-xl">
               19,600원
             </span>
           </div>
-          <p className="text-xs text-brand-primary/70 mt-1.5">
+          <p className="text-xs text-[#D9B76A] font-semibold mt-1.5">
             출시 초기 프로모션 예정가
           </p>
         </div>
       </section>
 
-      {/* Tally 설문 임베드 */}
+      {/* Tally 설문 임베드 (Image/Iframe Wrapper: 16px) */}
       <section className="px-5 pb-8">
-        <div className="max-w-lg mx-auto rounded-2xl overflow-hidden border border-neutral-200/60 bg-white">
+        <div className="max-w-lg mx-auto rounded-[16px] overflow-hidden border border-neutral-200/60 bg-white shadow-premium">
           <iframe
             src={tallyUrl}
             width="100%"
@@ -187,23 +187,23 @@ function WaitlistContent() {
         </div>
       </section>
 
-      {/* 리드 수집 폼 — 설문 완료 후 노출 */}
+      {/* 리드 수집 폼 — 설문 완료 후 노출 (Card: 16px, Button: 12px) */}
       {surveyDone && (
         <section className="px-5 pb-14 animate-in fade-in slide-in-from-bottom-4 duration-500">
           <form
             onSubmit={handleSubmit}
-            className="max-w-sm mx-auto p-6 rounded-2xl bg-brand-surface/50 border border-brand-primary/10"
+            className="max-w-sm mx-auto p-6 rounded-[16px] bg-white border border-neutral-200/50 shadow-premium"
           >
-            <h2 className="text-lg font-bold text-neutral-900 mb-1 text-center">
+            <h2 className="text-lg font-bold text-[#111827] mb-1.5 text-center">
               출시 시 우선 안내 신청
             </h2>
-            <p className="text-xs text-neutral-500 mb-6 text-center">
+            <p className="text-xs text-[#6B7280] mb-6 text-center font-normal">
               출시 초기 프로모션 혜택을 안내해 드릴 예정입니다.
             </p>
 
             {/* 이메일 (필수) */}
             <label className="block mb-4">
-              <span className="text-sm font-medium text-neutral-700">
+              <span className="text-sm font-medium text-[#111827]">
                 이메일 <span className="text-red-500">*</span>
               </span>
               <input
@@ -212,38 +212,38 @@ function WaitlistContent() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="example@email.com"
-                className="mt-1.5 w-full px-4 py-3 rounded-xl border border-neutral-200 bg-white text-sm
-                           focus:outline-none focus:ring-2 focus:ring-brand-primary/30 focus:border-brand-primary
-                           placeholder:text-neutral-300"
+                className="mt-1.5 w-full px-4 py-3 rounded-[12px] border border-neutral-200 bg-white text-sm
+                           focus:outline-none focus:ring-2 focus:ring-[#292541]/30 focus:border-[#292541]
+                           placeholder:text-neutral-300 font-normal"
               />
             </label>
 
             {/* 휴대폰 (선택) */}
             <label className="block mb-4">
-              <span className="text-sm font-medium text-neutral-700">
-                휴대폰 번호 <span className="text-neutral-400 text-xs">(선택)</span>
+              <span className="text-sm font-medium text-[#111827]">
+                휴대폰 번호 <span className="text-[#6B7280] text-xs font-normal">(선택)</span>
               </span>
               <input
                 type="tel"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 placeholder="010-0000-0000"
-                className="mt-1.5 w-full px-4 py-3 rounded-xl border border-neutral-200 bg-white text-sm
-                           focus:outline-none focus:ring-2 focus:ring-brand-primary/30 focus:border-brand-primary
-                           placeholder:text-neutral-300"
+                className="mt-1.5 w-full px-4 py-3 rounded-[12px] border border-neutral-200 bg-white text-sm
+                           focus:outline-none focus:ring-2 focus:ring-[#292541]/30 focus:border-[#292541]
+                           placeholder:text-neutral-300 font-normal"
               />
             </label>
 
             {/* 개인정보 동의 */}
-            <label className="flex items-start gap-2.5 mb-6 cursor-pointer">
+            <label className="flex items-start gap-2.5 mb-6 cursor-pointer select-none">
               <input
                 type="checkbox"
                 checked={agreed}
                 onChange={(e) => setAgreed(e.target.checked)}
-                className="mt-0.5 h-4 w-4 rounded border-neutral-300 text-brand-primary 
-                           focus:ring-brand-primary/30 accent-brand-primary"
+                className="mt-0.5 h-4 w-4 rounded border-neutral-300 text-[#292541] 
+                           focus:ring-[#292541]/30 accent-[#292541]"
               />
-              <span className="text-xs text-neutral-500 leading-relaxed">
+              <span className="text-xs text-[#6B7280] leading-relaxed font-normal">
                 출시 알림 및 프로모션 안내 목적의 개인정보 수집·이용에 동의합니다.
                 <span className="text-red-500"> *</span>
               </span>
@@ -252,10 +252,10 @@ function WaitlistContent() {
             <button
               type="submit"
               disabled={!email || !agreed}
-              className="w-full py-3.5 rounded-xl bg-brand-primary text-white font-semibold text-sm
-                         transition-all duration-200 active:scale-[0.97] hover:bg-brand-primary-light
+              className="w-full py-3.5 rounded-[12px] bg-[#292541] hover:bg-[#1F1C33] text-white font-bold text-sm
+                         transition-all duration-200 active:scale-[0.98]
                          disabled:opacity-40 disabled:cursor-not-allowed
-                         shadow-[0_4px_14px_rgba(67,56,202,0.25)]"
+                         shadow-[0_2px_8px_rgba(41,37,65,0.04)]"
             >
               사전 신청 완료하기
             </button>
@@ -265,7 +265,7 @@ function WaitlistContent() {
 
       </main>
       {/* 풋터 */}
-      <footer className="py-8 text-center text-xs text-neutral-400 border-t border-neutral-100 bg-neutral-50/50">
+      <footer className="py-8 text-center text-xs text-[#6B7280] border-t border-neutral-200/50 bg-[#F8F8FB] font-normal">
         <p>© {new Date().getFullYear()} SYSO. 본 페이지는 수요 검증 목적으로 운영됩니다.</p>
       </footer>
     </div>

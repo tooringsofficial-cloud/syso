@@ -134,7 +134,7 @@ export default function LandingContainer({ data }: LandingContainerProps) {
   // Render
   // ----------------------------------------------------------
   return (
-    <div className="min-h-screen flex flex-col bg-white">
+    <div className="min-h-screen flex flex-col bg-[#F8F8FB]">
       {/* 1. 상단 고정 헤더 - location은 hero로 집계 */}
       <Header showCta={true} onCtaClick={() => handleCtaClick("hero")} />
 
@@ -172,22 +172,22 @@ export default function LandingContainer({ data }: LandingContainerProps) {
           <Concept data={data.concept} variant={data.variant} />
         </div>
 
-        {/* 7. 중간 CTA 배너 (Concept 학습 후 전환 기회 제공) */}
-        <section className="px-5 py-14 bg-brand-surface/70 border-y border-neutral-200/40 text-center">
+        {/* 7. 중간 CTA 배너 (Concept 학습 후 전환 기회 제공 - SaaS 테두리 박스 걷어냄) */}
+        <section className="px-5 py-16 bg-white border-y border-neutral-200/50 text-center">
           <div className="max-w-md mx-auto">
-            <h3 className="font-extrabold text-neutral-900 text-lg mb-2 leading-snug tracking-tight">
+            <h3 className="font-semibold text-[#111827] text-lg mb-2.5 leading-snug tracking-tight">
               중요한 전날 밤 뒤척임과 다음 날 아침 고민,<br />
               V Night로 간편하게 관리해 보세요.
             </h3>
-            <p className="text-xs text-neutral-500 mb-6">
+            <p className="text-13px text-[#6B7280] mb-7 font-normal">
               출시 프로모션 혜택이 적용되는 알림 신청은 10초 만에 완료됩니다.
             </p>
             <button
               type="button"
               onClick={() => handleCtaClick("mid")}
-              className="py-3 px-8 rounded-xl bg-brand-primary text-white font-bold text-sm
-                         transition-all duration-200 active:scale-[0.97] hover:bg-brand-primary-light hover:shadow-premium
-                         shadow-[0_4px_12px_rgba(41,37,65,0.15)] cursor-pointer"
+              className="py-3.5 px-8 rounded-[12px] bg-[#292541] text-white font-bold text-sm
+                         transition-all duration-200 active:scale-[0.98] hover:bg-[#1F1C33]
+                         shadow-[0_2px_8px_rgba(41,37,65,0.04)] cursor-pointer"
             >
               얼리액세스 알림 신청하기
             </button>
@@ -201,9 +201,9 @@ export default function LandingContainer({ data }: LandingContainerProps) {
         <CTAButton data={data.cta} onCtaClick={() => handleCtaClick("bottom")} />
 
         {/* SNS 채널 섹션 */}
-        <section className="px-5 py-8 bg-neutral-50 border-t border-neutral-100 text-center">
+        <section className="px-5 py-10 bg-white border-t border-neutral-200/50 text-center">
           <div className="max-w-md mx-auto">
-            <span className="text-[9px] font-black tracking-widest text-brand-primary uppercase block mb-1.5">
+            <span className="text-[10px] font-bold tracking-widest text-[#292541] uppercase block mb-2">
               INSTAGRAM
             </span>
             <a
@@ -211,8 +211,8 @@ export default function LandingContainer({ data }: LandingContainerProps) {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => analytics.trackSocialClick("instagram")}
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white border border-neutral-200/50 shadow-sm
-                         text-xs font-extrabold text-neutral-800 transition-all duration-200 hover:border-brand-primary/20 hover:shadow-premium"
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-[12px] bg-[#F8F8FB] border border-neutral-200/50 shadow-premium
+                         text-xs font-bold text-[#111827] transition-all duration-200 hover:border-[#292541]/20"
             >
               <span className="text-sm">📸</span>
               <span>SYSO 매거진 @syso.mag 팔로우</span>
@@ -222,13 +222,12 @@ export default function LandingContainer({ data }: LandingContainerProps) {
         </section>
 
         {/* 풋터 */}
-        <footer className="py-8 text-center text-xs text-neutral-400 border-t border-neutral-100 bg-neutral-50/50">
+        <footer className="py-8 text-center text-xs text-[#6B7280] border-t border-neutral-200/50 bg-[#F8F8FB] font-normal">
           <p>© {new Date().getFullYear()} SYSO. 본 페이지는 수요 검증 목적으로 운영됩니다.</p>
         </footer>
       </main>
 
-
-      {/* 10. 플로팅 하단 CTA 바 (Sticky Bottom CTA Bar) */}
+      {/* 10. 플로팅 하단 CTA 바 (Sticky Bottom CTA Bar - Radius 12px, shadow D2C 규격) */}
       <div
         className={`fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-t border-neutral-200/50 
                    transition-all duration-300 transform
@@ -237,19 +236,19 @@ export default function LandingContainer({ data }: LandingContainerProps) {
         <div className="max-w-md mx-auto px-5 py-3.5 flex items-center justify-between gap-4 md:max-w-2xl pb-[calc(0.85rem+env(safe-area-inset-bottom,0px))]">
           <div className="flex flex-col">
             <div className="flex items-center gap-1.5">
-              <span className="text-[9px] bg-brand-primary/10 text-brand-primary font-bold px-1 rounded">30% OFF</span>
-              <span className="text-[10px] text-neutral-400 line-through">예상가 {data.cta.priceOriginal}</span>
+              <span className="text-[9px] bg-[#D9B76A]/20 text-[#292541] font-bold px-2 py-0.5 rounded-[12px]">30% OFF</span>
+              <span className="text-[10px] text-[#6B7280] line-through font-normal">예상가 {data.cta.priceOriginal}</span>
             </div>
-            <span className="text-sm font-extrabold text-neutral-900 leading-none mt-1">
+            <span className="text-sm font-bold text-[#111827] leading-none mt-1.5">
               {data.cta.pricePromo}
             </span>
           </div>
           <button
             type="button"
             onClick={() => handleCtaClick("sticky")}
-            className="flex-grow max-w-[200px] py-3 px-4 rounded-xl bg-brand-primary text-white font-bold text-xs sm:text-sm
-                       transition-all duration-200 active:scale-[0.97] hover:bg-brand-primary-light hover:shadow-premium
-                       shadow-[0_4px_12px_rgba(41,37,65,0.18)] text-center cursor-pointer"
+            className="flex-grow max-w-[200px] py-3.5 px-4 rounded-[12px] bg-[#292541] text-white font-bold text-xs sm:text-sm
+                       transition-all duration-200 active:scale-[0.98] hover:bg-[#1F1C33]
+                       shadow-[0_2px_8px_rgba(41,37,65,0.04)] text-center cursor-pointer"
           >
             출시 알림 신청
           </button>
@@ -258,5 +257,3 @@ export default function LandingContainer({ data }: LandingContainerProps) {
     </div>
   );
 }
-
-

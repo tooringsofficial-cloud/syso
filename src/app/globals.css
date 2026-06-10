@@ -1,90 +1,98 @@
 @import "tailwindcss";
 
 /* ========================================
-   SYSO Design Tokens — D2C Premium Brand
-   Midnight & Calming Lavender Theme
+   SYSO Design Tokens — D2C Premium Wellness Brand
+   Midnight Navy & Soft Gold Theme
    ======================================== */
 
 @theme inline {
-  /* 프리미엄 밤 & 아침 컬러 테마 (티젠 리퍼런스 및 Midnight Navy/Premium Wellness 반영) */
-  --color-brand-primary: #523fbe;
-  --color-brand-primary-light: #6758ce;
-  --color-brand-surface: #f4f3f6;
-  --color-brand-dark: #1b192c;
-  --color-brand-accent: #8c82b1;
+  /* 프리미엄 Midnight Navy 기반의 웰니스 브랜드 테마 */
+  --color-brand-primary: #292541;
+  --color-brand-primary-light: #1F1C33;
+  --color-brand-surface: #FFFFFF;
+  --color-brand-dark: #292541;
+  --color-brand-accent: #D9B76A;
+  --color-brand-bg: #F8F8FB;
 
-  /* 뉴트럴 베이지 & 샌드 크림 (D2C 감성) */
-  --color-neutral-warm: #fafaf9;
-  --color-neutral-50: #fbfbfb;
-  --color-neutral-100: #f3f4f6;
-  --color-neutral-200: #e5e7eb;
-  --color-neutral-300: #d1d5db;
-  --color-neutral-500: #6b7280;
+  /* D2C 건강식품 감성의 차분한 샌드 크림 & 뉴트럴 톤 */
+  --color-neutral-warm: #F8F8FB;
+  --color-neutral-50: #FCFCFD;
+  --color-neutral-100: #F3F4F6;
+  --color-neutral-200: #E5E7EB;
+  --color-neutral-300: #D1D5DB;
+  --color-neutral-500: #6B7280;
   --color-neutral-700: #374151;
-  --color-neutral-800: #1f2937;
+  --color-neutral-800: #1F2937;
   --color-neutral-900: #111827;
 
-  /* 시멘틱 */
-  --color-background: #ffffff;
+  /* 시멘틱 컬러 매칭 */
+  --color-background: #F8F8FB;
   --color-foreground: #111827;
-  --color-muted: #6b7280;
-  --color-border: #f3f4f6;
+  --color-muted: #6B7280;
+  --color-border: #E5E7EB;
 
-  /* 폰트 */
+  /* 폰트 및 타이포그래피 */
   --font-sans: "Pretendard Variable", "Pretendard", -apple-system,
     BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
     "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 }
 
-/* 기본 리셋 */
+/* 기본 리셋 및 가독성 룰 */
 html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
-  background-color: var(--color-background);
+  background-color: var(--color-brand-bg);
 }
 
 body {
   font-family: var(--font-sans);
-  background: var(--color-background);
+  background: var(--color-brand-bg);
   color: var(--color-foreground);
-  line-height: 1.7;
-  letter-spacing: -0.02em;
+  line-height: 1.55;
+  letter-spacing: -0.015em;
   word-break: keep-all;
   overflow-wrap: break-word;
 }
 
-/* 선택 색상 */
+/* 폰트 굵기 제어 (400, 500, 600, 700만 허용) */
+.font-normal { font-weight: 400; }
+.font-medium { font-weight: 500; }
+.font-semibold { font-weight: 600; }
+.font-bold { font-weight: 700; }
+
+/* 선택 영역 디자인 */
 ::selection {
-  background: var(--color-brand-surface);
-  color: var(--color-brand-dark);
+  background: rgba(217, 183, 106, 0.15);
+  color: var(--color-brand-primary);
 }
 
-/* 프리미엄 커스텀 클래스 */
+/* 프리미엄 D2C 유틸리티 클래스 */
 .bg-warm-cream {
   background-color: var(--color-neutral-warm);
 }
 
+/* 프리미엄 D2C 미세 그림자 */
 .shadow-premium {
-  box-shadow: 0 10px 30px -10px rgba(12, 14, 40, 0.04), 0 1px 3px rgba(12, 14, 40, 0.02);
+  box-shadow: 0 2px 8px rgba(41, 37, 65, 0.04);
 }
 
 .shadow-premium-lg {
-  box-shadow: 0 20px 40px -15px rgba(79, 70, 229, 0.07), 0 1px 5px rgba(79, 70, 229, 0.03);
+  box-shadow: 0 4px 12px rgba(41, 37, 65, 0.06);
 }
 
 .border-premium {
-  border: 1px solid rgba(229, 231, 235, 0.5);
+  border: 1px solid var(--color-border);
 }
 
+/* D2C 마이크로 트랜지션 */
 .card-hover-effect {
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .card-hover-effect:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 40px -15px rgba(12, 14, 40, 0.08), 0 1px 5px rgba(12, 14, 40, 0.03);
-  border-color: rgba(79, 70, 229, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(41, 37, 65, 0.06);
+  border-color: rgba(41, 37, 65, 0.1);
 }
-

@@ -1,6 +1,6 @@
 /* ==========================================================
    analytics.ts — 추상화된 트래킹 유틸리티
-   현재: GA4 + Microsoft Clarity
+   현재: GA4 + Microsoft Clarity + Meta Pixel
    향후: PostHog, Mixpanel 등 확장 가능
    ========================================================== */
 
@@ -8,6 +8,14 @@ type ScrollDepth = 50 | 75 | 100;
 
 interface AnalyticsPayload {
   [key: string]: string | number | boolean | undefined;
+}
+
+// ----------------------------------------------------------
+// Device 감지 헬퍼
+// ----------------------------------------------------------
+function getDevice(): "mobile" | "desktop" {
+  if (typeof window === "undefined") return "desktop";
+  return window.innerWidth < 768 ? "mobile" : "desktop";
 }
 
 // ----------------------------------------------------------
@@ -77,8 +85,10 @@ function clarityTag(key: string, value: string) {
 export const analytics = {
   /** 랜딩페이지 page_view */
   trackPageView(variant: string) {
+    const device = getDevice();
     const params = {
       variant,
+      device,
       page_title: typeof document !== "undefined" ? document.title : "",
       page_location: typeof window !== "undefined" ? window.location.href : "",
       page_path: typeof window !== "undefined" ? window.location.pathname : "",
@@ -86,6 +96,7 @@ export const analytics = {
     devLog("page_view", params);
     ga4Event("page_view", params);
     clarityTag("variant", variant);
+    clarityTag("device", device);
     
     // Meta Pixel
     fbEvent("PageView", params);
@@ -93,7 +104,8 @@ export const analytics = {
 
   /** CTA 클릭 — 구매 의향 */
   trackPurchaseIntent(variant: string) {
-    const params = { variant };
+    const device = getDevice();
+    const params = { variant, device };
     devLog("purchase_intent_click", params);
     ga4Event("purchase_intent_click", params);
     
@@ -103,8 +115,10 @@ export const analytics = {
 
   /** Waitlist 페이지 도달 */
   trackWaitlistView(variant: string) {
+    const device = getDevice();
     const params = {
       variant,
+      device,
       page_title: typeof document !== "undefined" ? document.title : "",
       page_location: typeof window !== "undefined" ? window.location.href : "",
       page_path: typeof window !== "undefined" ? window.location.pathname : "",
@@ -118,7 +132,8 @@ export const analytics = {
 
   /** Tally 설문 완료 */
   trackSurveyComplete(variant: string) {
-    const params = { variant };
+    const device = getDevice();
+    const params = { variant, device };
     devLog("survey_complete", params);
     ga4Event("survey_complete", params);
     
@@ -128,9 +143,11 @@ export const analytics = {
 
   /** 스크롤 깊이 */
   trackScrollDepth(depth: ScrollDepth, variant: string) {
+    const device = getDevice();
     const params = { 
       depth, 
       variant,
+      device,
       percent_scrolled: depth 
     };
     devLog(`scroll_${depth}`, params);
@@ -140,21 +157,24 @@ export const analytics = {
 
   /** 이메일 수집 */
   trackEmailCapture(variant: string) {
-    const params = { variant };
+    const device = getDevice();
+    const params = { variant, device };
     devLog("email_capture", params);
     ga4Event("email_capture", params);
   },
 
   /** 전화번호 수집 */
   trackPhoneCapture(variant: string) {
-    const params = { variant };
+    const device = getDevice();
+    const params = { variant, device };
     devLog("phone_capture", params);
     ga4Event("phone_capture", params);
   },
 
   /** CTA 클릭 (위치별 상세 분석) */
   trackCtaClick(variant: string, location: string) {
-    const params = { variant, location };
+    const device = getDevice();
+    const params = { variant, location, device };
     devLog("cta_click", params);
     ga4Event("cta_click", params);
     
@@ -164,18 +184,19 @@ export const analytics = {
 
   /** 주요 섹션 도달 (IntersectionObserver 연동) */
   trackSectionView(variant: string, section: string) {
-    const params = { variant, section };
+    const device = getDevice();
+    const params = { variant, section, device };
     devLog("section_view", params);
     ga4Event("section_view", params);
     
-    // Meta Pixel: view_product_info, view_trust, view_concept 형태로 각각 발송
-    const metaEventName = `view_${section}`;
-    fbEvent(metaEventName, { variant });
+    // Meta Pixel — section_view 통합 이벤트명으로 전송
+    fbEvent("section_view", params);
   },
 
   /** Tally 설문 시작 (첫 입력/상호작용 시작) */
   trackSurveyStart(variant: string) {
-    const params = { variant };
+    const device = getDevice();
+    const params = { variant, device };
     devLog("survey_start", params);
     ga4Event("survey_start", params);
     
@@ -185,7 +206,8 @@ export const analytics = {
 
   /** SNS 링크 클릭 */
   trackSocialClick(platform: string) {
-    const params = { platform };
+    const device = getDevice();
+    const params = { platform, device };
     devLog("social_click", params);
     ga4Event("social_click", params);
   },

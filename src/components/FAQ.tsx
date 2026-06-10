@@ -12,29 +12,29 @@ function FAQItem({ question, answer }: FAQItemProps) {
 
   return (
     <div 
-      className={`border border-neutral-200/30 px-4 py-1.5 my-2.5 rounded-xl transition-all duration-300 ease-in-out
-                 ${isOpen ? "bg-brand-surface/60 border-brand-primary/10 shadow-sm" : "bg-neutral-50/50 hover:bg-neutral-50"}`}
+      className={`border border-neutral-200/50 px-4.5 py-2.5 my-3 rounded-[12px] transition-all duration-200 ease-in-out
+                 ${isOpen ? "bg-[#F8F8FB] border-neutral-300 shadow-premium" : "bg-white hover:bg-[#F8F8FB]"}`}
     >
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex justify-between items-center text-left py-2 font-semibold text-neutral-800 text-sm md:text-base cursor-pointer select-none"
+        className="w-full flex justify-between items-center text-left py-2 font-semibold text-[#111827] text-sm md:text-base cursor-pointer select-none"
       >
-        <span className={`transition-colors duration-200 ${isOpen ? "text-brand-primary font-bold" : "text-neutral-800"}`}>
+        <span className={`transition-colors duration-200 ${isOpen ? "text-[#292541] font-bold" : "text-[#111827]"}`}>
           {question}
         </span>
         <span 
-          className={`text-brand-primary font-bold text-lg transition-transform duration-300 transform shrink-0 ml-4
-                     ${isOpen ? "rotate-45 scale-110" : "rotate-0"}`}
+          className={`text-[#292541] font-bold text-lg transition-transform duration-200 transform shrink-0 ml-4
+                     ${isOpen ? "rotate-45 scale-105" : "rotate-0"}`}
         >
           +
         </span>
       </button>
       <div 
-        className={`overflow-hidden transition-all duration-300 ease-in-out
+        className={`overflow-hidden transition-all duration-200 ease-in-out
                    ${isOpen ? "max-h-40 opacity-100 pb-3" : "max-h-0 opacity-0"}`}
       >
-        <p className="text-xs text-neutral-500 leading-relaxed pr-4 pt-1">
+        <p className="text-13px text-[#6B7280] leading-relaxed pr-4 pt-1.5 font-normal">
           {answer}
         </p>
       </div>
@@ -63,12 +63,12 @@ export default function FAQ() {
   ];
 
   return (
-    <section className="px-5 py-16 bg-white">
+    <section className="px-5 py-24 bg-white">
       <div className="max-w-md mx-auto md:max-w-2xl">
-        <span className="text-xs font-semibold tracking-wider text-brand-primary uppercase text-center block mb-2">
+        <span className="text-xs font-semibold tracking-wider text-[#292541] uppercase text-center block mb-2.5">
           FAQ
         </span>
-        <h2 className="text-xl font-extrabold text-neutral-900 text-center mb-8 md:text-3xl tracking-tight">
+        <h2 className="text-22px md:text-24px font-semibold text-[#111827] text-center mb-10 tracking-tight">
           자주 묻는 질문
         </h2>
 
@@ -85,4 +85,3 @@ export default function FAQ() {
     </section>
   );
 }
-

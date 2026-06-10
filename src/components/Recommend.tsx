@@ -81,42 +81,44 @@ export default function Recommend({ variant }: RecommendProps) {
       : recommendationsAB;
 
   return (
-    <section className="px-6 py-20 bg-white">
+    <section className="px-6 py-24 bg-white">
       <div className="max-w-md mx-auto md:max-w-xl">
         {/* 섹션 서브 타이틀 */}
-        <span className="text-[10px] font-black tracking-widest text-brand-primary uppercase text-center block mb-3">
+        <span className="text-xs font-semibold tracking-wider text-[#292541] uppercase text-center block mb-3">
           RECOMMENDATION
         </span>
-        {/* 섹션 타이틀 */}
-        <h2 className="text-xl font-black text-neutral-900 text-center mb-3 md:text-2xl tracking-tight leading-snug">
+        {/* 섹션 타이틀 (Section Title: 22~24px, Weight 600) */}
+        <h2 className="text-22px md:text-24px font-semibold text-[#111827] text-center mb-3 tracking-tight leading-snug">
           이런 분들께 V Night를 추천합니다
         </h2>
-        <p className="text-xs text-neutral-400 text-center mb-12 leading-relaxed max-w-xs mx-auto">
+        {/* 세부 캡션 */}
+        <p className="text-13px text-[#6B7280] text-center mb-16 leading-relaxed max-w-xs mx-auto font-normal">
           하나라도 해당된다면, 오늘 밤부터 가벼운 아침을 위한<br />
           SYSO V Night 나이트 루틴을 시작할 때입니다.
         </p>
 
-        {/* 매거진 레이아웃 스타일의 슬림 체크리스트 */}
-        <div className="border-t border-neutral-100 divide-y divide-neutral-100">
+        {/* 매거진 레이아웃 스타일의 슬림 체크리스트 (SaaS형 버블 걷어냄) */}
+        <div className="border-t border-neutral-200/60 divide-y divide-neutral-100">
           {recommendations.map((item, idx) => (
             <div
               key={idx}
-              className="py-4.5 flex items-start gap-4 transition-colors duration-200 hover:bg-brand-surface/40 px-2 rounded-lg"
+              className="py-5 flex items-start gap-4 transition-colors duration-150 hover:bg-[#F8F8FB] px-3 rounded-[12px]"
             >
-              {/* 원형 칩 안의 이모지 */}
+              {/* 심플 이모지 인디케이터 (SaaS 둥근 박스 탈피) */}
               <span 
-                className="w-7.5 h-7.5 rounded-full bg-brand-surface text-base flex items-center justify-center shrink-0 border border-brand-primary/5"
+                className="w-8 h-8 rounded-[12px] bg-[#F8F8FB] text-base flex items-center justify-center shrink-0 border border-neutral-200/50"
                 role="img"
                 aria-label="recommendation emoji"
               >
                 {item.emoji}
               </span>
-              <div className="flex-grow pt-0.5">
-                <p className="text-xs sm:text-[13px] font-bold text-neutral-800 leading-relaxed">
+              <div className="flex-grow pt-1.5">
+                {/* 본문 텍스트 (Body: 15~16px, Weight 400~500) */}
+                <p className="text-14px sm:text-15px font-medium text-[#111827] leading-relaxed">
                   {item.text}
                 </p>
               </div>
-              <span className="text-brand-primary font-bold text-sm shrink-0 pt-1">✓</span>
+              <span className="text-[#292541] font-bold text-sm shrink-0 pt-2">✓</span>
             </div>
           ))}
         </div>
