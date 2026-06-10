@@ -79,13 +79,13 @@ export default function ProductInfo({ variant }: ProductInfoProps) {
             </div>
           </div>
 
-          {/* 단호박 섹션 (Morning) */}
+          {/* 칼륨 섹션 (Morning - Potassium Citrate) */}
           <div className="flex flex-col md:flex-row-reverse items-center gap-12 md:gap-16">
-            {/* 단호박 이미지 */}
+            {/* 칼륨 이미지 */}
             <div className="w-full md:w-1/2 aspect-[1.1] relative rounded-[24px] overflow-hidden bg-white shadow-sm shrink-0">
               <Image
-                src="/images/pumpkin.jpg"
-                alt="단호박 원물"
+                src="/images/potassium.jpg"
+                alt="포타슘 칼륨 원물"
                 fill
                 sizes="(max-w-768px) 100vw, 450px"
                 className="object-cover transition-transform duration-700 hover:scale-101"
@@ -94,21 +94,20 @@ export default function ProductInfo({ variant }: ProductInfoProps) {
                 <span className="text-[9px] text-[#292541] font-bold tracking-wider">INGREDIENTS 02</span>
               </div>
             </div>
-            {/* 단호박 설명 */}
+            {/* 칼륨 설명 */}
             <div className="w-full md:w-1/2 flex flex-col items-start">
-
               <h3 className="text-[22px] sm:text-[26px] font-bold text-[#1F1F1F] leading-tight mb-4 text-keep-all">
-                국내산 늙은 호박 추출 분말
+                체내 수분 조율을 돕는 포타슘 칼륨
               </h3>
               <p className="text-stone-500 text-sm sm:text-[15px] leading-relaxed font-normal text-keep-all mb-6">
-                중요한 날 아침의 거울이 더 이상 당황스럽지 않도록, 노폐물을 가볍게 비우고 건강한 체내 순환을 도와주는 100% 국내산 늙은 호박을 500mg 가득 담았습니다.
+                불규칙한 야식과 짠 식습관으로 무너진 전해질 균형을 바로잡을 수 있도록 구연산 칼륨 300mg을 정밀 배합했습니다. 체내 여분의 수분과 전해질 조율을 도와 아침 거울 앞이 언제나 가뿐하도록 지원합니다.
               </p>
-              {/* 칼륨 시너지 설명 */}
+              {/* 호박 시너지 설명 */}
               <div className="border-t border-stone-200/50 pt-5 w-full flex items-start gap-4">
                 <div className="w-16 h-16 relative rounded-xl overflow-hidden shrink-0 border border-stone-200/40 shadow-sm bg-white">
                   <Image
-                    src="/images/potassium.jpg"
-                    alt="포타슘 칼륨 원물"
+                    src="/images/pumpkin.jpg"
+                    alt="단호박 원물"
                     fill
                     sizes="64px"
                     className="object-cover"
@@ -116,10 +115,10 @@ export default function ProductInfo({ variant }: ProductInfoProps) {
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="text-xs font-semibold text-[#292541] mb-1">
-                    💧 칼륨(포타슘 300mg) 전해질 밸런스 설계
+                    🎃 늙은 호박(국내산 늙은 호박 추출 분말 500mg) 시너지 배합
                   </p>
                   <p className="text-[11px] text-stone-400 leading-relaxed font-normal text-keep-all">
-                    불규칙한 야식과 짠 식습관에 균형을 맞춰주는 수분 조율 전해질인 칼륨을 배합하여 가뿐한 라인 형성을 돕습니다.
+                    가벼운 아침의 전례적인 지혜인 100% 국내산 늙은 호박을 부원료로 설계하여 칼륨과 함께 아침의 가벼운 순환 시너지를 더욱 높여줍니다.
                   </p>
                 </div>
               </div>
