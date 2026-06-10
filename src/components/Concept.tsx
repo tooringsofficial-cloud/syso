@@ -11,17 +11,17 @@ export default function Concept({ data, variant }: ConceptProps) {
     {
       title: "100% 식물 유래 핵심 원료",
       desc: "인위적인 합성 원료를 배제하고 자연 유래 식물성 원료(식물성 멜라토닌 등)를 기본으로 안전하게 배합합니다.",
-      emoji: "🌱",
+      image: "/images/cherry.jpg",
     },
     {
       title: "철저한 성분 함량 투명 공개",
       desc: "제품 패키지 뒷면에 모든 주원료와 부원료의 함량을 투명하게 명시하여 언제나 신뢰할 수 있습니다.",
-      emoji: "⚖️",
+      image: "/images/potassium.jpg",
     },
     {
       title: "검증된 제조 시설 생산 추진",
       desc: "엄격한 식품 안전 인증(HACCP/GMP)을 획득한 전문 위생 제조사 매칭을 완료하여 안전하게 생산할 예정입니다.",
-      emoji: "🏭",
+      image: "/images/lab_science.jpg",
     },
   ];
 
@@ -82,27 +82,34 @@ export default function Concept({ data, variant }: ConceptProps) {
             /* Variant A: 수면 중심 비주얼 흐름 */
             <div className="flex flex-col items-center gap-4 max-w-md mx-auto relative py-2">
               <div className="w-full py-4 px-5 rounded-[16px] bg-[#F8F8FB] border border-neutral-200/40 flex items-center gap-4 shadow-premium min-w-0">
-                <span className="text-base w-8 h-8 rounded-[12px] bg-white flex items-center justify-center shrink-0 border border-neutral-200/30 select-none">🌿</span>
+                <div className="w-10 h-10 rounded-[12px] overflow-hidden shrink-0 border border-neutral-200/50 relative select-none">
+                  <Image src="/images/cherry.jpg" alt="체리" fill sizes="40px" className="object-cover" />
+                </div>
                 <div className="text-left min-w-0 flex-1">
                   <span className="text-[10px] font-semibold text-[#292541] uppercase tracking-wider block leading-none mb-1 whitespace-nowrap">01. Ingredient</span>
-                  <h4 className="font-bold text-[#111827] text-caption-custom sm:text-[14px] text-keep-all">식물 유래 멜라토닌 2mg + 마그네슘 600mg</h4>
+                  <h4 className="font-bold text-[#111827] text-caption-custom sm:text-[14px] text-keep-all">식물 유래 멜라토닌 2mg (체리 등 추출)</h4>
                 </div>
               </div>
               
               <span className="text-[#292541] text-base font-bold select-none shrink-0">&darr;</span>
               
               <div className="w-full py-4 px-5 rounded-[16px] bg-[#F8F8FB] border border-neutral-200/40 flex items-center gap-4 shadow-premium min-w-0">
-                <span className="text-base w-8 h-8 rounded-[12px] bg-white flex items-center justify-center shrink-0 border border-neutral-200/30 select-none">📱</span>
+                <div className="w-10 h-10 rounded-[12px] overflow-hidden shrink-0 border border-neutral-200/50 relative select-none bg-white">
+                  <Image src="/images/magnesium.jpg" alt="마그네슘 상징" fill sizes="40px" className="object-cover" />
+                </div>
                 <div className="text-left min-w-0 flex-1">
-                  <span className="text-[10px] font-semibold text-[#292541] uppercase tracking-wider block leading-none mb-1 whitespace-nowrap">02. Situation</span>
-                  <h4 className="font-bold text-[#111827] text-caption-custom sm:text-[14px] text-keep-all">중요한 일정 전날 밤 뒤척임과 긴장 상태</h4>
+                  <span className="text-[10px] font-semibold text-[#292541] uppercase tracking-wider block leading-none mb-1 whitespace-nowrap">02. Ingredient (*상징 이미지)</span>
+                  <h4 className="font-bold text-[#111827] text-caption-custom sm:text-[14px] text-keep-all">글루콘산 마그네슘 600mg (긴장 완화 설계)</h4>
+                  <p className="text-[9px] text-[#6B7280] mt-1 leading-normal text-keep-all">
+                    ※ 원료의 기원을 묘사한 성분 상징 비주얼입니다. 본 제품은 흡수율을 고려하여 안전하게 젤리로 배합된 스틱 젤리 형태의 제품입니다.
+                  </p>
                 </div>
               </div>
               
               <span className="text-[#292541] text-base font-bold select-none shrink-0">&darr;</span>
               
               <div className="w-full py-4.5 px-5 rounded-[16px] bg-[#292541] text-white flex items-center gap-4 shadow-premium min-w-0">
-                <span className="text-base w-8 h-8 rounded-[12px] bg-white/10 flex items-center justify-center shrink-0 select-none">🌙</span>
+                <span className="text-base w-10 h-10 rounded-[12px] bg-white/10 flex items-center justify-center shrink-0 select-none">🌙</span>
                 <div className="text-left min-w-0 flex-1">
                   <span className="text-[10px] text-white/70 uppercase tracking-wider block leading-none mb-1 whitespace-nowrap">03. Routine</span>
                   <h4 className="font-bold text-xs sm:text-[13px] text-keep-all">의존 걱정 없이 부드러운 안착 및 편안한 밤 루틴</h4>
@@ -115,27 +122,34 @@ export default function Concept({ data, variant }: ConceptProps) {
             /* Variant B: 붓기 중심 비주얼 흐름 */
             <div className="flex flex-col items-center gap-4 max-w-md mx-auto relative py-2">
               <div className="w-full py-4 px-5 rounded-[16px] bg-[#F8F8FB] border border-neutral-200/40 flex items-center gap-4 shadow-premium min-w-0">
-                <span className="text-base w-8 h-8 rounded-[12px] bg-white flex items-center justify-center shrink-0 border border-neutral-200/30 select-none">💧</span>
+                <div className="w-10 h-10 rounded-[12px] overflow-hidden shrink-0 border border-neutral-200/50 relative select-none bg-white">
+                  <Image src="/images/potassium.jpg" alt="칼륨 상징" fill sizes="40px" className="object-cover" />
+                </div>
                 <div className="text-left min-w-0 flex-1">
-                  <span className="text-[10px] font-semibold text-[#292541] uppercase tracking-wider block leading-none mb-1 whitespace-nowrap">01. Ingredient</span>
-                  <h4 className="font-bold text-[#111827] text-caption-custom sm:text-[14px] text-keep-all">칼륨 300mg + 국산 늙은 호박 추출물 500mg</h4>
+                  <span className="text-[10px] font-semibold text-[#292541] uppercase tracking-wider block leading-none mb-1 whitespace-nowrap">01. Ingredient (*상징 이미지)</span>
+                  <h4 className="font-bold text-[#111827] text-caption-custom sm:text-[14px] text-keep-all">칼륨 300mg (수분/순환 조율)</h4>
+                  <p className="text-[9px] text-[#6B7280] mt-1 leading-normal text-keep-all">
+                    ※ 원료의 기원을 묘사한 성분 상징 비주얼입니다. 본 제품은 흡수율을 고려하여 안전하게 젤리로 배합된 스틱 젤리 형태의 제품입니다.
+                  </p>
                 </div>
               </div>
               
               <span className="text-[#292541] text-base font-bold select-none shrink-0">&darr;</span>
               
               <div className="w-full py-4 px-5 rounded-[16px] bg-[#F8F8FB] border border-neutral-200/40 flex items-center gap-4 shadow-premium min-w-0">
-                <span className="text-base w-8 h-8 rounded-[12px] bg-white flex items-center justify-center shrink-0 border border-neutral-200/30 select-none">💼</span>
+                <div className="w-10 h-10 rounded-[12px] overflow-hidden shrink-0 border border-neutral-200/50 relative select-none">
+                  <Image src="/images/pumpkin.jpg" alt="늙은 호박" fill sizes="40px" className="object-cover" />
+                </div>
                 <div className="text-left min-w-0 flex-1">
-                  <span className="text-[10px] font-semibold text-[#292541] uppercase tracking-wider block leading-none mb-1 whitespace-nowrap">02. Situation</span>
-                  <h4 className="font-bold text-[#111827] text-caption-custom sm:text-[14px] text-keep-all">소개팅, 면접, 촬영 전날 밤 및 아침 거울 앞 고민</h4>
+                  <span className="text-[10px] font-semibold text-[#292541] uppercase tracking-wider block leading-none mb-1 whitespace-nowrap">02. Ingredient</span>
+                  <h4 className="font-bold text-[#111827] text-caption-custom sm:text-[14px] text-keep-all">국산 늙은 호박 추출물 500mg (아침의 무거움 케어)</h4>
                 </div>
               </div>
               
               <span className="text-[#292541] text-base font-bold select-none shrink-0">&darr;</span>
               
               <div className="w-full py-4.5 px-5 rounded-[16px] bg-[#292541] text-white flex items-center gap-4 shadow-premium min-w-0">
-                <span className="text-base w-8 h-8 rounded-[12px] bg-white/10 flex items-center justify-center shrink-0 select-none">☀️</span>
+                <span className="text-base w-10 h-10 rounded-[12px] bg-white/10 flex items-center justify-center shrink-0 select-none">☀️</span>
                 <div className="text-left min-w-0 flex-1">
                   <span className="text-[10px] text-white/70 uppercase tracking-wider block leading-none mb-1 whitespace-nowrap">03. Routine</span>
                   <h4 className="font-bold text-xs sm:text-[13px] text-keep-all">자신감 넘치는 개운하고 산뜻한 아침 가벼움 시작</h4>
@@ -145,21 +159,39 @@ export default function Concept({ data, variant }: ConceptProps) {
           )}
 
           {variant !== "a" && variant !== "b" && (
-            /* Variant AB: 2-in-1 수렴형 루틴 다이어그램 (반응형 붕괴 완벽 방지: 모바일 세로 1열 -> sm 가로 2열 배치) */
+            /* Variant AB: 2-in-1 수렴형 루틴 다이어그램 */
             <div className="relative py-2 max-w-lg mx-auto w-full">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 relative">
                 {/* 밤 블록 */}
                 <div className="p-5 rounded-[16px] bg-[#F8F8FB] border border-neutral-200/40 flex flex-col items-center text-center shadow-premium min-w-0">
-                  <span className="text-base mb-1.5 select-none">🌙 밤 루틴</span>
+                  <div className="flex gap-2.5 mb-3.5 select-none shrink-0">
+                    <div className="w-9 h-9 rounded-[12px] overflow-hidden border border-neutral-200/50 relative bg-white">
+                      <Image src="/images/cherry.jpg" alt="체리" fill sizes="36px" className="object-cover" />
+                    </div>
+                    <div className="w-9 h-9 rounded-[12px] overflow-hidden border border-neutral-200/50 relative bg-white">
+                      <Image src="/images/magnesium.jpg" alt="마그네슘" fill sizes="36px" className="object-cover" />
+                    </div>
+                  </div>
+                  <span className="text-base mb-1 select-none">🌙 밤 루틴</span>
                   <span className="text-[9px] text-[#292541] font-bold bg-[#D9B76A]/20 px-2.5 py-0.5 rounded-[12px] mb-3 whitespace-nowrap">멜라토닌 + 마그네슘</span>
                   <p className="text-[11px] text-[#6B7280] font-medium leading-relaxed text-keep-all">밤마다 겪는 뒤척임과 긴장을 덜어 편안한 휴식</p>
+                  <span className="text-[8px] text-[#6B7280]/80 mt-2 block leading-normal">※ 마그네슘 이미지는 성분 상징 비주얼입니다.</span>
                 </div>
                 
                 {/* 아침 블록 */}
                 <div className="p-5 rounded-[16px] bg-[#F8F8FB] border border-neutral-200/40 flex flex-col items-center text-center shadow-premium min-w-0">
-                  <span className="text-base mb-1.5 select-none">☀️ 아침 루틴</span>
+                  <div className="flex gap-2.5 mb-3.5 select-none shrink-0">
+                    <div className="w-9 h-9 rounded-[12px] overflow-hidden border border-neutral-200/50 relative bg-white">
+                      <Image src="/images/potassium.jpg" alt="칼륨" fill sizes="36px" className="object-cover" />
+                    </div>
+                    <div className="w-9 h-9 rounded-[12px] overflow-hidden border border-neutral-200/50 relative bg-white">
+                      <Image src="/images/pumpkin.jpg" alt="늙은 호박" fill sizes="36px" className="object-cover" />
+                    </div>
+                  </div>
+                  <span className="text-base mb-1 select-none">☀️ 아침 루틴</span>
                   <span className="text-[9px] text-[#292541] font-bold bg-[#D9B76A]/20 px-2.5 py-0.5 rounded-[12px] mb-3 whitespace-nowrap">칼륨 + 호박</span>
                   <p className="text-[11px] text-[#6B7280] font-medium leading-relaxed text-keep-all">체내 전해질을 조율하여 무거움 없는 개운한 출발</p>
+                  <span className="text-[8px] text-[#6B7280]/80 mt-2 block leading-normal">※ 칼륨 이미지는 성분 상징 비주얼입니다.</span>
                 </div>
               </div>
 
@@ -195,10 +227,16 @@ export default function Concept({ data, variant }: ConceptProps) {
                 key={p.title} 
                 className="flex flex-col text-center sm:text-left min-w-0"
               >
-                <div className="flex items-center justify-center sm:justify-start gap-2.5 mb-2.5 shrink-0">
-                  <span className="w-8 h-8 rounded-[12px] bg-[#F8F8FB] text-[#292541] border border-neutral-200/50 text-sm flex items-center justify-center shrink-0 shadow-premium select-none">
-                    {p.emoji}
-                  </span>
+                <div className="flex items-center justify-center sm:justify-start gap-2.5 mb-3.5 shrink-0">
+                  <div className="w-10 h-10 rounded-[12px] overflow-hidden border border-neutral-200/50 relative shrink-0 shadow-premium select-none bg-[#F8F8FB]">
+                    <Image
+                      src={p.image}
+                      alt={p.title}
+                      fill
+                      sizes="40px"
+                      className="object-cover"
+                    />
+                  </div>
                   <span className="text-[10px] font-bold text-[#292541] select-none">0{idx + 1}</span>
                 </div>
                 <h4 className="font-bold text-[#111827] text-caption-custom sm:text-[13px] mb-2 text-keep-all">{p.title}</h4>

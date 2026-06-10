@@ -64,6 +64,63 @@ export default function DesiredOutcome({ variant, data }: DesiredOutcomeProps) {
               <p className="text-caption-custom text-[#6B7280] leading-relaxed mt-2.5 max-w-md font-normal text-keep-all">
                 {o.desc}
               </p>
+
+              {/* 원물/성분 연계 프리미엄 비주얼 매치 */}
+              {o.title.includes("밤") && (
+                <div className="flex items-center gap-3 mt-3.5 bg-white p-3 rounded-[12px] border border-neutral-200/40 w-max max-w-xs shadow-premium">
+                  <div className="relative w-12 h-12 rounded-[8px] overflow-hidden border border-neutral-200/50 shrink-0 select-none">
+                    <Image
+                      src="/images/cherry.jpg"
+                      alt="밤 릴랙싱 루틴 타트체리 컨셉 원물"
+                      fill
+                      sizes="48px"
+                      className="object-cover"
+                    />
+                  </div>
+                  <div>
+                    <span className="text-[9px] font-bold text-[#292541] block">밤 루틴 서포트 원료</span>
+                    <span className="text-[10px] text-[#6B7280] leading-none block mt-0.5">타트체리 추출 식물성 멜라토닌 배합</span>
+                  </div>
+                </div>
+              )}
+
+              {(o.title.includes("아침") || o.title.includes("가벼운")) && (
+                <div className="flex items-center gap-3 mt-3.5 bg-white p-3 rounded-[12px] border border-neutral-200/40 w-max max-w-xs shadow-premium">
+                  <div className="relative w-12 h-12 rounded-[8px] overflow-hidden border border-neutral-200/50 shrink-0 select-none">
+                    <Image
+                      src="/images/pumpkin.jpg"
+                      alt="아침 붓기 순환 단호박 컨셉 원물"
+                      fill
+                      sizes="48px"
+                      className="object-cover"
+                    />
+                  </div>
+                  <div>
+                    <span className="text-[9px] font-bold text-[#292541] block">아침 순환 서포트 원료</span>
+                    <span className="text-[10px] text-[#6B7280] leading-none block mt-0.5">국내산 늙은 호박 추출물 배합</span>
+                  </div>
+                </div>
+              )}
+
+              {(o.title.includes("컨디션") || o.title.includes("휴식") || o.title.includes("자신감")) && (
+                <div className="flex items-center gap-3 mt-3.5 bg-white p-3 rounded-[12px] border border-neutral-200/40 w-max max-w-xs shadow-premium">
+                  <div className="relative w-12 h-12 rounded-[8px] overflow-hidden border border-neutral-200/50 shrink-0 select-none">
+                    <Image
+                      src={variant === "a" ? "/images/magnesium.jpg" : "/images/potassium.jpg"}
+                      alt="미네랄 상징 이미지"
+                      fill
+                      sizes="48px"
+                      className="object-cover"
+                    />
+                  </div>
+                  <div>
+                    <span className="text-[9px] font-bold text-[#292541] block">성분 설계 서포트 (*상징)</span>
+                    <span className="text-[10px] text-[#6B7280] leading-tight block mt-0.5 max-w-[160px] text-keep-all">
+                      {variant === "a" ? "글루콘산 마그네슘 긴장 완화 설계" : "전해질 수분 균형 조율 칼륨 배합"}
+                    </span>
+                  </div>
+                </div>
+              )}
             </div>
           ))}
         </div>

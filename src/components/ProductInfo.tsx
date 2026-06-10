@@ -44,60 +44,73 @@ export default function ProductInfo({ variant }: ProductInfoProps) {
     : "샤인머스캣맛 · 포도맛";
 
   const specItems = {
-    melatonin: { label: "식물 유래 멜라토닌", value: "2 mg", desc: "편안한 밤 루틴을 채우는 핵심 식물 원료", icon: "🌱" },
-    magnesium: { label: "글루콘산 마그네슘", value: "600 mg", desc: "지친 하루의 긴장을 덜고 몸을 편안하게 돕는 성분", icon: "🍊" },
-    potassium: { label: "칼륨 (포타슘)", value: "300 mg", desc: "가벼운 아침 컨디션을 챙기는 균형 잡힌 배합", icon: "💧" },
-    pumpkin: { label: "국산 호박 추출 분말", value: "500 mg", desc: "불규칙한 식습관 다음 날 가벼운 루틴을 위한 설계", icon: "🎃" },
-    flavor: { label: flavorLabel, value: "스틱젤리 타입", desc: "물 없이 맛있고 탱글하게 간식처럼 섭취", icon: "🍇" },
-    pack: { label: "제품 구성", value: "20g x 14포", desc: "2주일 동안 매일 밤 챙기는 확실한 나이트 루틴", icon: "📦" }
+    melatonin: {
+      label: "식물 유래 멜라토닌",
+      value: "2 mg",
+      desc: "인위적 호르몬 의존 우려 없는 밤 루틴 안심 설계 (타트체리 등 자연 추출)",
+      image: "/images/cherry.jpg",
+      tag: variant === "a" ? "밤 루틴 안심 설계" : variant === "ab" ? "🌙 밤의 휴식 케어" : undefined,
+      isHighlighted: variant === "a" || variant === "ab"
+    },
+    magnesium: {
+      label: "글루콘산 마그네슘",
+      value: "600 mg",
+      desc: "지친 하루 끝 신체 긴장을 차분히 덜고 편안한 밤의 릴렉싱을 돕는 유기태 마그네슘",
+      image: "/images/magnesium.jpg",
+      tag: variant === "a" ? "신체 긴장 완화" : variant === "ab" ? "🌙 밤의 휴식 케어" : undefined,
+      isHighlighted: variant === "a" || variant === "ab",
+      isMineral: true
+    },
+    potassium: {
+      label: "칼륨 (포타슘)",
+      value: "300 mg",
+      desc: "짠 식습관이나 불규칙한 생활 다음 날 아침의 가벼운 컨디션을 지키는 체내 수분 조율 전해질",
+      image: "/images/potassium.jpg",
+      tag: variant === "b" ? "아침 컨디션 중심 설계" : variant === "ab" ? "☀️ 아침의 가벼움 케어" : undefined,
+      isHighlighted: variant === "b" || variant === "ab",
+      isMineral: true
+    },
+    pumpkin: {
+      label: "국산 호박 추출 분말",
+      value: "500 mg",
+      desc: "아침의 무거움을 가볍게 비우고 산뜻한 순환 루틴을 돕는 국내산 자연 늙은 호박 원물 배합",
+      image: "/images/pumpkin.jpg",
+      tag: variant === "b" ? "가벼운 시작 고려 배합" : variant === "ab" ? "☀️ 아침의 가벼움 케어" : undefined,
+      isHighlighted: variant === "b" || variant === "ab"
+    },
+    flavor: {
+      label: flavorLabel,
+      value: "스틱젤리 타입",
+      desc: "물 없이 탱글하고 쫀득하게 즐기는 과일 풍미 젤리 제형으로 기분 좋은 하루의 마지막 디저트",
+      image: "/images/grape.jpg"
+    }
   };
 
-  let specs: ({ label: string; value: string; desc: string; icon: string; tag?: string; isHighlighted?: boolean })[] = [];
-
+  // 원료 노출 순서 및 목록 결정
+  let ingredientsList: ({ label: string; value: string; desc: string; image: string; tag?: string; isHighlighted?: boolean; isMineral?: boolean })[] = [];
   if (variant === "a") {
-    specs = [
-      { ...specItems.melatonin, tag: "밤 루틴 안심 설계", isHighlighted: true },
-      { ...specItems.magnesium, tag: "신체 긴장 완화", isHighlighted: true },
-      { ...specItems.potassium },
-      { ...specItems.pumpkin },
-      { ...specItems.flavor },
-      { ...specItems.pack }
-    ];
+    ingredientsList = [specItems.melatonin, specItems.magnesium, specItems.potassium, specItems.pumpkin, specItems.flavor];
   } else if (variant === "b") {
-    specs = [
-      { ...specItems.potassium, tag: "아침 컨디션 중심 설계", isHighlighted: true },
-      { ...specItems.pumpkin, tag: "가벼운 시작 고려 배합", isHighlighted: true },
-      { ...specItems.melatonin },
-      { ...specItems.magnesium },
-      { ...specItems.flavor },
-      { ...specItems.pack }
-    ];
+    ingredientsList = [specItems.potassium, specItems.pumpkin, specItems.melatonin, specItems.magnesium, specItems.flavor];
   } else {
-    specs = [
-      { ...specItems.melatonin, tag: "🌙 밤의 휴식 케어", isHighlighted: true },
-      { ...specItems.magnesium, tag: "🌙 밤의 휴식 케어", isHighlighted: true },
-      { ...specItems.potassium, tag: "☀️ 아침의 가벼움 케어", isHighlighted: true },
-      { ...specItems.pumpkin, tag: "☀️ 아침의 가벼움 케어", isHighlighted: true },
-      { ...specItems.flavor },
-      { ...specItems.pack }
-    ];
+    ingredientsList = [specItems.melatonin, specItems.magnesium, specItems.potassium, specItems.pumpkin, specItems.flavor];
   }
 
   return (
     <section className="px-4 sm:px-5 py-24 bg-[#F8F8FB] w-full">
-      <div className="max-w-md mx-auto md:max-w-2xl">
+      <div className="max-w-md mx-auto md:max-w-4xl">
         {/* 섹션 서브 타이틀 */}
         <span className="text-xs font-semibold tracking-wider text-[#292541] uppercase text-center block mb-3 select-none">
           PRODUCT INGREDIENTS
         </span>
         {/* 섹션 타이틀 (clamp() 폰트 스케일) */}
         <h2 className="text-section-title font-semibold text-[#111827] text-center mb-2 tracking-tight leading-snug text-keep-all px-2">
-          V Night 제품 상세 구성
+          V Night 5대 핵심 포뮬러 스토리
         </h2>
         {/* 세부 캡션 */}
-        <p className="text-caption-custom text-[#6B7280] text-center mb-12 leading-relaxed max-w-xs mx-auto font-normal text-keep-all px-4">
-          밤의 편안함과 아침의 가벼움을 동시에 관리하는<br />
-          V Night의 엄선된 핵심 성분과 패키지 스펙을 소개합니다.
+        <p className="text-caption-custom text-[#6B7280] text-center mb-12 leading-relaxed max-w-sm mx-auto font-normal text-keep-all px-4">
+          밤의 편안함과 아침의 가벼움의 관계가 한눈에 이어지도록<br />
+          자연에서 엄선한 프리미엄 원료 배합을 투명하게 소개합니다.
         </p>
 
         {/* 1. 성분 배합 설계 논리 영역 (반응형 붕괴 완벽 방지: 모바일 세로 적층 -> sm 가로 배치) */}
@@ -138,55 +151,82 @@ export default function ProductInfo({ variant }: ProductInfoProps) {
 
         {/* 2. 메인 레이아웃: 이미지와 정보 카드 그리드 */}
         <div className="flex flex-col gap-8 md:grid md:grid-cols-5 md:items-start md:gap-8">
-          {/* 이미지 섹션: 원료 플랫레이 고화질 뷰 */}
-          <div className="md:col-span-2 relative aspect-[4/5] w-full rounded-[16px] overflow-hidden bg-white border border-neutral-200/30 shadow-premium group shrink-0">
-            <Image
-              src="/images/ingredients_flatlay.jpg"
-              alt="V Night Ingredients Flatlay"
-              fill
-              sizes="(max-w-768px) 100vw, 250px"
-              className="object-cover transition-transform duration-500 group-hover:scale-102"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent flex flex-col justify-end p-5 pointer-events-none">
-              <span className="text-white font-bold text-xs whitespace-nowrap">V Night 주원료 및 부원료</span>
-              <span className="text-white/80 text-[10px] mt-1 font-normal whitespace-nowrap">식물성 멜라토닌 및 자연 추출 성분 flatlay</span>
+          {/* 이미지 섹션: 원료 플랫레이 고화질 뷰 및 스펙 요약 */}
+          <div className="md:col-span-2 flex flex-col gap-6 w-full shrink-0">
+            <div className="relative aspect-[4/5] w-full rounded-[16px] overflow-hidden bg-white border border-neutral-200/30 shadow-premium group">
+              <Image
+                src="/images/ingredients_flatlay.jpg"
+                alt="V Night Ingredients Flatlay"
+                fill
+                sizes="(max-w-768px) 100vw, 350px"
+                className="object-cover transition-transform duration-500 group-hover:scale-102"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent flex flex-col justify-end p-5 pointer-events-none">
+                <span className="text-white font-bold text-xs whitespace-nowrap">V Night 주원료 및 부원료</span>
+                <span className="text-white/80 text-[10px] mt-1 font-normal whitespace-nowrap">안심하고 먹는 자연 유래 성분 배합</span>
+              </div>
+            </div>
+
+            {/* 제품 구성 요약 */}
+            <div className="bg-white rounded-[16px] border border-neutral-200/50 p-5 shadow-premium flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <span className="w-10 h-10 rounded-[12px] bg-[#F8F8FB] border border-neutral-200/50 flex items-center justify-center text-lg select-none" role="img" aria-label="package">
+                  📦
+                </span>
+                <div>
+                  <h4 className="font-bold text-[#111827] text-xs leading-none">제품 구성</h4>
+                  <p className="text-[10px] text-[#6B7280] mt-1">2주일 동안 매일 밤 챙기는 14포 루틴</p>
+                </div>
+              </div>
+              <span className="text-[#111827] font-extrabold text-xs sm:text-sm whitespace-nowrap">20g x 14포 (280g)</span>
             </div>
           </div>
 
-          {/* 스펙 리스트 섹션: 우측 값의 whitespace-nowrap 지정으로 텍스트 분리 및 개행 붕괴 방지 */}
-          <div className="md:col-span-3 bg-white rounded-[16px] border border-neutral-200/50 p-5 sm:p-6 shadow-premium divide-y divide-neutral-100 min-w-0 w-full">
-            {specs.map((item) => (
+          {/* 프리미엄 원료 상세 카드 목록 */}
+          <div className="md:col-span-3 flex flex-col gap-4 w-full min-w-0">
+            {ingredientsList.map((item) => (
               <div
                 key={item.label}
-                className="py-4 flex items-center justify-between gap-3 sm:gap-4 first:pt-0 last:pb-0 min-w-0"
+                className={`bg-white p-5 rounded-[16px] border border-neutral-200/50 shadow-premium flex flex-col sm:flex-row gap-4 items-start transition-all ${
+                  item.isHighlighted ? "ring-1 ring-[#D9B76A]/40" : ""
+                }`}
               >
-                <div className="flex items-center gap-3.5 min-w-0 flex-1">
-                  <span 
-                    className="w-8 h-8 rounded-[12px] bg-[#F8F8FB] text-[#292541] border border-neutral-200/50 flex items-center justify-center shrink-0 text-base select-none"
-                    role="img"
-                    aria-label={item.label}
-                  >
-                    {item.icon}
-                  </span>
-                  <div className="min-w-0 flex-1">
-                    <div className="flex items-center gap-1.5 flex-wrap">
-                      <span className="font-bold text-[#111827] text-caption-custom sm:text-[14px] whitespace-nowrap">
-                        {item.label}
-                      </span>
-                      {item.tag && (
-                        <span className={`px-2 py-0.5 rounded-[12px] ${currentLogic.tagColor} text-[8px] sm:text-[9px] font-bold tracking-tight whitespace-nowrap shrink-0`}>
-                          {item.tag}
-                        </span>
-                      )}
-                    </div>
-                    <p className="text-[11px] text-[#6B7280] mt-1 leading-normal truncate font-normal text-keep-all max-w-[160px] sm:max-w-xs">
-                      {item.desc}
-                    </p>
-                  </div>
+                {/* D2C 고급스러운 원물 이미지 썸네일 탑재 */}
+                <div className="w-16 h-16 rounded-[12px] overflow-hidden shrink-0 border border-neutral-200/30 relative select-none bg-[#F8F8FB]">
+                  <Image
+                    src={item.image}
+                    alt={item.label}
+                    fill
+                    sizes="64px"
+                    className="object-cover"
+                  />
                 </div>
-                {/* 값 영역 분리 및 붕괴 방지 */}
-                <div className="text-right shrink-0">
-                  <span className="text-[#111827] font-bold text-caption-custom sm:text-[14px] tracking-tight block whitespace-nowrap select-all">
+                
+                {/* 텍스트 설명 영역 */}
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2 flex-wrap mb-1">
+                    <span className="font-bold text-[#111827] text-caption-custom sm:text-[14px]">
+                      {item.label}
+                    </span>
+                    {item.tag && (
+                      <span className={`px-2 py-0.5 rounded-[12px] ${item.tag.includes("밤") || item.tag.includes("🌙") ? "bg-[#292541]/5 text-[#292541]" : "bg-[#D9B76A]/15 text-[#8A6F3E]"} text-[8px] sm:text-[9px] font-bold tracking-tight whitespace-nowrap shrink-0`}>
+                        {item.tag}
+                      </span>
+                    )}
+                  </div>
+                  <p className="text-[11px] text-[#6B7280] leading-relaxed font-normal text-keep-all">
+                    {item.desc}
+                  </p>
+                  {item.isMineral && (
+                    <span className="text-[9px] text-[#6B7280]/80 font-medium block mt-2 leading-relaxed">
+                      ※ 위 이미지는 성분 상징 이미지입니다. 미네랄 광물 자체를 먹는 형태가 아니며, 흡수율이 높은 고품질 원료를 스틱 젤리로 안전하게 제형화하여 배합 설명 텍스트와 함께 섭취합니다.
+                    </span>
+                  )}
+                </div>
+
+                {/* 우측 함량 배지 */}
+                <div className="text-right shrink-0 sm:self-start">
+                  <span className="text-[#292541] font-extrabold text-caption-custom sm:text-[13px] tracking-tight block whitespace-nowrap bg-[#F8F8FB] border border-neutral-200/30 px-2.5 py-1 rounded-[8px] select-all">
                     {item.value}
                   </span>
                 </div>

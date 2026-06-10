@@ -42,6 +42,16 @@ export default function Hero({ variant, data, priceOriginal, pricePromo, onCtaCl
             className="object-cover transition-transform duration-500 group-hover:scale-102"
             priority
           />
+          {/* 체리 원물 보조 비주얼 플로팅 칩 */}
+          <div className="absolute top-3 left-3 bg-[#292541]/90 backdrop-blur-sm px-2.5 py-1 rounded-[12px] shrink-0 flex items-center gap-1.5 border border-white/10 shadow-premium select-none">
+            <div className="w-4.5 h-4.5 rounded-full overflow-hidden relative border border-white/20 shrink-0">
+              <Image src="/images/cherry.jpg" alt="타트체리" fill className="object-cover" />
+            </div>
+            <span className="text-[9px] text-white font-bold tracking-wide whitespace-nowrap">
+              타트체리 추출 멜라토닌
+            </span>
+          </div>
+
           <div className="absolute bottom-3 right-3 bg-[#292541]/90 backdrop-blur-sm px-2.5 py-1 rounded-[12px] shrink-0">
             <span className="text-[10px] text-[#D9B76A] font-bold tracking-wide whitespace-nowrap">
               V Night 출시 예고
@@ -107,6 +117,16 @@ export default function Hero({ variant, data, priceOriginal, pricePromo, onCtaCl
             className="object-cover transition-transform duration-500 group-hover:scale-102"
             priority
           />
+          {/* 체리 원물 보조 비주얼 플로팅 칩 */}
+          <div className="absolute top-4 left-4 bg-[#292541]/90 backdrop-blur-sm px-3.5 py-1.5 rounded-[12px] shrink-0 flex items-center gap-2 border border-white/10 shadow-premium select-none">
+            <div className="w-6 h-6 rounded-full overflow-hidden relative border border-white/20 shrink-0">
+              <Image src="/images/cherry.jpg" alt="타트체리" fill className="object-cover" />
+            </div>
+            <span className="text-[10px] text-white font-bold tracking-wide whitespace-nowrap">
+              주요 원료: 타트체리 추출 식물성 멜라토닌
+            </span>
+          </div>
+
           <div className="absolute bottom-4 right-4 bg-[#292541]/90 backdrop-blur-sm px-3.5 py-1.5 rounded-[12px] shrink-0">
             <span className="text-[11px] text-[#D9B76A] font-bold tracking-wide whitespace-nowrap">
               V Night 출시 예고
