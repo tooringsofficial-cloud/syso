@@ -18,13 +18,14 @@ function FAQItem({ question, answer }: FAQItemProps) {
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex justify-between items-center text-left py-2 font-semibold text-[#111827] text-sm md:text-base cursor-pointer select-none"
+        className="w-full flex justify-between items-center text-left py-2 font-semibold text-[#111827] text-sm md:text-base cursor-pointer select-none pr-10 relative"
       >
-        <span className={`transition-colors duration-200 ${isOpen ? "text-[#292541] font-bold" : "text-[#111827]"}`}>
+        <span className={`transition-colors duration-200 text-keep-all ${isOpen ? "text-[#292541] font-bold" : "text-[#111827]"}`}>
           {question}
         </span>
+        {/* 절대 배치를 사용하여 질문 텍스트가 길어져도 +와 겹치지 않도록 방어 */}
         <span 
-          className={`text-[#292541] font-bold text-lg transition-transform duration-200 transform shrink-0 ml-4
+          className={`text-[#292541] font-bold text-lg transition-transform duration-200 transform shrink-0 absolute right-1 top-1.5
                      ${isOpen ? "rotate-45 scale-105" : "rotate-0"}`}
         >
           +
@@ -34,7 +35,7 @@ function FAQItem({ question, answer }: FAQItemProps) {
         className={`overflow-hidden transition-all duration-200 ease-in-out
                    ${isOpen ? "max-h-40 opacity-100 pb-3" : "max-h-0 opacity-0"}`}
       >
-        <p className="text-13px text-[#6B7280] leading-relaxed pr-4 pt-1.5 font-normal">
+        <p className="text-caption-custom text-[#6B7280] leading-relaxed pr-4 pt-1.5 font-normal text-keep-all">
           {answer}
         </p>
       </div>
@@ -63,12 +64,13 @@ export default function FAQ() {
   ];
 
   return (
-    <section className="px-5 py-24 bg-white">
+    <section className="px-5 py-24 bg-white w-full">
       <div className="max-w-md mx-auto md:max-w-2xl">
-        <span className="text-xs font-semibold tracking-wider text-[#292541] uppercase text-center block mb-2.5">
+        <span className="text-xs font-semibold tracking-wider text-[#292541] uppercase text-center block mb-2.5 select-none">
           FAQ
         </span>
-        <h2 className="text-22px md:text-24px font-semibold text-[#111827] text-center mb-10 tracking-tight">
+        {/* 제목 (clamp() 적용) */}
+        <h2 className="text-section-title font-semibold text-[#111827] text-center mb-10 tracking-tight text-keep-all px-2">
           자주 묻는 질문
         </h2>
 

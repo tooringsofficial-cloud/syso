@@ -39,7 +39,7 @@ export default function Recommend({ variant }: RecommendProps) {
     },
     {
       emoji: "🥱",
-      text: "아침에 눈을 뜨면 얼굴과 몸의 라인이 무겁고 둔하게 느껴지시는 분",
+      text: "아침에 눈을 뜨면 얼굴 and 몸의 라인이 무겁고 둔하게 느껴지시는 분",
     },
     {
       emoji: "💧",
@@ -81,44 +81,44 @@ export default function Recommend({ variant }: RecommendProps) {
       : recommendationsAB;
 
   return (
-    <section className="px-6 py-24 bg-white">
+    <section className="px-5 py-24 bg-white w-full">
       <div className="max-w-md mx-auto md:max-w-xl">
         {/* 섹션 서브 타이틀 */}
-        <span className="text-xs font-semibold tracking-wider text-[#292541] uppercase text-center block mb-3">
+        <span className="text-xs font-semibold tracking-wider text-[#292541] uppercase text-center block mb-3 select-none">
           RECOMMENDATION
         </span>
-        {/* 섹션 타이틀 (Section Title: 22~24px, Weight 600) */}
-        <h2 className="text-22px md:text-24px font-semibold text-[#111827] text-center mb-3 tracking-tight leading-snug">
+        {/* 섹션 타이틀 (clamp() 폰트 스케일) */}
+        <h2 className="text-section-title font-semibold text-[#111827] text-center mb-3 tracking-tight leading-snug text-keep-all px-2">
           이런 분들께 V Night를 추천합니다
         </h2>
         {/* 세부 캡션 */}
-        <p className="text-13px text-[#6B7280] text-center mb-16 leading-relaxed max-w-xs mx-auto font-normal">
+        <p className="text-caption-custom text-[#6B7280] text-center mb-16 leading-relaxed max-w-xs mx-auto font-normal text-keep-all px-4">
           하나라도 해당된다면, 오늘 밤부터 가벼운 아침을 위한<br />
           SYSO V Night 나이트 루틴을 시작할 때입니다.
         </p>
 
-        {/* 매거진 레이아웃 스타일의 슬림 체크리스트 (SaaS형 버블 걷어냄) */}
+        {/* 매거진 레이아웃 스타일의 슬림 체크리스트 */}
         <div className="border-t border-neutral-200/60 divide-y divide-neutral-100">
           {recommendations.map((item, idx) => (
             <div
               key={idx}
               className="py-5 flex items-start gap-4 transition-colors duration-150 hover:bg-[#F8F8FB] px-3 rounded-[12px]"
             >
-              {/* 심플 이모지 인디케이터 (SaaS 둥근 박스 탈피) */}
+              {/* 심플 이모지 인디케이터 (shrink-0 지정으로 모양 유지) */}
               <span 
-                className="w-8 h-8 rounded-[12px] bg-[#F8F8FB] text-base flex items-center justify-center shrink-0 border border-neutral-200/50"
+                className="w-8 h-8 rounded-[12px] bg-[#F8F8FB] text-base flex items-center justify-center shrink-0 border border-neutral-200/50 select-none"
                 role="img"
                 aria-label="recommendation emoji"
               >
                 {item.emoji}
               </span>
-              <div className="flex-grow pt-1.5">
-                {/* 본문 텍스트 (Body: 15~16px, Weight 400~500) */}
-                <p className="text-14px sm:text-15px font-medium text-[#111827] leading-relaxed">
+              <div className="flex-grow pt-1.5 min-w-0">
+                {/* 본문 텍스트 (clamp() 바디 폰트) */}
+                <p className="text-caption-custom sm:text-body-custom font-medium text-[#111827] leading-relaxed text-keep-all">
                   {item.text}
                 </p>
               </div>
-              <span className="text-[#292541] font-bold text-sm shrink-0 pt-2">✓</span>
+              <span className="text-[#292541] font-bold text-sm shrink-0 pt-2 select-none">✓</span>
             </div>
           ))}
         </div>
