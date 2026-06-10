@@ -107,9 +107,9 @@ export default function ProductInfo({ variant }: ProductInfoProps) {
             V Night 포지셔닝 설계 배합 원칙
           </h3>
 
-          <div className="flex flex-col gap-3.5 sm:flex-row sm:items-stretch sm:justify-between items-center sm:gap-2">
+          <div className="flex flex-col gap-3.5 sm:flex-row sm:items-stretch sm:justify-between items-center sm:gap-2 w-full">
             {/* Step 1: 원료 */}
-            <div className="flex-grow text-center sm:text-left bg-[#F8F8FB] p-4 rounded-[12px] border border-neutral-200/40 w-full flex flex-col justify-center min-h-[88px] shrink-0">
+            <div className="text-center sm:text-left bg-[#F8F8FB] p-4 rounded-[12px] border border-neutral-200/40 w-full sm:w-0 sm:flex-1 min-w-0 flex flex-col justify-center min-h-[88px]">
               <span className="text-[10px] font-semibold text-[#6B7280] uppercase tracking-wider block mb-1.5 whitespace-nowrap">01. 핵심 성분 조합</span>
               <p className="text-caption-custom sm:text-13px font-bold text-[#111827] leading-snug text-keep-all">{currentLogic.ingredients}</p>
             </div>
@@ -119,7 +119,7 @@ export default function ProductInfo({ variant }: ProductInfoProps) {
             <span className="text-neutral-300 text-lg font-bold sm:self-center hidden sm:block select-none shrink-0">&rarr;</span>
 
             {/* Step 2: 설계 의도 */}
-            <div className="flex-grow text-center sm:text-left bg-[#F8F8FB] p-4 rounded-[12px] border border-neutral-200/40 w-full flex flex-col justify-center min-h-[88px] shrink-0">
+            <div className="text-center sm:text-left bg-[#F8F8FB] p-4 rounded-[12px] border border-neutral-200/40 w-full sm:w-0 sm:flex-1 min-w-0 flex flex-col justify-center min-h-[88px]">
               <span className="text-[10px] font-semibold text-[#6B7280] uppercase tracking-wider block mb-1.5 whitespace-nowrap">02. 설계 의도</span>
               <p className="text-caption-custom sm:text-13px font-bold text-[#292541] leading-snug text-keep-all">{currentLogic.intention}</p>
             </div>
@@ -129,7 +129,7 @@ export default function ProductInfo({ variant }: ProductInfoProps) {
             <span className="text-neutral-300 text-lg font-bold sm:self-center hidden sm:block select-none shrink-0">&rarr;</span>
 
             {/* Step 3: 사용 상황 */}
-            <div className="flex-grow text-center sm:text-left bg-[#F8F8FB] p-4 rounded-[12px] border border-neutral-200/40 w-full flex flex-col justify-center min-h-[88px] shrink-0">
+            <div className="text-center sm:text-left bg-[#F8F8FB] p-4 rounded-[12px] border border-neutral-200/40 w-full sm:w-0 sm:flex-1 min-w-0 flex flex-col justify-center min-h-[88px]">
               <span className="text-[10px] font-semibold text-[#6B7280] uppercase tracking-wider block mb-1.5 whitespace-nowrap">03. 기대 가치</span>
               <p className="text-caption-custom sm:text-13px font-bold text-[#111827] leading-snug text-keep-all">{currentLogic.usage}</p>
             </div>
