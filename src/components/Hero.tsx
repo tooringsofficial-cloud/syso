@@ -47,9 +47,9 @@ export default function Hero({ variant, data, priceOriginal, pricePromo, onCtaCl
             className="object-cover transition-transform duration-500 group-hover:scale-102"
             priority
           />
-          <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3.5 py-1.5 rounded-full shadow-sm">
-            <span className="text-[9px] text-[#292541] font-bold tracking-wider uppercase font-sans">
-              PRE-ORDER
+          <div className="absolute top-4 left-4 select-none">
+            <span className="text-[10px] text-[#D9B76A] font-bold tracking-wider uppercase font-sans drop-shadow-sm">
+              PRE-ORDER 30% OFF
             </span>
           </div>
         </div>
@@ -83,7 +83,7 @@ export default function Hero({ variant, data, priceOriginal, pricePromo, onCtaCl
 
           {/* 카운트다운 타이머 배지 */}
           <div className="text-[11px] text-[#292541] font-semibold mb-5 flex items-center gap-1.5 select-none bg-[#292541]/5 px-3 py-1 rounded-full">
-            {!isExpired && <span className="w-1.5 h-1.5 rounded-full bg-[#292541] animate-pulse" />}
+            {!isExpired && <span className="w-1.5 h-1.5 rounded-full animate-glow-slow" />}
             <span>{isExpired ? "사전예약이 종료되었습니다" : `사전예약 마감까지 ${countdownText}`}</span>
           </div>
 
@@ -114,8 +114,8 @@ export default function Hero({ variant, data, priceOriginal, pricePromo, onCtaCl
             className="object-cover transition-transform duration-500 group-hover:scale-102"
             priority
           />
-          <div className="absolute top-6 left-6 bg-white/95 backdrop-blur-md px-4 py-2 rounded-full shadow-sm">
-            <span className="text-[10px] text-[#292541] font-bold tracking-widest font-sans">
+          <div className="absolute top-6 left-6 select-none">
+            <span className="text-[11px] text-[#D9B76A] font-bold tracking-widest font-sans drop-shadow-sm">
               PRE-ORDER 30% OFF
             </span>
           </div>
@@ -161,7 +161,7 @@ export default function Hero({ variant, data, priceOriginal, pricePromo, onCtaCl
 
           {/* 카운트다운 타이머 배지 */}
           <div className="text-[11px] text-[#292541] font-semibold mb-6 flex items-center gap-1.5 select-none bg-[#292541]/5 px-3 py-1 rounded-full w-max">
-            {!isExpired && <span className="w-1.5 h-1.5 rounded-full bg-[#292541] animate-pulse" />}
+            {!isExpired && <span className="w-1.5 h-1.5 rounded-full animate-glow-slow" />}
             <span>{isExpired ? "사전예약이 종료되었습니다" : `사전예약 마감까지 ${countdownText}`}</span>
           </div>
 

@@ -11,11 +11,7 @@ interface ProductInfoProps {
 export default function ProductInfo({ variant }: ProductInfoProps) {
   const [lightboxImg, setLightboxImg] = useState<string | null>(null);
 
-  const flavorLabel = variant === "a" 
-    ? "상큼한 샤인머스캣맛" 
-    : variant === "b" 
-    ? "달콤한 포도맛" 
-    : "샤인머스캣 & 포도맛";
+  const flavorLabel = "달콤한 포도맛";
 
   return (
     <section className="bg-[#FAF9F5] py-24 sm:py-32 w-full">
@@ -43,8 +39,10 @@ export default function ProductInfo({ variant }: ProductInfoProps) {
                 sizes="(max-w-768px) 100vw, 450px"
                 className="object-cover transition-transform duration-700 hover:scale-101"
               />
-              <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3.5 py-1.5 rounded-full shadow-sm">
-                <span className="text-[9px] text-[#292541] font-bold tracking-wider">INGREDIENTS 01</span>
+              <div className="absolute top-4 left-4 select-none">
+                <span className="text-[10px] text-[#D9B76A] font-bold tracking-wider uppercase font-sans drop-shadow-sm">
+                  INGREDIENTS 01
+                </span>
               </div>
             </div>
             {/* 체리 설명 */}
@@ -90,8 +88,10 @@ export default function ProductInfo({ variant }: ProductInfoProps) {
                 sizes="(max-w-768px) 100vw, 450px"
                 className="object-cover transition-transform duration-700 hover:scale-101"
               />
-              <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3.5 py-1.5 rounded-full shadow-sm">
-                <span className="text-[9px] text-[#292541] font-bold tracking-wider">INGREDIENTS 02</span>
+              <div className="absolute top-4 left-4 select-none">
+                <span className="text-[10px] text-[#D9B76A] font-bold tracking-wider uppercase font-sans drop-shadow-sm">
+                  INGREDIENTS 02
+                </span>
               </div>
             </div>
             {/* 칼륨 설명 */}
