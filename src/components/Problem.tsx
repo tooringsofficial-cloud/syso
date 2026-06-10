@@ -1,56 +1,57 @@
+import Image from "next/image";
 import type { CopyDataset } from "@/data/copyData";
 
 interface ProblemProps {
   data: CopyDataset["problem"];
+  variant?: string;
 }
 
-export default function Problem({ data }: ProblemProps) {
+export default function Problem({ data, variant }: ProblemProps) {
+  // 거대하고 감성적인 질문 문구 정의
+  const bigQuestion = variant === "a"
+    ? "중요한 날을 앞둔 당신의 밤은\n정말 안녕한가요?"
+    : variant === "b"
+    ? "중요한 날을 앞둔 당신의 아침은\n정말 가벼운가요?"
+    : "중요한 날을 앞둔 당신의 밤과 아침,\n모두 안녕한가요?";
+
+  const subCopy = variant === "a"
+    ? "수없이 뒤척이며 채워지지 않는 밤의 휴식,\n이제는 달라져야 합니다."
+    : variant === "b"
+    ? "눈뜨자마자 당황하며 거울을 보는 아침의 무거움,\n이제는 달라져야 합니다."
+    : "설레는 마음 뒤에 찾아오는 뒤척이는 밤과 아침의 무거움,\n이제는 달라져야 합니다.";
+
   return (
-    <section className="px-5 py-24 bg-[#292541] text-white relative">
-      <div className="max-w-md mx-auto md:max-w-2xl relative z-10 text-center">
-        {/* 서브 타이틀 */}
-        <span className="text-xs font-semibold tracking-wider text-[#D9B76A] uppercase block mb-3 select-none">
-          CUSTOMER VOICES
-        </span>
-        {/* 메인 타이틀 (clamp() 기반 반응형 타이포 스케일) */}
-        <h2 className="text-section-title font-semibold text-white leading-snug tracking-tight mb-16 max-w-sm md:max-w-xl mx-auto text-keep-all px-2">
-          {data.title}
+    <section className="px-6 py-28 sm:py-36 bg-[#292541] text-white relative w-full flex flex-col items-center">
+      <div className="max-w-3xl mx-auto text-center flex flex-col items-center">
+        {/* 거대하고 감성적인 질문 */}
+        <h2 className="text-[28px] sm:text-[38px] font-bold text-white leading-tight tracking-tight text-keep-all whitespace-pre-line mb-8">
+          {bigQuestion}
         </h2>
 
-        {/* 편집디자인 감성의 플랫 인용구 리스트 */}
-        <div className="space-y-12 max-w-md mx-auto">
-          {data.situations.map((s, idx) => (
-            <div
-              key={s.label}
-              className="flex flex-col items-center group"
-            >
-              {/* 원물/상황 구분 태그 */}
-              <div className="flex items-center gap-2 mb-3 shrink-0">
-                <span className="text-base shrink-0" role="img" aria-label={s.label}>
-                  {s.emoji}
-                </span>
-                <span className="text-xs font-semibold text-[#D9B76A] tracking-wider uppercase whitespace-nowrap">
-                  {s.label}
-                </span>
-              </div>
-
-              {/* 감성 자극 인용구 텍스트 (clamp() 타이포 적용) */}
-              <p className="text-body-custom font-medium text-white/90 leading-relaxed tracking-tight max-w-sm text-keep-all px-4">
-                &ldquo;{s.desc}&rdquo;
-              </p>
-              
-              {/* 심플한 구분선 */}
-              {idx < data.situations.length - 1 && (
-                <div className="w-8 h-[1px] bg-white/10 mt-10 shrink-0" />
-              )}
-            </div>
-          ))}
-        </div>
-
-        {/* 하단 출처 표기 (clamp() 캡션) */}
-        <p className="text-center text-caption-custom text-white/40 mt-20 tracking-tight leading-normal max-w-xs mx-auto font-normal text-keep-all px-2">
-          *사전 FGI 및 설문조사 시 소비자들이 가장 많이 토로했던 실제 고민 사례들을 기반으로 연출되었습니다.
+        {/* 설명 카피 */}
+        <p className="text-sm sm:text-base text-[#D1D1D6] leading-relaxed font-normal text-keep-all whitespace-pre-line mb-16 max-w-xl px-2">
+          {subCopy}
         </p>
+
+        {/* 대형 밤샘 고민 비주얼 */}
+        <div className="w-full max-w-[480px] aspect-[3/4] sm:aspect-[4/3] relative rounded-[24px] overflow-hidden bg-neutral-900 shadow-2xl shrink-0">
+          <Image
+            src="/images/lifestyle_desk_work.jpg"
+            alt="밤샘 작업 중인 고민"
+            fill
+            sizes="(max-w-768px) 100vw, 480px"
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent pointer-events-none" />
+          <div className="absolute bottom-5 left-6 right-6 text-left">
+            <span className="text-[9px] text-[#D9B76A] font-bold tracking-widest font-sans uppercase">
+              V NIGHT INSIGHT
+            </span>
+            <p className="text-[10px] text-white/50 tracking-tight leading-normal font-normal text-keep-all mt-1.5 select-none">
+              *사전 FGI 및 설문조사 시 소비자들이 가장 많이 토로했던 실제 고민 사례들을 기반으로 제작되었습니다.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   );

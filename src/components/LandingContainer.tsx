@@ -25,6 +25,44 @@ export default function LandingContainer({ data }: LandingContainerProps) {
   const searchParams = useSearchParams();
   const scrollFired = useRef({ 50: false, 75: false, 100: false });
   const [showStickyCta, setShowStickyCta] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [timeLeft, setTimeLeft] = useState<number | null>(null);
+
+  // ----------------------------------------------------------
+  // Real-time Countdown timer logic (Deadline: 2026-06-11 15:00:00 KST)
+  // ----------------------------------------------------------
+  useEffect(() => {
+    const target = new Date("2026-06-11T15:00:00+09:00").getTime();
+    
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const diff = target - now;
+      setTimeLeft(diff > 0 ? diff : 0);
+    }
+    
+    updateCountdown();
+    const timer = setInterval(updateCountdown, 1000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const getCountdownText = () => {
+    if (timeLeft === null || timeLeft <= 0) {
+      return "00일 00시간 00분";
+    }
+
+    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+
+    const dStr = String(days).padStart(2, "0");
+    const hStr = String(hours).padStart(2, "0");
+    const mStr = String(minutes).padStart(2, "0");
+
+    return `${dStr}일 ${hStr}시간 ${mStr}분`;
+  };
+
+  const countdownText = getCountdownText();
+  const isExpired = timeLeft !== null && timeLeft <= 0;
 
   // ----------------------------------------------------------
   // page_view
@@ -34,7 +72,7 @@ export default function LandingContainer({ data }: LandingContainerProps) {
   }, [data.variant]);
 
   // ----------------------------------------------------------
-  // Scroll depth tracking & Sticky CTA visibility
+  // Scroll depth tracking, Sticky CTA & Progress Indicator
   // ----------------------------------------------------------
   useEffect(() => {
     function handleScroll() {
@@ -44,9 +82,13 @@ export default function LandingContainer({ data }: LandingContainerProps) {
       setShowStickyCta(scrollTop > 550);
 
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      if (docHeight <= 0) return;
+      if (docHeight <= 0) {
+        setScrollProgress(0);
+        return;
+      }
 
       const pct = Math.round((scrollTop / docHeight) * 100);
+      setScrollProgress(Math.min(pct, 100));
 
       if (pct >= 50 && !scrollFired.current[50]) {
         scrollFired.current[50] = true;
@@ -134,7 +176,15 @@ export default function LandingContainer({ data }: LandingContainerProps) {
   // Render
   // ----------------------------------------------------------
   return (
-    <div className="min-h-screen flex flex-col bg-[#F8F8FB] w-full overflow-x-hidden">
+    <div className="min-h-screen flex flex-col bg-[#F8F8FB] w-full overflow-x-hidden relative">
+      {/* Scroll Progress Bar */}
+      <div className="fixed top-0 left-0 right-0 h-[3px] bg-[#E5E7EB] z-50">
+        <div 
+          className="h-full bg-[#292541] transition-all duration-150 ease-out" 
+          style={{ width: `${scrollProgress}%` }}
+        />
+      </div>
+
       {/* 1. 상단 고정 헤더 - location은 hero로 집계 */}
       <Header showCta={true} onCtaClick={() => handleCtaClick("hero")} />
 
@@ -146,10 +196,12 @@ export default function LandingContainer({ data }: LandingContainerProps) {
           priceOriginal={data.cta.priceOriginal}
           pricePromo={data.cta.pricePromo}
           onCtaClick={() => handleCtaClick("hero")}
+          countdownText={countdownText}
+          isExpired={isExpired}
         />
 
         {/* 3. Problem 섹션 */}
-        <Problem data={data.problem} />
+        <Problem data={data.problem} variant={data.variant} />
 
         {/* 4. Desired Outcome 섹션 */}
         <DesiredOutcome variant={data.variant} data={data.desiredOutcome} />
@@ -228,32 +280,50 @@ export default function LandingContainer({ data }: LandingContainerProps) {
         </footer>
       </main>
 
-      {/* 10. 플로팅 하단 CTA 바 (Sticky Bottom CTA Bar - 320px 가로폭 붕괴 방지용 flex-shrink-0 및 px 패딩 세팅) */}
+      {/* 10. 플로팅 하단 CTA 바 (Sticky Bottom CTA Bar - Redesigned) */}
       <div
-        className={`fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-t border-neutral-200/50 
-                   transition-all duration-300 transform
+        className={`fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-neutral-200/50 
+                   transition-all duration-300 transform shadow-md
                    ${showStickyCta ? "translate-y-0 opacity-100" : "translate-y-full opacity-0 pointer-events-none"}`}
       >
-        <div className="max-w-md mx-auto px-4.5 py-3 flex items-center justify-between gap-3 md:max-w-2xl pb-[calc(0.75rem+env(safe-area-inset-bottom,0px))]">
-          {/* 가격 정보 쪼개짐 철저 방지 */}
-          <div className="flex flex-col shrink-0">
-            <div className="flex items-center gap-1.5 shrink-0 select-none">
-              <span className="text-[9px] bg-[#D9B76A]/20 text-[#292541] font-bold px-1.5 py-0.5 rounded-[12px] whitespace-nowrap">30% OFF</span>
-              <span className="text-[9px] sm:text-[10px] text-[#6B7280] line-through font-normal whitespace-nowrap">예상가 {data.cta.priceOriginal}</span>
+        <div className="max-w-md mx-auto px-5 py-3.5 flex items-center justify-between gap-4 md:max-w-2xl pb-[calc(0.85rem+env(safe-area-inset-bottom,0px))]">
+          {/* 상품 정보 및 카운트다운 */}
+          <div className="flex flex-col shrink-0 text-left">
+            <div className="flex items-center gap-2">
+              <span className="text-xs font-bold text-[#111827] tracking-tight">SYSO V Night</span>
+              {!isExpired ? (
+                <span className="text-[9px] font-semibold text-[#292541] bg-[#292541]/5 px-1.5 py-0.5 rounded-full select-none whitespace-nowrap">
+                  마감까지 {countdownText}
+                </span>
+              ) : (
+                <span className="text-[9px] font-semibold text-[#6B7280] bg-stone-100 px-1.5 py-0.5 rounded-full select-none whitespace-nowrap">
+                  출시 알림 신청 가능
+                </span>
+              )}
             </div>
-            <span className="text-[13px] sm:text-sm font-bold text-[#111827] leading-none mt-1.5 whitespace-nowrap">
-              {data.cta.pricePromo}
-            </span>
+            {!isExpired ? (
+              <span className="text-[13px] sm:text-sm font-bold text-[#111827] mt-1 whitespace-nowrap">
+                <span className="text-[#6B7280] font-normal text-[11px] mr-1.5">30% 혜택가</span>
+                {data.cta.pricePromo}
+              </span>
+            ) : (
+              <span className="text-[13px] sm:text-sm font-bold text-[#111827] mt-1 whitespace-nowrap flex items-center gap-1.5">
+                <span className="text-[#6B7280] font-normal text-[11px]">정상가</span>
+                <span>{data.cta.priceOriginal}</span>
+                <span className="text-[#6B7280] line-through font-normal text-[10px] ml-0.5">{data.cta.pricePromo}</span>
+              </span>
+            )}
           </div>
-          {/* CTA 버튼 글자 쪼개짐 철저 방지 */}
+
+          {/* CTA 버튼 */}
           <button
             type="button"
             onClick={() => handleCtaClick("sticky")}
-            className="flex-grow max-w-[190px] py-3 rounded-[12px] bg-[#292541] text-white font-bold text-xs sm:text-sm
-                       transition-all duration-200 active:scale-[0.98] hover:bg-[#1F1C33]
-                       shadow-[0_2px_8px_rgba(41,37,65,0.04)] text-center cursor-pointer whitespace-nowrap shrink-0"
+            className="flex-grow max-w-[200px] py-3.5 rounded-[12px] bg-[#292541] text-white font-bold text-xs sm:text-sm
+                       transition-all duration-200 active:scale-[0.98] hover:bg-[#1C1A2E]
+                       text-center cursor-pointer whitespace-nowrap shrink-0 shadow-sm"
           >
-            출시 알림 신청
+            {isExpired ? "출시 알림 신청" : "사전예약 신청"}
           </button>
         </div>
       </div>

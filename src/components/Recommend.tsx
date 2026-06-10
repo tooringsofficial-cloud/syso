@@ -81,44 +81,38 @@ export default function Recommend({ variant }: RecommendProps) {
       : recommendationsAB;
 
   return (
-    <section className="px-5 py-24 bg-white w-full">
-      <div className="max-w-md mx-auto md:max-w-xl">
+    <section className="px-6 py-24 bg-white w-full">
+      <div className="max-w-2xl mx-auto">
         {/* 섹션 서브 타이틀 */}
-        <span className="text-xs font-semibold tracking-wider text-[#292541] uppercase text-center block mb-3 select-none">
+        <span className="text-[11px] font-bold tracking-[0.2em] text-[#292541] uppercase text-center block mb-4 select-none font-sans">
           RECOMMENDATION
         </span>
-        {/* 섹션 타이틀 (clamp() 폰트 스케일) */}
-        <h2 className="text-section-title font-semibold text-[#111827] text-center mb-3 tracking-tight leading-snug text-keep-all px-2">
-          이런 분들께 V Night를 추천합니다
+        {/* 섹션 타이틀 */}
+        <h2 className="text-[24px] sm:text-[30px] font-bold text-[#1F1F1F] text-center mb-4 tracking-tight leading-snug text-keep-all px-2">
+          이런 분들께 추천합니다
         </h2>
         {/* 세부 캡션 */}
-        <p className="text-caption-custom text-[#6B7280] text-center mb-16 leading-relaxed max-w-xs mx-auto font-normal text-keep-all px-4">
-          하나라도 해당된다면, 오늘 밤부터 가벼운 아침을 위한<br />
-          SYSO V Night 나이트 루틴을 시작할 때입니다.
+        <p className="text-sm text-stone-400 text-center mb-16 leading-relaxed max-w-sm mx-auto font-normal text-keep-all px-4">
+          하나라도 해당된다면, 오늘 밤부터 시작해 보세요.<br />
+          밤의 휴식과 아침의 가벼움을 동시에 선물합니다.
         </p>
 
-        {/* 매거진 레이아웃 스타일의 슬림 체크리스트 */}
-        <div className="border-t border-neutral-200/60 divide-y divide-neutral-100">
+        {/* 미니멀 체크리스트 (테두리/배경색 지움) */}
+        <div className="space-y-6 max-w-xl mx-auto">
           {recommendations.map((item, idx) => (
             <div
               key={idx}
-              className="py-5 flex items-start gap-4 transition-colors duration-150 hover:bg-[#F8F8FB] px-3 rounded-[12px]"
+              className="flex items-start gap-4 py-2 px-2"
             >
-              {/* 심플 이모지 인디케이터 (shrink-0 지정으로 모양 유지) */}
-              <span 
-                className="w-8 h-8 rounded-[12px] bg-[#F8F8FB] text-base flex items-center justify-center shrink-0 border border-neutral-200/50 select-none"
-                role="img"
-                aria-label="recommendation emoji"
-              >
-                {item.emoji}
+              {/* 심플 체크 아이콘 */}
+              <span className="text-[#D9B76A] text-lg font-bold shrink-0 pt-0.5 select-none">
+                ✓
               </span>
-              <div className="flex-grow pt-1.5 min-w-0">
-                {/* 본문 텍스트 (clamp() 바디 폰트) */}
-                <p className="text-caption-custom sm:text-body-custom font-medium text-[#111827] leading-relaxed text-keep-all">
+              <div className="flex-1 min-w-0">
+                <p className="text-stone-600 text-sm sm:text-[15px] leading-relaxed font-normal text-keep-all">
                   {item.text}
                 </p>
               </div>
-              <span className="text-[#292541] font-bold text-sm shrink-0 pt-2 select-none">✓</span>
             </div>
           ))}
         </div>
