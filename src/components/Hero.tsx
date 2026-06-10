@@ -36,12 +36,12 @@ export default function Hero({ variant, data, priceOriginal, pricePromo, onCtaCl
 
         {/* 대형 매거진 커버 컷 배지 및 컨테이너 */}
         <div className="w-full max-w-[340px] flex flex-col items-start gap-2.5 mb-8 shrink-0 select-none">
-          <span className="text-[10px] text-[#D9B76A] font-bold tracking-wider uppercase font-sans">
+          <span className="text-[10px] font-bold tracking-wider uppercase font-sans animate-text-shine">
             PRE-ORDER 30% OFF
           </span>
           <div 
             onClick={() => setShowLightbox(true)}
-            className="w-full relative rounded-[20px] overflow-hidden bg-white shadow-[0_12px_40px_rgba(0,0,0,0.03)] cursor-zoom-in group"
+            className="w-full relative rounded-none overflow-hidden bg-white shadow-[0_12px_40px_rgba(0,0,0,0.03)] cursor-zoom-in group"
             style={{ aspectRatio: "1024/576" }}
           >
             <Image
@@ -104,12 +104,12 @@ export default function Hero({ variant, data, priceOriginal, pricePromo, onCtaCl
       <div className="hidden md:flex md:flex-row md:items-center md:justify-center md:gap-20 md:max-w-5xl md:w-full md:py-20">
         {/* 좌측 대형 이미지 및 상단 배지 */}
         <div className="w-[50%] flex flex-col items-start gap-2.5 shrink-0 select-none">
-          <span className="text-[11px] text-[#D9B76A] font-bold tracking-widest font-sans uppercase">
+          <span className="text-[11px] font-bold tracking-widest font-sans uppercase animate-text-shine">
             PRE-ORDER 30% OFF
           </span>
           <div 
             onClick={() => setShowLightbox(true)}
-            className="w-full relative rounded-[28px] overflow-hidden bg-white shadow-[0_16px_48px_rgba(0,0,0,0.03)] border border-stone-200/20 cursor-zoom-in group"
+            className="w-full relative rounded-none overflow-hidden bg-white shadow-[0_16px_48px_rgba(0,0,0,0.03)] border border-stone-200/20 cursor-zoom-in group"
             style={{ aspectRatio: "1024/576" }}
           >
             <Image

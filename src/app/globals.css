@@ -149,3 +149,28 @@ body {
   background-color: #D9B76A !important;
 }
 
+/* 프리미엄 텍스트 금빛 반짝임(Shine) 효과 */
+@keyframes text-shine-gold {
+  0% {
+    background-position: 200% center;
+  }
+  100% {
+    background-position: -200% center;
+  }
+}
+
+.animate-text-shine {
+  background: linear-gradient(
+    120deg,
+    #D9B76A 20%,
+    #FFFFFF 50%,
+    #D9B76A 80%
+  );
+  background-size: 200% auto;
+  color: transparent !important;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: text-shine-gold 3.5s linear infinite;
+  display: inline-block;
+}
+
