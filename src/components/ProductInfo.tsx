@@ -151,19 +151,19 @@ export default function ProductInfo({ variant }: ProductInfoProps) {
 
         {/* 2. 메인 레이아웃: 이미지와 정보 카드 그리드 */}
         <div className="flex flex-col gap-8 md:grid md:grid-cols-5 md:items-start md:gap-8">
-          {/* 이미지 섹션: 원료 플랫레이 고화질 뷰 및 스펙 요약 */}
+          {/* 이미지 섹션: 실제 제품 패키지 & 젤리 구성 비주얼 */}
           <div className="md:col-span-2 flex flex-col gap-6 w-full shrink-0">
             <div className="relative aspect-[4/5] w-full rounded-[16px] overflow-hidden bg-white border border-neutral-200/30 shadow-premium group">
               <Image
-                src="/images/ingredients_flatlay.jpg"
-                alt="V Night Ingredients Flatlay"
+                src="/images/package_real.jpg"
+                alt="V Night Package and Jelly"
                 fill
                 sizes="(max-w-768px) 100vw, 350px"
                 className="object-cover transition-transform duration-500 group-hover:scale-102"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent flex flex-col justify-end p-5 pointer-events-none">
-                <span className="text-white font-bold text-xs whitespace-nowrap">V Night 주원료 및 부원료</span>
-                <span className="text-white/80 text-[10px] mt-1 font-normal whitespace-nowrap">안심하고 먹는 자연 유래 성분 배합</span>
+                <span className="text-white font-bold text-xs whitespace-nowrap">V Night 실제 제품 패키지</span>
+                <span className="text-white/80 text-[10px] mt-1 font-normal whitespace-nowrap">하루 1포로 완성하는 이중 케어 루틴</span>
               </div>
             </div>
 
@@ -235,12 +235,12 @@ export default function ProductInfo({ variant }: ProductInfoProps) {
           </div>
         </div>
 
-        {/* 3. 제형 소개 블록 (Texture Detail) */}
+        {/* 3. 제형 소개 블록 (Texture Detail - 실제 젤리 클로즈업 연동) */}
         <div className="mt-8 p-6 rounded-[16px] border border-neutral-200/50 bg-white shadow-premium flex flex-col sm:flex-row items-center gap-6 w-full">
-          <div className="w-full sm:w-[150px] aspect-[4/3] sm:aspect-square relative rounded-[16px] overflow-hidden shrink-0 border border-neutral-200/30">
+          <div className="w-full sm:w-[150px] aspect-[1] relative rounded-[16px] overflow-hidden shrink-0 border border-neutral-200/30">
             <Image
-              src="/images/jelly_texture.jpg"
-              alt="V Night Jelly Texture"
+              src="/images/jelly_real.jpg"
+              alt="V Night Stick Jelly Texture"
               fill
               sizes="(max-w-768px) 100vw, 150px"
               className="object-cover"
@@ -248,13 +248,13 @@ export default function ProductInfo({ variant }: ProductInfoProps) {
           </div>
           <div className="flex-1 text-center sm:text-left min-w-0">
             <span className="text-[10px] font-bold bg-[#292541]/5 text-[#292541] px-2.5 py-1 rounded-[12px] inline-block mb-2.5 select-none whitespace-nowrap">
-              제형 특징
+              제형 및 섭취 경험
             </span>
             <h4 className="font-bold text-[#111827] text-body-custom mb-2 text-keep-all">
-              물 없이 상큼하고 간편하게 씹어먹는 스틱 젤리
+              물 없이 맛있고 탱글하게 씹어먹는 프리미엄 스틱 젤리
             </h4>
             <p className="text-caption-custom text-[#6B7280] leading-relaxed font-normal text-keep-all">
-              알약 섭취의 불편함과 쓴 약초의 단점을 해결했습니다. {variant === "a" ? "상큼한 샤인머스캣맛" : variant === "b" ? "달콤한 포도맛" : "상큼한 샤인머스캣맛과 달콤한 포도맛"}의 쫀득한 젤리 제형으로, 자기 전 침대 옆에서 기분 좋은 마지막 디저트처럼 물 없이 맛있게 챙기실 수 있습니다.
+              기존의 불편한 알약 섭취나 쓴 약초 냄새를 완전히 해결했습니다. {variant === "a" ? "상큼한 샤인머스캣맛" : variant === "b" ? "달콤한 포도맛" : "상큼한 샤인머스캣맛과 달콤한 포도맛"}의 탱글탱글하고 쫀득한 젤리 형태로, 매일 밤 침대 옆에서 기분 좋은 마지막 디저트처럼 간편하게 씹어 드실 수 있습니다.
             </p>
           </div>
         </div>

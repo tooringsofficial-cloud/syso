@@ -10,8 +10,8 @@ interface HeroProps {
 }
 
 export default function Hero({ variant, data, priceOriginal, pricePromo, onCtaClick }: HeroProps) {
-  // slate_night.jpg로 이미지 고정 사용
-  const imageSrc = "/images/slate_night.jpg";
+  // 실제 제품 패키지 이미지 사용
+  const imageSrc = "/images/package_real.jpg";
 
   // Flavor label 및 특징 리스트 매핑
   const flavorLabel = variant === "a" 
