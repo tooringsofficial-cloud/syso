@@ -107,7 +107,8 @@ function WaitlistContent() {
         analytics.trackPhoneCapture(variant);
       }
 
-      setSubmitted(true);
+      // Thank You 페이지로 리다이렉트 (전환 측정 통합 대응)
+      window.location.href = `/thank-you?variant=${variant}`;
     },
     [email, phone, agreed, variant]
   );

@@ -211,6 +211,20 @@ export const analytics = {
     devLog("social_click", params);
     ga4Event("social_click", params);
   },
+
+  /** Lead 전환 (Thank You 페이지 진입 시) */
+  trackLead(variant: string) {
+    const device = getDevice();
+    const params = { variant, device };
+    devLog("lead_complete", params);
+    ga4Event("generate_lead", params);
+    fbEvent("Lead", params);
+    
+    if (typeof window !== "undefined" && typeof window.clarity === "function") {
+      window.clarity("event", "lead_complete");
+      window.clarity("set", "lead_complete", "true");
+    }
+  },
 };
 
 // ----------------------------------------------------------
