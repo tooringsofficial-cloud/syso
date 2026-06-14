@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useCallback, Suspense } from "react";
+import { useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { analytics } from "@/lib/analytics";
 import Header from "@/components/Header";
@@ -11,12 +11,6 @@ const TALLY_FORM_ID = process.env.NEXT_PUBLIC_TALLY_FORM_ID ?? "REPLACE_ME";
 function WaitlistContent() {
   const searchParams = useSearchParams();
   const variant = searchParams.get("variant") ?? "unknown";
-
-  const [surveyDone, setSurveyDone] = useState(false);
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [agreed, setAgreed] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
 
   // ----------------------------------------------------------
   // waitlist_page_view
@@ -47,7 +41,7 @@ function WaitlistContent() {
   })();
 
   // ----------------------------------------------------------
-  // Tally postMessage listener (survey_complete)
+  // Tally postMessage listener (survey_complete) -> Redirect immediately
   // ----------------------------------------------------------
   useEffect(() => {
     function handleMessage(event: MessageEvent) {
@@ -63,7 +57,8 @@ function WaitlistContent() {
       
       if (data && data.event === "Tally.FormSubmitted") {
         analytics.trackSurveyComplete(variant);
-        setSurveyDone(true);
+        // Tally 설문 완료 시 즉시 thank-you 페이지로 이동하여 중복 폼 피로도 방지
+        window.location.href = `/thank-you?variant=${variant}`;
       }
     }
 
@@ -94,49 +89,6 @@ function WaitlistContent() {
     return () => window.removeEventListener("blur", handleBlur);
   }, [variant]);
 
-  // ----------------------------------------------------------
-  // Lead form submission
-  // ----------------------------------------------------------
-  const handleSubmit = useCallback(
-    (e: React.FormEvent) => {
-      e.preventDefault();
-      if (!email || !agreed) return;
-
-      analytics.trackEmailCapture(variant);
-      if (phone) {
-        analytics.trackPhoneCapture(variant);
-      }
-
-      // Thank You 페이지로 리다이렉트 (전환 측정 통합 대응)
-      window.location.href = `/thank-you?variant=${variant}`;
-    },
-    [email, phone, agreed, variant]
-  );
-
-  // ----------------------------------------------------------
-  // 완료 화면
-  // ----------------------------------------------------------
-  if (submitted) {
-    return (
-      <div className="min-h-screen flex flex-col bg-[#F8F8FB]">
-        <Header showCta={false} variant={variant} />
-        <main className="flex-1 flex items-center justify-center px-5 py-20 bg-[#F8F8FB]">
-          <div className="max-w-sm text-center p-8 rounded-[16px] bg-white border border-neutral-200/50 shadow-premium">
-            <span className="text-5xl mb-6 block">🎉</span>
-            <h1 className="text-xl font-bold text-[#111827] mb-3">
-              사전 신청이 완료되었습니다
-            </h1>
-            <p className="text-xs text-[#6B7280] leading-relaxed font-normal">
-              출시 시 입력하신 연락처로 프로모션 혜택을 안내해 드리겠습니다.
-              <br />
-              관심을 가져주셔서 감사합니다.
-            </p>
-          </div>
-        </main>
-      </div>
-    );
-  }
-
   return (
     <div className="min-h-screen flex flex-col bg-[#F8F8FB]">
       <Header showCta={false} variant={variant} />
@@ -155,115 +107,37 @@ function WaitlistContent() {
           </p>
         </section>
 
-
-      {/* 가격 정보 (Coupon: 12px) */}
-      <section className="px-5 pb-8">
-        <div className="max-w-sm mx-auto p-5 rounded-[12px] bg-white border border-neutral-200/60 text-center shadow-premium">
-          <p className="text-xs text-[#6B7280] mb-1 font-normal">예상 출시 가격</p>
-          <div className="flex items-center justify-center gap-3">
-            <span className="text-[#6B7280] line-through text-sm font-normal">
-              정가 28,000원
-            </span>
-            <span className="text-[#292541] font-bold text-xl">
-              19,600원
-            </span>
-          </div>
-          <p className="text-xs text-[#D9B76A] font-semibold mt-1.5">
-            출시 초기 프로모션 예정가
-          </p>
-        </div>
-      </section>
-
-      {/* Tally 설문 임베드 (Image/Iframe Wrapper: 16px) */}
-      <section className="px-5 pb-8">
-        <div className="max-w-lg mx-auto rounded-[16px] overflow-hidden border border-neutral-200/60 bg-white shadow-premium">
-          <iframe
-            src={tallyUrl}
-            width="100%"
-            height="500"
-            frameBorder="0"
-            title="SYSO 사전 설문"
-            className="w-full"
-          />
-        </div>
-      </section>
-
-      {/* 리드 수집 폼 — 설문 완료 후 노출 (Card: 16px, Button: 12px) */}
-      {surveyDone && (
-        <section className="px-5 pb-14 animate-in fade-in slide-in-from-bottom-4 duration-500">
-          <form
-            onSubmit={handleSubmit}
-            className="max-w-sm mx-auto p-6 rounded-[16px] bg-white border border-neutral-200/50 shadow-premium"
-          >
-            <h2 className="text-lg font-bold text-[#111827] mb-1.5 text-center">
-              출시 시 우선 안내 신청
-            </h2>
-            <p className="text-xs text-[#6B7280] mb-6 text-center font-normal">
-              출시 초기 프로모션 혜택을 안내해 드릴 예정입니다.
+        {/* 가격 정보 (Coupon: 12px) */}
+        <section className="px-5 pb-8">
+          <div className="max-w-sm mx-auto p-5 rounded-[12px] bg-white border border-neutral-200/60 text-center shadow-premium">
+            <p className="text-xs text-[#6B7280] mb-1 font-normal">예상 출시 가격</p>
+            <div className="flex items-center justify-center gap-3">
+              <span className="text-[#6B7280] line-through text-sm font-normal">
+                정가 28,000원
+              </span>
+              <span className="text-[#292541] font-bold text-xl">
+                19,600원
+              </span>
+            </div>
+            <p className="text-xs text-[#D9B76A] font-semibold mt-1.5">
+              출시 초기 프로모션 예정가
             </p>
-
-            {/* 이메일 (필수) */}
-            <label className="block mb-4">
-              <span className="text-sm font-medium text-[#111827]">
-                이메일 <span className="text-red-500">*</span>
-              </span>
-              <input
-                type="email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="example@email.com"
-                className="mt-1.5 w-full px-4 py-3 rounded-[12px] border border-neutral-200 bg-white text-sm
-                           focus:outline-none focus:ring-2 focus:ring-[#292541]/30 focus:border-[#292541]
-                           placeholder:text-neutral-300 font-normal"
-              />
-            </label>
-
-            {/* 휴대폰 (선택) */}
-            <label className="block mb-4">
-              <span className="text-sm font-medium text-[#111827]">
-                휴대폰 번호 <span className="text-[#6B7280] text-xs font-normal">(선택)</span>
-              </span>
-              <input
-                type="tel"
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-                placeholder="010-0000-0000"
-                className="mt-1.5 w-full px-4 py-3 rounded-[12px] border border-neutral-200 bg-white text-sm
-                           focus:outline-none focus:ring-2 focus:ring-[#292541]/30 focus:border-[#292541]
-                           placeholder:text-neutral-300 font-normal"
-              />
-            </label>
-
-            {/* 개인정보 동의 */}
-            <label className="flex items-start gap-2.5 mb-6 cursor-pointer select-none">
-              <input
-                type="checkbox"
-                checked={agreed}
-                onChange={(e) => setAgreed(e.target.checked)}
-                className="mt-0.5 h-4 w-4 rounded border-neutral-300 text-[#292541] 
-                           focus:ring-[#292541]/30 accent-[#292541]"
-              />
-              <span className="text-xs text-[#6B7280] leading-relaxed font-normal">
-                출시 알림 및 프로모션 안내 목적의 개인정보 수집·이용에 동의합니다.
-                <span className="text-red-500"> *</span>
-              </span>
-            </label>
-
-            <button
-              type="submit"
-              disabled={!email || !agreed}
-              className="w-full py-3.5 rounded-[12px] bg-[#292541] hover:bg-[#1F1C33] text-white font-bold text-sm
-                         transition-all duration-200 active:scale-[0.98]
-                         disabled:opacity-40 disabled:cursor-not-allowed
-                         shadow-[0_2px_8px_rgba(41,37,65,0.04)]"
-            >
-              사전 신청 완료하기
-            </button>
-          </form>
+          </div>
         </section>
-      )}
 
+        {/* Tally 설문 임베드 (Image/Iframe Wrapper: 16px) */}
+        <section className="px-5 pb-8">
+          <div className="max-w-lg mx-auto rounded-[16px] overflow-hidden border border-neutral-200/60 bg-white shadow-premium">
+            <iframe
+              src={tallyUrl}
+              width="100%"
+              height="500"
+              frameBorder="0"
+              title="SYSO 사전 설문"
+              className="w-full"
+            />
+          </div>
+        </section>
       </main>
       {/* 풋터 */}
       <footer className="py-8 text-center text-xs text-[#6B7280] border-t border-neutral-200/50 bg-[#F8F8FB] font-normal">
@@ -275,7 +149,11 @@ function WaitlistContent() {
 
 export default function WaitlistPage() {
   return (
-    <Suspense>
+    <Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center bg-[#F8F8FB]">
+        <p className="text-stone-400 text-xs font-normal">로딩 중...</p>
+      </div>
+    }>
       <WaitlistContent />
     </Suspense>
   );

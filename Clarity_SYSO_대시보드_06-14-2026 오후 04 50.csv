@@ -1,0 +1,71 @@
+﻿"프로젝트 이름","SYSO"
+"날짜 범위","06/12/2026 오전 12:00 - 06/14/2026 오후 11:59"
+
+
+"메트릭","세션"
+"","총 세션 수","48"
+"","봇 세션","5"
+
+"메트릭","세션당 페이지 수"
+"","평균","1.1666666666666667"
+
+"메트릭","스크롤 깊이"
+"","평균","22.57"
+
+"메트릭","소요된 활성 시간 "
+"","활성 시간","12"
+"","총 시간","18"
+
+"메트릭","사용자 개요"
+"","고유 사용자","47"
+"","신규 사용자와의 세션","46"
+"","복귀 사용자와의 세션","2"
+
+"메트릭","Insights","세션의 개수","세션의 비율(%)"
+"","빠른 클릭","0","0%"
+"","배달 못 한 클릭","1","2.08%"
+"","과도한 스크롤","0","0%"
+"","빠른 뒤로 가기 클릭","2","4.17%"
+
+"메트릭","브라우저","세션의 개수","세션의 비율(%)"
+"","InstagramApp","44","91.67%"
+"","ChromeMobile","2","4.17%"
+"","MobileSafari","1","2.08%"
+"","Chrome","1","2.08%"
+
+"메트릭","상위 페이지","세션의 개수"
+"","https://sysosyso.vercel.app/b","18"
+"","https://sysosyso.vercel.app/a","15"
+"","https://sysosyso.vercel.app/ab","14"
+"","https://sysosyso.vercel.app/","2"
+"","https://sysosyso.vercel.app/waitlist","2"
+
+"메트릭","스마트 이벤트","세션의 개수","세션의 비율(%)"
+"","아웃바운드 클릭","1","2.08%"
+
+"메트릭","참조 페이지","세션의 개수"
+"","instagram.com","44"
+"","sysosyso.vercel.app","1"
+
+"메트릭","JavaScript 오류"
+"","JavaScript 오류가 있는 세션"
+"","개의 총 JavaScript 오류","3"
+"","","세션의 개수","세션의 비율(%)"
+"","error invoking enabledidusertypeonkeyboardlogging: java object is gone","1","33.33%"
+"","error invoking postmessage: java object is gone","1","33.33%"
+"","script error.","1","33.33%"
+
+"메트릭","성능 개요"
+"","점수","0"
+"","LCP(가장 많은 콘텐츠 그림판)","nulls"
+"","INP(다음 그림판과의 상호 작용)","nullms"
+"","CLS(누적 레이아웃 이동)","nulls"
+
+"메트릭","봇 트래픽"
+"webScraperBotSessions","3"
+"suspiciousDeviceBotSessions","0"
+"suspiciousNetworkBotSessions","5"
+"suspiciousInteractionBotSessions","5"
+"ppcAdFraudBotSessions","0"
+"otherBotsSessions","0"
+"__typename","BotTypes"
